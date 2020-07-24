@@ -10,9 +10,19 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var helper: ScannerHelper
+    var appDelegate = (UIApplication.shared.delegate as? AppDelegate)
     
     var body: some View {
-        HeaderView()
+//        GeometryReader { geo in
+//            ZStack {
+                HomeView()
+//                    .overlay(ListView()
+//                        .frame(width: geo.size.width, height: geo.size.width * 1.75))
+//            }
+//            .onDisappear(perform: ({
+//                self.appDelegate?.saveContext()
+//            }))
+//        }
     }
 }
 
