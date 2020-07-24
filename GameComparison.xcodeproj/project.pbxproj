@@ -21,7 +21,7 @@
 		6052C15224B9077400349F49 /* GameComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6052C15124B9077400349F49 /* GameComparisonTests.swift */; };
 		6052C15D24B9077400349F49 /* GameComparisonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6052C15C24B9077400349F49 /* GameComparisonUITests.swift */; };
 		6073352224C86B7900149440 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073352124C86B7900149440 /* ScannerView.swift */; };
-		60E8431824C63F3C00D68893 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E8431724C63F3C00D68893 /* HeaderView.swift */; };
+		60E8431824C63F3C00D68893 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E8431724C63F3C00D68893 /* HomeView.swift */; };
 		60E8431A24C7B38400D68893 /* CloseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E8431924C7B38400D68893 /* CloseButtonView.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +63,7 @@
 		6052C15C24B9077400349F49 /* GameComparisonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameComparisonUITests.swift; sourceTree = "<group>"; };
 		6052C15E24B9077400349F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6073352124C86B7900149440 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
-		60E8431724C63F3C00D68893 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		60E8431724C63F3C00D68893 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		60E8431924C7B38400D68893 /* CloseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +115,7 @@
 		6052C13624B9077300349F49 /* GameComparison */ = {
 			isa = PBXGroup;
 			children = (
+				6073352524C927BB00149440 /* Helper */,
 				6077FFDA24C63F0400A39BBA /* Views */,
 				60954F1F24BFF67C00215AE3 /* Classes */,
 				6052C13724B9077300349F49 /* AppDelegate.swift */,
@@ -155,13 +156,20 @@
 			path = GameComparisonUITests;
 			sourceTree = "<group>";
 		};
+		6073352524C927BB00149440 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		6077FFDA24C63F0400A39BBA /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				60139FCD24BF6CF400B3E42E /* ScannerViewControllerRepresentable.swift */,
 				6073352124C86B7900149440 /* ScannerView.swift */,
 				60139FC724BEB3B300B3E42E /* ScannerViewController.swift */,
-				60E8431724C63F3C00D68893 /* HeaderView.swift */,
+				60E8431724C63F3C00D68893 /* HomeView.swift */,
 				60E8431924C7B38400D68893 /* CloseButtonView.swift */,
 			);
 			path = Views;
@@ -308,7 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60139FD224BF740700B3E42E /* ScannerHelper.swift in Sources */,
-				60E8431824C63F3C00D68893 /* HeaderView.swift in Sources */,
+				60E8431824C63F3C00D68893 /* HomeView.swift in Sources */,
 				6052C13824B9077300349F49 /* AppDelegate.swift in Sources */,
 				6052C13A24B9077300349F49 /* SceneDelegate.swift in Sources */,
 				6052C13F24B9077300349F49 /* ContentView.swift in Sources */,
@@ -487,6 +495,7 @@
 				DEVELOPMENT_TEAM = P69PQLD33H;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GameComparison/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -494,7 +503,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.blindsqrl.gamecomparison.GameComparison;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -507,6 +516,7 @@
 				DEVELOPMENT_TEAM = P69PQLD33H;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GameComparison/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -514,7 +524,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.blindsqrl.gamecomparison.GameComparison;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
