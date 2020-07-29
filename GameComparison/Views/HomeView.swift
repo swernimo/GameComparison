@@ -26,7 +26,12 @@ struct HomeView: View {
                             .font(.title)
                 })
             }
-        }
+        }.onAppear(perform: {
+            API.getCollection(username: "swernimo"){
+                x in
+                print(x)
+            }
+        })
     }
 }
 
