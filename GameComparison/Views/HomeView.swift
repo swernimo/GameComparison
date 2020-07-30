@@ -18,7 +18,7 @@ struct HomeView: View {
             NavigationView {
                 List{
                     ForEach(collection) { item in
-                        ListItem(collectionItem: item)
+                        ListItem(collectionItem: item, image: Image(systemName: "xmark.square"))
                     }
                 }
                     .navigationBarTitle("My Game Library", displayMode: .inline)

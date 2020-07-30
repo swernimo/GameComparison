@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class API {
     static func getCollection(username: String, completion: @escaping ([CollectionItem]) -> Void) {
@@ -16,6 +17,17 @@ class API {
             data, response, error in
             let collection = try! JSONDecoder().decode([CollectionItem].self, from: data!)
             completion(collection)
+        })
+        task.resume()
+    }
+    
+    static func downloadImage(url: String, completion: @escaping (UIImage?) -> Void) {
+        let shared = URLSession.shared
+        let url = URL(string: url)!
+        let task = shared.dataTask(with: url, completionHandler: { data, response, error in
+            guard let imageData = data else { return }
+            let image = UIImage(data: imageData)
+            completion(image)
         })
         task.resume()
     }
