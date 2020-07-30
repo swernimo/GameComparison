@@ -11,12 +11,15 @@ import CoreImage
 import UIKit
 
 struct HomeView: View {
+    @State var collection: [CollectionItem] = []
+    
     var body: some View {
         VStack {
             NavigationView {
                 List{
-                    Text("Item 1")
-                    Text("Item 2")
+                    ForEach(collection) { item in
+                        ListItem(collectionItem: item)
+                    }
                 }
                     .navigationBarTitle("My Game Library", displayMode: .inline)
                 .navigationBarItems(trailing:
@@ -29,7 +32,7 @@ struct HomeView: View {
         }.onAppear(perform: {
             API.getCollection(username: "swernimo"){
                 x in
-                print(x)
+                self.collection = x
             }
         })
     }
@@ -37,6 +40,6 @@ struct HomeView: View {
 
 struct Header_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(collection: [])
     }
 }

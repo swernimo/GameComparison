@@ -8,9 +8,22 @@
 
 import Foundation
 
-struct CollectionItem: Decodable {
+final class CollectionItem: Decodable, ObservableObject, Identifiable {
+    
+    init() {
+        objectType = ""
+        id = -1
+        subType = ""
+        name = ""
+        yearPublished = -1
+        imageUrl = ""
+        thumbnailUrl = ""
+        owned = false
+        numberPlays = -1
+    }
+    
     var objectType: String
-    var id: Int32
+    var id: Int
     var subType: String
     var name: String
     var yearPublished: Int32
