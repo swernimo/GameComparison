@@ -19,8 +19,10 @@ struct HomeView: View {
                 NavigationView {
                     List{
                         ForEach(self.collection) { item in
-                            ListItem(collectionItem: item, image: Image(systemName: "xmark.square"))
-                                .frame(height: geo.size.height * 0.1)
+                            NavigationLink(destination: ListDetail(collectionItem: item)) {
+                                ListItem(collectionItem: item, image: Image(systemName: "xmark.square"))
+                                    .frame(height: geo.size.height * 0.1)
+                            }
                         }
                     }
                         .navigationBarTitle("My Game Library", displayMode: .inline)
