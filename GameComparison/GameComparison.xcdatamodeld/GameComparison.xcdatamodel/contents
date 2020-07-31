@@ -5,7 +5,11 @@
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="numberPlays" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="owned" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="subtype" optional="YES" attributeType="String"/>
         <attribute name="thumbnail" optional="YES" attributeType="Binary"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
         <relationship name="statistics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameStatistics" inverseName="game" inverseEntity="GameStatistics"/>
     </entity>
     <entity name="GameStatistics" representedClassName="GameStatistics" syncable="YES" codeGenerationType="class">
@@ -16,7 +20,7 @@
         <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="statistics" inverseEntity="Game"/>
     </entity>
     <elements>
+        <element name="Game" positionX="-18" positionY="90" width="128" height="193"/>
         <element name="GameStatistics" positionX="-36" positionY="36" width="128" height="118"/>
-        <element name="Game" positionX="-18" positionY="90" width="128" height="133"/>
     </elements>
 </model>
