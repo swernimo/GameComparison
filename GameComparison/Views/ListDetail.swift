@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct ListDetail: View {
-    @State var collectionItem: CollectionItem
+    @State var game: Game
     
     var body: some View {
         GeometryReader { geo in
             VStack {
-                GameCoverImage(imageURL: self.collectionItem.imageUrl, image: Image(systemName: "xmark.square"))
-                    .frame(height: geo.size.height / 2)
-                Text(self.collectionItem.name)
+                //                GameCoverImage(imageURL: self.collectionItem.imageUrl, image: <#Image#>)
+//                    .frame(height: geo.size.height / 2)
+                Text(self.game.name)
                     .fontWeight(.bold)
                     .font(.title)
             }
@@ -27,6 +27,6 @@ struct ListDetail: View {
 
 struct ListDetail_Previews: PreviewProvider {
     static var previews: some View {
-        ListDetail(collectionItem: collectionPreviewData[0])
+        ListDetail(game: Game())
     }
 }

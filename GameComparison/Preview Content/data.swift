@@ -8,7 +8,7 @@
 
 import Foundation
 
-let collectionPreviewData: [CollectionItem] = load("collection.json")
+//let collectionPreviewData: [Game] = load("collection.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data

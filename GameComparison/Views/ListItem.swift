@@ -9,33 +9,30 @@
 import SwiftUI
 
 struct ListItem: View {
-    @State var collectionItem: CollectionItem
-    @State var image: Image
+    @State var game: Game
     
+    @ViewBuilder
     var body: some View {
         GeometryReader { geo in
             HStack {
-                self.image
+                if (self.game.image != nil) {
+                    Image(uiImage: UIImage(data: self.game.image!)!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                Text(self.collectionItem.name)
+                } else {
+                    Image(systemName: "xmark.square")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                }
+                Text(self.game.name)
                 Spacer()
             }
-            .onAppear(perform: {
-                API.downloadImage(url: self.collectionItem.thumbnailUrl, completion: { uiImage in
-                    guard let image = uiImage else {
-                        self.image = Image(systemName: "xmark.square")
-                        return
-                    }
-                    self.image = Image(uiImage: image)
-                })
-            })
         }
     }
 }
 
 struct ListItem_Previews: PreviewProvider {
     static var previews: some View {
-        ListItem(collectionItem: collectionPreviewData[0], image: Image(systemName: "xmark.square"))
+        ListItem(game: Game())
     }
 }

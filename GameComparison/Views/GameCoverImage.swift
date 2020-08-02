@@ -18,12 +18,12 @@ struct GameCoverImage: View {
                 self.image
                 .resizable()
             }.onAppear(perform: {
-                API.downloadImage(url: self.imageURL, completion: { uiImage in
-                    guard let image = uiImage else {
-                        self.image = Image(systemName: "xmark.square")
-                        return
-                    }
-                    self.image = Image(uiImage: image)
+                API.downloadImage(url: self.imageURL, completion: { imageData in
+//                    guard let image = imageData else {
+//                        self.image = Image(systemName: "xmark.square")
+//                        return
+//                    }
+//                    self.image = Image(uiImage: UIImage(data: imageData))
                 })
             })
         }
