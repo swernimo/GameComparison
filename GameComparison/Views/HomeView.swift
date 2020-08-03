@@ -11,14 +11,14 @@ import CoreImage
 import UIKit
 
 struct HomeView: View {
-    @State var collection: [Game] = []
+    @EnvironmentObject var library: Library
     
     var body: some View {
         GeometryReader { geo in
             VStack {
                 NavigationView {
                     List{
-                        ForEach(self.collection, id: \.id) { item in
+                        ForEach(self.library.library, id: \.id) { item in
                             NavigationLink(destination: ListDetail(game: item)) {
                                 ListItem(game: item)
                                     .frame(height: geo.size.height * 0.1)
@@ -34,15 +34,7 @@ struct HomeView: View {
                     })
                 }
             }.onAppear(perform: {
-                self.collection = CoreDataService.shared.fetchGameLibrary()
-//                API.getGameLibrary(username: "swernimo", completion: { collection in
-//                    self.collection = collection
-////                    print(collection)
-//                })
-//                API.getCollection(username: "swernimo"){
-//                    x in
-//                    self.collection = x
-//                }
+                API(self.library).getGameLibrary(username: "swernimo")
             })
         }
     }
@@ -50,6 +42,7 @@ struct HomeView: View {
 
 struct Header_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(collection: [])
+        HomeView()
+        .environmentObject(Library())
     }
 }

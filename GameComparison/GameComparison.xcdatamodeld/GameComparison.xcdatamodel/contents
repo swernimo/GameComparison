@@ -4,6 +4,7 @@
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="numberPlays" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="owned" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -11,6 +12,11 @@
         <attribute name="type" optional="YES" attributeType="String"/>
         <attribute name="yearPublished" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="statistics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameStatistics" inverseName="game" inverseEntity="GameStatistics"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="GameStatistics" representedClassName="GameStatistics" syncable="YES">
         <attribute name="average" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
@@ -18,9 +24,14 @@
         <attribute name="complexity" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="standardDeviation" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="statistics" inverseEntity="Game"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="game"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Game" positionX="-18" positionY="90" width="128" height="193"/>
+        <element name="Game" positionX="-18" positionY="90" width="128" height="208"/>
         <element name="GameStatistics" positionX="-36" positionY="36" width="128" height="118"/>
     </elements>
 </model>

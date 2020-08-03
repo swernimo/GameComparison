@@ -10,11 +10,13 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var helper: ScannerHelper
+    @EnvironmentObject var library: Library
     
     var appDelegate = (UIApplication.shared.delegate as? AppDelegate)
     
     var body: some View {
-        HomeView(collection: [])
+        HomeView()
+            .environmentObject(self.library)
     }
 }
 

@@ -36,14 +36,14 @@ class CoreDataService {
                 try context.save()
             } catch {
                 let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                print(nserror)
+//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
     
     func fetchGameLibrary() -> [Game]
      {
-         print("Fetching Data..")
          let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Game")
          request.returnsObjectsAsFaults = false
          do {
