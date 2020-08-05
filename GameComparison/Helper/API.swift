@@ -38,7 +38,7 @@ class API {
                             let year = $0["yearPublished"] as? Int32,
                             let imageUrl = $0["imageUrl"] as? String,
                             let owned = $0["owned"] as? Bool,
-                            let numberPlayes = $0["numberPlays"] as? Int32
+                            let numberPlays = $0["numberPlays"] as? Int32
                         else { return nil }
                         
                         let game = Game(context: CoreDataService.shared.context)
@@ -47,10 +47,10 @@ class API {
                         game.id = id
                         game.name = name
                         game.owned = owned
-                        game.numberPlays = numberPlayes
+                        game.numberPlays = numberPlays
                         game.yearPublished = year
                         game.imageUrl = imageUrl
-                        
+
                         return game
                     })
                     
@@ -61,14 +61,35 @@ class API {
                         
                         if (alreadySaved == false) {
                             API.downloadImage(url: remote.imageUrl, completion: { result in
-                                remote.image = result
-                                CoreDataService.shared.saveContext()
+                                let newGame = Game(context: CoreDataService.shared.context)
+                                newGame.desc = remote.desc
+                                newGame.id = remote.id
+                                newGame.image = result
+                                newGame.imageUrl = remote.imageUrl
+                                newGame.name = remote.name
+                                newGame.numberPlays = remote.numberPlays
+                                newGame.owned = remote.owned
+                                newGame.subtype = remote.subtype
+                                newGame.type = remote.type
+                                newGame.yearPublished = remote.yearPublished
+                                
                                 DispatchQueue.main.async{
-                                    self.gameLibrary.library.append(remote)
+                                    self.gameLibrary.library.append(newGame)
+                                    CoreDataService.shared.saveContext()
+                                    print(remote)
                                 }
                             })
                         }
                     }
+                    
+//                    for saved in remoteLibrary {
+//                        let deleted = remoteLibrary.contains(where: { $0.id == saved.id})
+//                        
+//                        if(deleted == false) {
+//                            self.gameLibrary.library.removeAll(where: { $0.id == saved.id})
+//                            print(saved)
+//                        }
+//                    }
                 } catch {
                     print(error)
                 }
