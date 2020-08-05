@@ -12,6 +12,7 @@ import UIKit
 
 struct HomeView: View {
     @EnvironmentObject var library: Library
+//    @State var library: [Game] = []
     
     var body: some View {
         GeometryReader { geo in
@@ -34,6 +35,9 @@ struct HomeView: View {
                     })
                 }
             }.onAppear(perform: {
+//                var savedLibrary = CoreDataService.shared.fetchGameLibrary()
+//                savedLibrary.sort(by: {$1.name > $0.name })
+//                self.library = savedLibrary
                 API(self.library).getGameLibrary(username: "swernimo")
             })
         }

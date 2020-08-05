@@ -14,8 +14,8 @@ class NetworkService {
     private init() {}
     static let shared = NetworkService()
     
-    func request(_ urlPath: String, completion: @escaping (Result<Data, NSError>) -> Void ) {
-        let url = URL(string: urlPath)!
+    func request(_ urlPath: String?, completion: @escaping (Result<Data, NSError>) -> Void ) {
+        guard let url = URL(string: urlPath!) else { return }
         let session = URLSession.shared
         
         let task = session.dataTask(with: url, completionHandler: {

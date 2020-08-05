@@ -21,35 +21,20 @@ struct ListItem: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                 }
-//                if (self.game.image != nil) {
-//                    Image(uiImage: UIImage(data: self.game.image!)!)
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                } else {
-//                    Image(systemName: "xmark.square")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                }
                 Text(self.game.name)
                 Spacer()
             }
         }.onAppear(perform: {
-            if (self.game.image != nil) {
-                self.image = Image(uiImage: UIImage(data: self.game.image!)!)
-            } else{
+            if let imageData = UserDefaults.standard.object(forKey: self.game.imageFilePath) as? Data {
+                    let uiImage = UIImage(data: imageData)!
+                    self.image = Image(uiImage: uiImage)
+            } else {
                 API.downloadImage(url: self.game.imageUrl, completion: { data in
-                    guard let imageData: Data = data! else {
-                        self.image = Image(systemName: "xmark.square")
-                        return
+                    if (data != nil) {
+                        UserDefaults.standard.set(data, forKey: self.game.imageFilePath)
+                        let uiImage = UIImage(data: data!)!
+                        self.image = Image(uiImage: uiImage)
                     }
-                    self.game.image = imageData
-                    CoreDataService.shared.saveContext()
-                    let uiImage = UIImage(data: imageData)
-                    self.image = Image(uiImage: uiImage!)
-//                        self.game.image = data
-//                        CoreDataService.shared.saveContext()
-//                    guard let uiImage = UIImage(data: data) else  { self.image = Image(systemName: "xmark.square"); return }
-//                        self.image = Image(uiImage: uiImage)
                 })
             }
         })

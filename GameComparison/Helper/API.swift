@@ -17,12 +17,12 @@ class API {
         self.gameLibrary = library
     }
     
-    func getGameLibrary(username: String){
+    func getGameLibrary(username: String) -> Void {
         var savedLibrary = CoreDataService.shared.fetchGameLibrary()
         savedLibrary.sort(by: {$1.name > $0.name })
         self.gameLibrary.library = savedLibrary
         
-        NetworkService.shared.request("https://gamecomparison.azurewebsites.net/api/GetCollection/\(username)?code=rXtVglq/1uPAmep6lFGGo4ix93bgqmH45eUDxDcc0DboxYZjFXYQTg==", completion: {result in
+        NetworkService.shared.request("https://gamecomparison.azurewebsites.net/api/GetCollection/\(username)?code=rXtVglq/1uPAmep6lFGGo4ix93bgqmH45eUDxDcc0DboxYZjFXYQTg==", completion: { result in
             
             switch (result) {
             case .success(let rawData):
@@ -50,33 +50,24 @@ class API {
                         game.numberPlays = numberPlays
                         game.yearPublished = year
                         game.imageUrl = imageUrl
-
+                        game.imageFilePath = "\(game.name).\(game.id)"
                         return game
                     })
+                    
                     
                     for remote in remoteLibrary {
                         let alreadySaved = savedLibrary.contains(where: {
                             return $0.id == remote.id
                         })
-                        
+
                         if (alreadySaved == false) {
-                            API.downloadImage(url: remote.imageUrl, completion: { result in
-                                let newGame = Game(context: CoreDataService.shared.context)
-                                newGame.desc = remote.desc
-                                newGame.id = remote.id
-                                newGame.image = result
-                                newGame.imageUrl = remote.imageUrl
-                                newGame.name = remote.name
-                                newGame.numberPlays = remote.numberPlays
-                                newGame.owned = remote.owned
-                                newGame.subtype = remote.subtype
-                                newGame.type = remote.type
-                                newGame.yearPublished = remote.yearPublished
-                                
-                                DispatchQueue.main.async{
-                                    self.gameLibrary.library.append(newGame)
-                                    CoreDataService.shared.saveContext()
-                                    print(remote)
+                            API.downloadImage(url: remote.imageUrl, completion: { data in
+                                if (data != nil) {
+                                    UserDefaults.standard.set(data, forKey: remote.imageFilePath)
+                                    DispatchQueue.main.async {
+                                        CoreDataService.shared.saveContext()
+                                        self.gameLibrary.library.append(remote)
+                                    }
                                 }
                             })
                         }
@@ -94,20 +85,29 @@ class API {
                     print(error)
                 }
                 break
-            case .failure(_): break
+            case .failure(let error):
+                print(error)
+                break
             }
         })
     }
     
-    static func downloadImage(url: String, completion: @escaping (Data?) -> Void) {
-        NetworkService.shared.request(url, completion: { (result) in
-            
-            switch result {
-            case .success(let data):
-                completion(data)
-                break
-            case .failure(_): break
-            }
-        })
+    static func downloadImage(url: String?, completion: @escaping (Data?) -> Void) {
+        if (url != nil) {
+            NetworkService.shared.request(url, completion: { (result) in
+                
+                switch result {
+                case .success(let data):
+                    completion(data)
+                    break
+                case .failure(let error):
+                    print("Error downloading image: \(error)")
+                    completion(nil)
+                    break
+                }
+            })
+        } else {
+            completion(nil)
+        }
     }
 }
