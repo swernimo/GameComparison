@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct GameCoverImage: View {
-    @State var imageURL: String
+    @State var imageFilePath: String
     @State var image: Image
     
     var body: some View {
@@ -18,13 +18,12 @@ struct GameCoverImage: View {
                 self.image
                 .resizable()
             }.onAppear(perform: {
-                API.downloadImage(url: self.imageURL, completion: { imageData in
-//                    guard let image = imageData else {
-//                        self.image = Image(systemName: "xmark.square")
-//                        return
-//                    }
-//                    self.image = Image(uiImage: UIImage(data: imageData))
-                })
+                if let imageData = UserDefaults.standard.object(forKey: self.imageFilePath) as? Data {
+                        let uiImage = UIImage(data: imageData)!
+                        self.image = Image(uiImage: uiImage)
+                } else {
+                    self.image = Image(systemName: "xmark.square")
+                }
             })
         }
     }
@@ -33,6 +32,6 @@ struct GameCoverImage: View {
 
 struct GameCoverImage_Previews: PreviewProvider {
     static var previews: some View {
-        GameCoverImage(imageURL: "https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg", image: Image(systemName: "xmark.square"))
+        GameCoverImage(imageFilePath: "filePath", image: Image(systemName: "xmark.square"))
     }
 }
