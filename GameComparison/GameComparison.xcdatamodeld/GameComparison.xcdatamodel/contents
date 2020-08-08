@@ -19,10 +19,14 @@
         </uniquenessConstraints>
     </entity>
     <entity name="GameStatistics" representedClassName="GameStatistics" syncable="YES">
-        <attribute name="average" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
-        <attribute name="bayesaverage" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="complexity" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
-        <attribute name="standardDeviation" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="maxPlayers" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="minPlayers" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="playerAge" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="playingTime" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="recommendedPlayers" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="suggestedPlayerAge" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="statistics" inverseEntity="Game"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -32,6 +36,6 @@
     </entity>
     <elements>
         <element name="Game" positionX="-18" positionY="90" width="128" height="208"/>
-        <element name="GameStatistics" positionX="-36" positionY="36" width="128" height="118"/>
+        <element name="GameStatistics" positionX="-36" positionY="36" width="128" height="178"/>
     </elements>
 </model>

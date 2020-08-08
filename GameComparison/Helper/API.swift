@@ -79,6 +79,7 @@ class API {
 //                        if(deleted == false) {
 //                            self.gameLibrary.library.removeAll(where: { $0.id == saved.id})
 //                            print(saved)
+                    //delete image from disk
 //                        }
 //                    }
                 } catch {

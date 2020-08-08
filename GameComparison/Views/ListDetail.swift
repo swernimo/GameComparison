@@ -17,8 +17,6 @@ struct ListDetail: View {
                 GameCoverImage(imageFilePath: self.game.imageFilePath, image: Image(systemName: "xmark.square"))
                 .frame(height: geo.size.height / 2)
                 Text(self.game.name)
-                    .fontWeight(.bold)
-                    .font(.title)
             }
             
         }
