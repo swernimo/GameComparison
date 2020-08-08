@@ -72,7 +72,7 @@ class API {
                             })
                         }
                     }
-                    
+                    //TODO: remove items from saved library that are no longer present in remote collection
 //                    for saved in remoteLibrary {
 //                        let deleted = remoteLibrary.contains(where: { $0.id == saved.id})
 //                        
@@ -110,5 +110,40 @@ class API {
         } else {
             completion(nil)
         }
+    }
+    
+    static func getGameStatistics(id: Int32, completion: @escaping (GameStatistics?) -> Void) {
+        NetworkService.shared.request("https://gamecomparison.azurewebsites.net/api/GetGameStatistics/\(id)?code=rT/jCOHWPKD1H9EUfAsFjbR/XrVxPvqpqB9uRu17hw7RN7fptWVF3Q==", completion: {result in
+            
+            switch result {
+            case .success(let data):
+                do {
+                    guard let json = try JSONSerialization.jsonObject(with: data, options:[]) as? [String: Any] else { return }
+                    
+                    let stats = GameStatistics(context: CoreDataService.shared.context)
+//                    let complexity = (json["complexity"] as? NSNumber)!
+                    stats.complexity = (json["complexity"] as? Double)!
+                    stats.desc = (json["description"] as? String)!
+                    stats.maxPlayers = (json["maxPlayers"] as? Int32)!
+                    stats.minPlayers = (json["minPlayers"] as? Int32)!
+                    stats.playerAge = (json["playerAge"] as? Int32)!
+                    stats.playingTime = (json["playingTime"] as? Int32)!
+                    stats.rating = (json["rating"] as? Double)!
+                    stats.recommendedPlayers = (json["recommendedPlayers"] as? Int32)!
+                    stats.suggestedPlayerAge = (json["suggestedPlayerAge"] as? Int32)!
+                    
+                    completion(stats)
+                    
+                }catch {
+                    print("Error while unpacking get statistics result. Error: \(error)")
+                    completion(nil)
+                }
+                break;
+            case .failure(let error):
+                print(error)
+                completion(nil)
+                break;
+            }
+        })
     }
 }

@@ -2,7 +2,7 @@
 //  GameStatistics+CoreDataProperties.swift
 //  GameComparison
 //
-//  Created by Personal on 8/7/20.
+//  Created by Personal on 8/8/20.
 //  Copyright © 2020 TheBlindSquirrel. All rights reserved.
 //
 //
@@ -22,9 +22,10 @@ extension GameStatistics {
     @NSManaged public var playingTime: Int32
     @NSManaged public var playerAge: Int32
     @NSManaged public var recommendedPlayers: Int32
-    @NSManaged public var complexity: NSDecimalNumber
-    @NSManaged public var rating: NSDecimalNumber
+    @NSManaged public var complexity: Double
+    @NSManaged public var rating: Double
     @NSManaged public var suggestedPlayerAge: Int32
-    @NSManaged public var game: Game
+    @NSManaged public var desc: String
+    @NSManaged public var game: Game?
 
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Game" representedClassName="Game" syncable="YES">
-        <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="imageFilePath" optional="YES" attributeType="String"/>
         <attribute name="imageUrl" optional="YES" attributeType="String"/>
@@ -19,12 +18,13 @@
         </uniquenessConstraints>
     </entity>
     <entity name="GameStatistics" representedClassName="GameStatistics" syncable="YES">
-        <attribute name="complexity" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="complexity" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="maxPlayers" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="minPlayers" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="playerAge" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="playingTime" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="rating" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="recommendedPlayers" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="suggestedPlayerAge" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="statistics" inverseEntity="Game"/>
@@ -35,7 +35,7 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Game" positionX="-18" positionY="90" width="128" height="208"/>
-        <element name="GameStatistics" positionX="-36" positionY="36" width="128" height="178"/>
+        <element name="Game" positionX="-18" positionY="90" width="128" height="193"/>
+        <element name="GameStatistics" positionX="-36" positionY="36" width="128" height="193"/>
     </elements>
 </model>
