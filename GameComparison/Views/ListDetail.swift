@@ -10,7 +10,6 @@ import SwiftUI
 
 struct ListDetail: View {
     @State var game: Game
-    @State var stats: GameStatistics?
     
     var body: some View {
         GeometryReader { geo in
@@ -18,49 +17,38 @@ struct ListDetail: View {
                 GameCoverImage(imageFilePath: self.game.imageFilePath, image: Image(systemName: "xmark.square"))
                 .frame(height: geo.size.height / 2)
                 Text(self.game.name)
-                if (self.stats != nil) {
+                if (self.game.statistics != nil) {
                     VStack {
                         HStack{
-                            Text("Complexity: \(String(format: "%.2f", self.stats!.complexity)) / 5")
+                            Text("Complexity: \(String(format: "%.2f", self.game.statistics!.complexity)) / 5")
                             Spacer()
-                            Text("Community rating: \(String(format: "%.1f", self.stats!.rating)) / 10")
+                            Text("Community rating: \(String(format: "%.1f", self.game.statistics!.rating)) / 10")
                         }
                         HStack {
-                            Text("Playing Time: \(self.stats!.playingTime) minutes")
+                            Text("Playing Time: \(self.game.statistics!.playingTime) minutes")
                         }
                         HStack {
-                            Text("Manufacturer Player Age: \(self.stats!.playerAge)")
+                            Text("Manufacturer Player Age: \(self.game.statistics!.playerAge)")
                         }
                         HStack{
-                            Text("Community Suggested Player age: \(self.stats!.suggestedPlayerAge)")
+                            Text("Community Suggested Player age: \(self.game.statistics!.suggestedPlayerAge)")
                         }
                         HStack{
-                            Text("Minimum Players: \(self.stats!.minPlayers)")
-                            Text("Maximum Players: \(self.stats!.maxPlayers)")
+                            Text("Minimum Players: \(self.game.statistics!.minPlayers)")
+                            Text("Maximum Players: \(self.game.statistics!.maxPlayers)")
                         }
                         HStack{
-                            Text("Community Suggested Players: \(self.stats!.recommendedPlayers)")
+                            Text("Community Suggested Players: \(self.game.statistics!.recommendedPlayers)")
                         }
                     }
                 }
             }
-        }.onAppear(perform: {
-            if (self.game.statistics == nil) {
-                API.getGameStatistics(id: self.game.id, completion: { gameStats in
-                    if (gameStats != nil) {
-                        self.game.statistics = gameStats
-                        gameStats!.game = self.game
-                        self.stats = gameStats!
-                        CoreDataService.shared.saveContext()
-                    }
-                })
-            }
-        })
+        }
     }
 }
 
 struct ListDetail_Previews: PreviewProvider {
     static var previews: some View {
-        ListDetail(game: Game(), stats: GameStatistics())
+        ListDetail(game: Game())
     }
 }

@@ -38,7 +38,17 @@ class API {
                             let year = $0["yearPublished"] as? Int32,
                             let imageUrl = $0["imageUrl"] as? String,
                             let owned = $0["owned"] as? Bool,
-                            let numberPlays = $0["numberPlays"] as? Int32
+                            let numberPlays = $0["numberPlays"] as? Int32,
+                            let statsJSON = $0["statistics"] as? [String: Any],
+                            let complexity = statsJSON["complexity"] as? Double,
+                            let description = statsJSON["description"] as? String,
+                            let maxPlayers = statsJSON["maxPlayers"] as? Int32,
+                            let minPlayers = statsJSON["minPlayers"] as? Int32,
+                            let playerAge = statsJSON["playerAge"] as? Int32,
+                            let playingTime = statsJSON["playingTime"] as? Int32,
+                            let rating = statsJSON["rating"] as? Double,
+                            let recommendPlayers = statsJSON["recommendedPlayers"] as? Int32,
+                            let suggestedPlayerAge = statsJSON["suggestedPlayerAge"] as? Int32
                         else { return nil }
                         
                         let game = Game(context: CoreDataService.shared.context)
@@ -51,9 +61,19 @@ class API {
                         game.yearPublished = year
                         game.imageUrl = imageUrl
                         game.imageFilePath = "\(game.name).\(game.id)"
+                        game.statistics = GameStatistics(context: CoreDataService.shared.context)
+                        game.statistics!.game = game
+                        game.statistics!.complexity = complexity
+                        game.statistics!.desc = description
+                        game.statistics!.maxPlayers = maxPlayers
+                        game.statistics!.minPlayers = minPlayers
+                        game.statistics!.playerAge = playerAge
+                        game.statistics!.playingTime = playingTime
+                        game.statistics!.rating = rating
+                        game.statistics!.recommendedPlayers = recommendPlayers
+                        game.statistics!.suggestedPlayerAge = suggestedPlayerAge
                         return game
                     })
-                    
                     
                     for remote in remoteLibrary {
                         let alreadySaved = savedLibrary.contains(where: {
@@ -61,10 +81,12 @@ class API {
                         })
 
                         if (alreadySaved == false) {
+                            //MARK: Download Thumbnail
                             API.downloadImage(url: remote.imageUrl, completion: { data in
                                 if (data != nil) {
                                     UserDefaults.standard.set(data, forKey: remote.imageFilePath)
                                     DispatchQueue.main.async {
+                                        print("Completed downloading image for game \(remote.name)")
                                         CoreDataService.shared.saveContext()
                                         self.gameLibrary.library.append(remote)
                                     }
@@ -112,8 +134,8 @@ class API {
         }
     }
     
-    static func getGameStatistics(id: Int32, completion: @escaping (GameStatistics?) -> Void) {
-        NetworkService.shared.request("https://gamecomparison.azurewebsites.net/api/GetGameStatistics/\(id)?code=rT/jCOHWPKD1H9EUfAsFjbR/XrVxPvqpqB9uRu17hw7RN7fptWVF3Q==", completion: {result in
+    static func getGameStatistics(game: Game, completion: @escaping (GameStatistics?) -> Void) {
+        NetworkService.shared.request("https://gamecomparison.azurewebsites.net/api/GetGameStatistics/\(game.id)?code=rT/jCOHWPKD1H9EUfAsFjbR/XrVxPvqpqB9uRu17hw7RN7fptWVF3Q==", completion: { result in
             
             switch result {
             case .success(let data):
@@ -121,7 +143,6 @@ class API {
                     guard let json = try JSONSerialization.jsonObject(with: data, options:[]) as? [String: Any] else { return }
                     
                     let stats = GameStatistics(context: CoreDataService.shared.context)
-//                    let complexity = (json["complexity"] as? NSNumber)!
                     stats.complexity = (json["complexity"] as? Double)!
                     stats.desc = (json["description"] as? String)!
                     stats.maxPlayers = (json["maxPlayers"] as? Int32)!
@@ -131,7 +152,6 @@ class API {
                     stats.rating = (json["rating"] as? Double)!
                     stats.recommendedPlayers = (json["recommendedPlayers"] as? Int32)!
                     stats.suggestedPlayerAge = (json["suggestedPlayerAge"] as? Int32)!
-                    
                     completion(stats)
                     
                 }catch {
