@@ -84,12 +84,30 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
 
     func found(code: String) {
-        let ac = UIAlertController(title:"Code Found", message: code, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+        API.searchByUPC(code, completion: { result in
+            if let result = result {
+                if (result.count == 0) {
+                   DispatchQueue.main.async {
+                    self.displayCodeNotFoundAlert(upc: code)
+                   }
+                } else {
+                    //show view with search results
+                }
+            }
+        })
+        print(code)
+    }
+    
+    private func displayCodeNotFoundAlert(upc: String) -> Void {
+        let ac = UIAlertController(title:"Game Not Found", message: "Please search by game title", preferredStyle: .alert)
+        ac.addTextField { (textfield) in
+            textfield.placeholder = "Search by name"
+        }
+        ac.addAction(UIAlertAction(title: "Search", style: .default, handler: { _ in
+//            let name = ac.textFields![0].text
             self.dismiss(animated: false)
         }))
-        present(ac, animated: true)
-        print(code)
+        self.present(ac, animated: true)
     }
 
     override var prefersStatusBarHidden: Bool {

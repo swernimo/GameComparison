@@ -81,7 +81,6 @@ class API {
                         })
 
                         if (alreadySaved == false) {
-                            //MARK: Download Thumbnail
                             API.downloadImage(url: remote.imageUrl, completion: { data in
                                 if (data != nil) {
                                     UserDefaults.standard.set(data, forKey: remote.imageFilePath)
@@ -94,7 +93,7 @@ class API {
                             })
                         }
                     }
-                    //TODO: remove items from saved library that are no longer present in remote collection
+                    //MARK: TODO: remove items from saved library that are no longer present in remote collection
 //                    for saved in remoteLibrary {
 //                        let deleted = remoteLibrary.contains(where: { $0.id == saved.id})
 //                        
@@ -161,6 +160,43 @@ class API {
                 break;
             case .failure(let error):
                 print(error)
+                completion(nil)
+                break;
+            }
+        })
+    }
+    
+    static func searchByUPC(_ upc: String, completion: @escaping ([Game]?) -> Void) {
+    let url = "https://gamecomparison.azurewebsites.net/api/SearchByUPC/\(upc)?code=56/LrUp1AlKCVG6KyRSBiW58TY5JQOTe/RSqk3TKUx6CTakcaalYpg=="
+        NetworkService.shared.request(url, completion: { result in
+            switch (result) {
+            case .success(let data):
+                do {
+                    guard let json = try JSONSerialization.jsonObject(with: data, options:[]) as? [[String: Any]] else { completion(nil); return }
+                    
+                    let searchResults: [Game] = json.compactMap({
+                        guard
+                            let id = $0["id"] as? Int32,
+                            let title = $0["title"] as? String,
+                            let imageurl = $0["imageURL"] as? String
+                            else { return nil }
+                        
+                        let game = Game()
+                        game.id = id
+                        game.name = title
+                        game.imageUrl = imageurl
+                        
+                        return game
+                    })
+                    
+                    completion(searchResults)
+                } catch{
+                    print("Error unpacking search by upc results. Error: \(error)")
+                    completion(nil)
+                }
+                break;
+            case .failure(let error):
+                print("Error searching by UPC. Error: \(error)")
                 completion(nil)
                 break;
             }
