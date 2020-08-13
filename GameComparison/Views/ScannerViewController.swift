@@ -100,13 +100,26 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     private func displayCodeNotFoundAlert(upc: String) -> Void {
         let ac = UIAlertController(title:"Game Not Found", message: "Please search by game title", preferredStyle: .alert)
-        ac.addTextField { (textfield) in
-            textfield.placeholder = "Search by name"
+        let searchAction = UIAlertAction(title: "Search", style: .default, handler: { _ in
+            if let name = ac.textFields![0].text {
+                if (name != "") {
+                    API.searchByTitle(title: name, upc: upc, completion: { results in
+                        
+                    })
+                } else {
+                    self.captureSession.startRunning()
+                }
+            }
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            self.captureSession.startRunning()
+        })
+        ac.addTextField { textField in
+            textField.placeholder = "Search By Name"
         }
-        ac.addAction(UIAlertAction(title: "Search", style: .default, handler: { _ in
-//            let name = ac.textFields![0].text
-            self.dismiss(animated: false)
-        }))
+        ac.addAction(searchAction)
+        ac.addAction(cancelAction)
+        
         self.present(ac, animated: true)
     }
 
