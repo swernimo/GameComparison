@@ -13,7 +13,6 @@ import CoreData
 class API {
     private var gameLibrary: Library
     private static var baseURL = "https://gamecomparison.azurewebsites.net/api"
-    private static var functionCode = "rXtVglq/1uPAmep6lFGGo4ix93bgqmH45eUDxDcc0DboxYZjFXYQTg=="
     
     init(_ library: Library) {
         self.gameLibrary = library
@@ -24,7 +23,7 @@ class API {
         savedLibrary.sort(by: {$1.name > $0.name })
         self.gameLibrary.library = savedLibrary
         
-        NetworkService.shared.request("\(API.baseURL)/GetCollection/\(username)?code=\(API.functionCode)", completion: { result in
+        NetworkService.shared.request("\(API.baseURL)/GetCollection/\(username)?code=rXtVglq/1uPAmep6lFGGo4ix93bgqmH45eUDxDcc0DboxYZjFXYQTg==", completion: { result in
             
             switch (result) {
             case .success(let rawData):
@@ -136,7 +135,7 @@ class API {
     }
     
     static func getGameStatistics(game: Game, completion: @escaping (GameStatistics?) -> Void) {
-        NetworkService.shared.request("\(API.baseURL)/GetGameStatistics/\(game.id)?code=\(API.functionCode)", completion: { result in
+        NetworkService.shared.request("\(API.baseURL)/GetGameStatistics/\(game.id)?code=rT/jCOHWPKD1H9EUfAsFjbR/XrVxPvqpqB9uRu17hw7RN7fptWVF3Q==", completion: { result in
             
             switch result {
             case .success(let data):
@@ -169,7 +168,7 @@ class API {
     }
     
     static func searchByUPC(_ upc: String, completion: @escaping ([SearchResult]?) -> Void) {
-        let url = "\(API.baseURL)/SearchByUPC/\(upc)?code=\(API.functionCode)"
+        let url = "\(API.baseURL)/SearchByUPC/\(upc)?code=56/LrUp1AlKCVG6KyRSBiW58TY5JQOTe/RSqk3TKUx6CTakcaalYpg=="
         NetworkService.shared.request(url, completion: { result in
             switch (result) {
             case .success(let data):
@@ -191,7 +190,7 @@ class API {
     }
     
     static func searchByTitle(title: String, upc: String, completion: @escaping ([SearchResult]?) -> Void){
-        let url = "\(API.baseURL)/SearchByTitle/\(title)?code=\(API.functionCode)"
+        let url = "\(API.baseURL)/SearchByTitle/\(title)?code=yX9iVu2lUu4ToPRXRtOgqO6/8aCnk7W4hHTyQOj3hmN0ui3EA0cwBg=="
         NetworkService.shared.request(url, completion: { result in
             switch (result) {
             case .success(let data):

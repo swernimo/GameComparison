@@ -95,7 +95,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 }
             }
         })
-        print(code)
     }
     
     private func displayCodeNotFoundAlert(upc: String) -> Void {
@@ -104,7 +103,13 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             if let name = ac.textFields![0].text {
                 if (name != "") {
                     API.searchByTitle(title: name, upc: upc, completion: { results in
-                        
+                        if let results = results {
+                            if (results.count > 0) {
+                                //display UITableView with results
+                            } else {
+                                self.displayNoResultsAlert()
+                            }
+                        }
                     })
                 } else {
                     self.captureSession.startRunning()
@@ -120,6 +125,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         ac.addAction(searchAction)
         ac.addAction(cancelAction)
         
+        self.present(ac, animated: true)
+    }
+    
+    private func displayNoResultsAlert() -> Void {
+        let ac = UIAlertController(title:"No Results Found", message: "Please enter another title and try again", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+        })
+        ac.addAction(cancelAction)
         self.present(ac, animated: true)
     }
 
