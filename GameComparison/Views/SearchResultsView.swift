@@ -11,11 +11,11 @@ import AVFoundation
 import SwiftUI
 
 struct SearchResultsView: View {
-    @State var searchResults: [SearchResult] = []
+    @EnvironmentObject var resultsObservable: SearchResultObersable
     @State var image: Image? = nil
     var body: some View {
         List{
-            ForEach(self.searchResults, id: \.id) { item in
+            ForEach(self.resultsObservable.results, id: \.id) { item in
                SearchResultsItemView(result: item)
             }.onAppear(perform: {
                 print("Foreach on appear triggered")
@@ -27,5 +27,6 @@ struct SearchResultsView: View {
 struct SearchResultsView_Previews: PreviewProvider {
     static var previews: some View {
         SearchResultsView()
+        .environmentObject(SearchResultObersable())
     }
 }

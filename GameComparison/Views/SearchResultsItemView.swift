@@ -14,13 +14,14 @@ struct SearchResultsItemView: View {
     
     var body: some View {
          HStack {
-           self.image!
-           .resizable()
-           .frame(width: 100, height: 100)
-           .aspectRatio(contentMode: .fit)
+            if (self.image != nil) {
+                self.image!
+                .resizable()
+                .frame(width: 100, height: 100)
+                .aspectRatio(contentMode: .fit)
+            }
            Text(result.title)
        }.onAppear(perform: {
-        print("Hstack on Appear triggered for item \(self.result.title)")
         API.downloadImage(url: self.result.imageURL, completion: { data in
                if let data = data {
                    guard let uiImage = UIImage(data: data) else{

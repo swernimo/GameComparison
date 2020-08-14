@@ -10,8 +10,8 @@ import SwiftUI
 
 struct SearchByTitleView: View {
     @State private var title: String = ""
-    @State private var searchResults: [SearchResult] = []
     @State private var showNoResults = false
+    var results: SearchResultObersable
     
     var body: some View {
         VStack{
@@ -23,14 +23,15 @@ struct SearchByTitleView: View {
                     if (self.title != "") {
                         API.searchByTitle(title: self.title, completion: { results in
                             if let results = results{
-                                if (results.count > 0) {
-                                    self.searchResults = results
-                                    print("Number of search results found: \(self.searchResults.count)")
-                                    self.showNoResults = false
-                                } else {
-                                    print("No search results found")
-                                    self.searchResults = []
-                                    self.showNoResults = true
+                                DispatchQueue.main.async {
+                                    if (results.count > 0) {
+                                        self.results.results = results
+                                        self.showNoResults = false
+                                    } else {
+                                        self.results.results = []
+                                        self.showNoResults = true
+                                    }
+                                
                                 }
                             }
                         })
@@ -40,9 +41,8 @@ struct SearchByTitleView: View {
             if (self.showNoResults) {
                 Text("No results. Please try again")
             } else {
-                SearchResultsView(searchResults: self.searchResults, image: nil).onAppear(perform: {
-                    print("Search By Title View. Search Results View On Appear")
-                })
+                SearchResultsView(image: nil)
+                    .environmentObject(self.results)
             }
         }
     }
@@ -50,6 +50,6 @@ struct SearchByTitleView: View {
 
 struct SearchByTitleView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchByTitleView()
+        SearchByTitleView(results: SearchResultObersable())
     }
 }

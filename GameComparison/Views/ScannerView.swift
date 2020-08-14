@@ -15,7 +15,7 @@ struct ScannerView: View {
             .offset(x: -5, y: 10)
             .colorInvert(), alignment: .topTrailing)
             .navigationBarItems(trailing: Button(action: ({})) {
-                NavigationLink (destination: SearchByTitleView()) {
+                NavigationLink (destination: SearchByTitleView(results: SearchResultObersable())) {
                     Image(systemName: "doc.text.magnifyingglass")
                         .imageScale(.small)
                         .font(.title)

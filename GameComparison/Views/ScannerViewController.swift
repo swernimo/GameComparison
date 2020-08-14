@@ -106,13 +106,13 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                     API.searchByTitle(title: name, completion: { results in
                         if let results = results {
                             if (results.count > 0) {
-                                let host = UIHostingController(rootView: SearchResultsView(searchResults: results))
-                                guard let hostView = host.view
-                                    else {return }
-                                hostView.translatesAutoresizingMaskIntoConstraints = false
-                                DispatchQueue.main.async {
-                                    self.view.addSubview(hostView)
-                                }
+//                                let host = UIHostingController(rootView: SearchResultsView(searchResults: results))
+//                                guard let hostView = host.view
+//                                    else {return }
+//                                hostView.translatesAutoresizingMaskIntoConstraints = false
+//                                DispatchQueue.main.async {
+//                                    self.view.addSubview(hostView)
+//                                }
                             } else {
                                 self.displayNoResultsAlert()
                             }

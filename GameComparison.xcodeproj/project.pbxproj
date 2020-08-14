@@ -13,6 +13,7 @@
 		60139FD024BF715E00B3E42E /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60139FCF24BF715E00B3E42E /* Scanner.swift */; };
 		60139FD224BF740700B3E42E /* ScannerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60139FD124BF740700B3E42E /* ScannerHelper.swift */; };
 		60180C7E24E7124E00580F45 /* SearchResultsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60180C7D24E7124E00580F45 /* SearchResultsItemView.swift */; };
+		60180C8024E72A2E00580F45 /* SearchResultObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60180C7F24E72A2E00580F45 /* SearchResultObservable.swift */; };
 		6052C13824B9077300349F49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6052C13724B9077300349F49 /* AppDelegate.swift */; };
 		6052C13A24B9077300349F49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6052C13924B9077300349F49 /* SceneDelegate.swift */; };
 		6052C13D24B9077300349F49 /* GameComparison.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6052C13B24B9077300349F49 /* GameComparison.xcdatamodeld */; };
@@ -67,6 +68,7 @@
 		60139FCF24BF715E00B3E42E /* Scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
 		60139FD124BF740700B3E42E /* ScannerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerHelper.swift; sourceTree = "<group>"; };
 		60180C7D24E7124E00580F45 /* SearchResultsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsItemView.swift; sourceTree = "<group>"; };
+		60180C7F24E72A2E00580F45 /* SearchResultObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultObservable.swift; sourceTree = "<group>"; };
 		6052C13424B9077300349F49 /* GameComparison.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameComparison.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6052C13724B9077300349F49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6052C13924B9077300349F49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				60139FD124BF740700B3E42E /* ScannerHelper.swift */,
 				6073358624D8BFD700149440 /* Library.swift */,
 				60084BA424E4E96D004131D6 /* SearchResult.swift */,
+				60180C7F24E72A2E00580F45 /* SearchResultObservable.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				60139FCE24BF6CF400B3E42E /* ScannerViewControllerRepresentable.swift in Sources */,
 				60084BA524E4E96D004131D6 /* SearchResult.swift in Sources */,
 				6073357F24D4C76900149440 /* Game+CoreDataProperties.swift in Sources */,
+				60180C8024E72A2E00580F45 /* SearchResultObservable.swift in Sources */,
 				6073353D24D26E4500149440 /* ListItem.swift in Sources */,
 				60139FD024BF715E00B3E42E /* Scanner.swift in Sources */,
 				609572D624E702DD00EB257C /* SearchByTitleView.swift in Sources */,
