@@ -17,9 +17,7 @@ struct SearchResultsView: View {
         List{
             ForEach(self.resultsObservable.results, id: \.id) { item in
                SearchResultsItemView(result: item)
-            }.onAppear(perform: {
-                print("Foreach on appear triggered")
-            })
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ import SwiftUI
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    var searchResults: SearchResultObersable = SearchResultObersable()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +93,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                     self.displayCodeNotFoundAlert(upc: code)
                    }
                 } else {
-                    //show view with search results
+                    self.captureSession.startRunning()
+                    self.searchResults.results = result
+                    self.displaySearchResults()
                 }
             }
         })
@@ -104,15 +107,11 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             if let name = ac.textFields![0].text {
                 if (name != "") {
                     API.searchByTitle(title: name, completion: { results in
+                    self.captureSession.startRunning()
                         if let results = results {
+                            self.searchResults.results = results
                             if (results.count > 0) {
-//                                let host = UIHostingController(rootView: SearchResultsView(searchResults: results))
-//                                guard let hostView = host.view
-//                                    else {return }
-//                                hostView.translatesAutoresizingMaskIntoConstraints = false
-//                                DispatchQueue.main.async {
-//                                    self.view.addSubview(hostView)
-//                                }
+                                self.displaySearchResults()
                             } else {
                                 self.displayNoResultsAlert()
                             }
@@ -133,6 +132,15 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         ac.addAction(cancelAction)
         
         self.present(ac, animated: true)
+    }
+    
+    private func displaySearchResults() -> Void{
+        let resultsView = SearchResultsView()
+        .environmentObject(self.searchResults)
+        let host = UIHostingController(rootView: resultsView)
+        DispatchQueue.main.async {
+            self.present(host, animated: false)
+        }
     }
     
     private func displayNoResultsAlert() -> Void {
