@@ -14,12 +14,14 @@ struct ScannerView: View {
         .overlay(CloseButtonView()
             .offset(x: -5, y: 10)
             .colorInvert(), alignment: .topTrailing)
-//            .navigationBarItems(trailing: Button(action: ({})) {
-//                Image(systemName: "doc.text.magnifyingglass")
-//                    .imageScale(.small)
-//                    .font(.title)
-//                    .foregroundColor(.blue)
-//            })
+            .navigationBarItems(trailing: Button(action: ({})) {
+                NavigationLink (destination: SearchByTitleView()) {
+                    Image(systemName: "doc.text.magnifyingglass")
+                        .imageScale(.small)
+                        .font(.title)
+                        .foregroundColor(.blue)
+                }
+            })
     }
 }
 

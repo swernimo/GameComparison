@@ -12,23 +12,20 @@ import SwiftUI
 
 struct SearchResultsView: View {
     @State var searchResults: [SearchResult] = []
+    @State var image: Image? = nil
     var body: some View {
         List{
             ForEach(self.searchResults, id: \.id) { item in
-                HStack {
-                    Image(systemName: "xmark.square")
-                    .resizable()
-                    .frame(width: 100, height: 100)
-                    .aspectRatio(contentMode: .fit)
-                    Text(item.title)
-                }
-            }
+               SearchResultsItemView(result: item)
+            }.onAppear(perform: {
+                print("Foreach on appear triggered")
+            })
         }
     }
 }
 
 struct SearchResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResultsView(searchResults: searchResultsPreviewData)
+        SearchResultsView()
     }
 }

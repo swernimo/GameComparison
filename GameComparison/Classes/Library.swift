@@ -11,4 +11,5 @@ import Combine
 
 class Library: ObservableObject {
     @Published var library: [Game] = []
+    @Published var searchResults: [SearchResult] = []
 }

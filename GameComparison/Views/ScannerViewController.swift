@@ -1,6 +1,7 @@
 //taken from https://www.hackingwithswift.com/example-code/media/how-to-scan-a-barcode
 import AVFoundation
 import UIKit
+import SwiftUI
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
@@ -102,10 +103,16 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         let searchAction = UIAlertAction(title: "Search", style: .default, handler: { _ in
             if let name = ac.textFields![0].text {
                 if (name != "") {
-                    API.searchByTitle(title: name, upc: upc, completion: { results in
+                    API.searchByTitle(title: name, completion: { results in
                         if let results = results {
                             if (results.count > 0) {
-                                //display UITableView with results
+                                let host = UIHostingController(rootView: SearchResultsView(searchResults: results))
+                                guard let hostView = host.view
+                                    else {return }
+                                hostView.translatesAutoresizingMaskIntoConstraints = false
+                                DispatchQueue.main.async {
+                                    self.view.addSubview(hostView)
+                                }
                             } else {
                                 self.displayNoResultsAlert()
                             }

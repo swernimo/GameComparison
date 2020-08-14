@@ -189,7 +189,7 @@ class API {
         })
     }
     
-    static func searchByTitle(title: String, upc: String, completion: @escaping ([SearchResult]?) -> Void){
+    static func searchByTitle(title: String, completion: @escaping ([SearchResult]?) -> Void){
         let url = "\(API.baseURL)/SearchByTitle/\(title)?code=yX9iVu2lUu4ToPRXRtOgqO6/8aCnk7W4hHTyQOj3hmN0ui3EA0cwBg=="
         NetworkService.shared.request(url, completion: { result in
             switch (result) {

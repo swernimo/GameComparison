@@ -12,7 +12,6 @@ import UIKit
 
 struct HomeView: View {
     @EnvironmentObject var library: Library
-//    @State var library: [Game] = []
     
     var body: some View {
         GeometryReader { geo in
