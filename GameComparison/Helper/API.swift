@@ -190,26 +190,29 @@ class API {
     }
     
     static func searchByTitle(title: String, completion: @escaping ([SearchResult]?) -> Void){
-        let url = "\(API.baseURL)/SearchByTitle/\(title)?code=yX9iVu2lUu4ToPRXRtOgqO6/8aCnk7W4hHTyQOj3hmN0ui3EA0cwBg=="
-        NetworkService.shared.request(url, completion: { result in
-            switch (result) {
-            case .success(let data):
-                do {
-                    let decoder = JSONDecoder()
-                    let results = try decoder.decode([SearchResult].self, from: data)
-                    completion(results)
-                }
-                catch{
-                    print("Error unpacking search by title results. Error: \(error)")
+        if let parameters = title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            print("Search parameters: \(parameters)")
+            let url = "\(API.baseURL)/SearchByTitle/?code=yX9iVu2lUu4ToPRXRtOgqO6/8aCnk7W4hHTyQOj3hmN0ui3EA0cwBg==&title=\(parameters)"
+            NetworkService.shared.request(url, completion: { result in
+                switch (result) {
+                case .success(let data):
+                    do {
+                        let decoder = JSONDecoder()
+                        let results = try decoder.decode([SearchResult].self, from: data)
+                        completion(results)
+                    }
+                    catch{
+                        print("Error unpacking search by title results. Error: \(error)")
+                        completion(nil)
+                    }
+                    break;
+                case .failure(let error):
+                    print("Failed searching by title")
+                    print(error)
                     completion(nil)
+                    break;
                 }
-                break;
-            case .failure(let error):
-                print("Failed searching by title")
-                print(error)
-                completion(nil)
-                break;
-            }
-        })
+            })
+        }
     }
 }
