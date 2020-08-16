@@ -19,7 +19,6 @@ struct SearchByTitleView: View {
                 TextField("Enter Game Title", text: $title)
                     .border(Color.black, width: 1)
                 Button("Search", action: {
-                    print("searching for game with title \(self.title)")
                     if (self.title != "") {
                         API.searchByTitle(title: self.title, completion: { results in
                             if let results = results{

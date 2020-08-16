@@ -14,13 +14,15 @@ struct SearchResultsItemView: View {
     
     var body: some View {
          HStack {
-            if (self.image != nil) {
-                self.image!
-                .resizable()
-                .frame(width: 100, height: 100)
-                .aspectRatio(contentMode: .fit)
+            NavigationLink (destination: SearchDetailsView(id: self.result.id)){
+                if (self.image != nil) {
+                     self.image!
+                     .resizable()
+                     .frame(width: 100, height: 100)
+                     .aspectRatio(contentMode: .fit)
+                 }
+                Text(result.title)
             }
-           Text(result.title)
        }.onAppear(perform: {
         API.downloadImage(url: self.result.imageURL, completion: { data in
                if let data = data {

@@ -135,6 +135,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     private func displaySearchResults() -> Void{
+        self.captureSession.stopRunning()
         let resultsView = SearchResultsView()
         .environmentObject(self.searchResults)
         let host = UIHostingController(rootView: resultsView)

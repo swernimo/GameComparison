@@ -9,7 +9,7 @@
 import Foundation
 
 class SearchResult: Codable {
-    var id: Int32
+    var id: Int
     var title: String
     var imageURL: String?
 }

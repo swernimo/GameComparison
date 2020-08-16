@@ -191,7 +191,6 @@ class API {
     
     static func searchByTitle(title: String, completion: @escaping ([SearchResult]?) -> Void){
         if let parameters = title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            print("Search parameters: \(parameters)")
             let url = "\(API.baseURL)/SearchByTitle/?code=yX9iVu2lUu4ToPRXRtOgqO6/8aCnk7W4hHTyQOj3hmN0ui3EA0cwBg==&title=\(parameters)"
             NetworkService.shared.request(url, completion: { result in
                 switch (result) {
@@ -214,5 +213,25 @@ class API {
                 }
             })
         }
+    }
+    
+    static func searchById(gameId: Int, completion: @escaping (GameComparison?) -> Void){
+        let url = "\(baseURL)/GetGameDetails/\(gameId)?code=crYQF4zV6K76qVi8MDa3aoTXbvHfiW6MkizmtPeeVxSly1gnh1Qc2g=="
+        NetworkService.shared.request(url, completion: { result in
+            switch (result) {
+            case .success(let data):
+                do {
+                    guard let json = try JSONSerialization.jsonObject(with: data, options:[]) as? [String: Any] else { return }
+                    
+                }catch{
+                    print("Error unpacking get game details. Error: \(error)")
+                }
+                break;
+            case .failure(let error):
+                print("Error getting game details. Error: \(error)")
+                completion(nil)
+                break;
+            }
+        })
     }
 }

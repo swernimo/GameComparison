@@ -14,9 +14,9 @@ struct ListDetail: View {
     var body: some View {
         GeometryReader { geo in
             VStack {
+                Text(self.game.name)
                 GameCoverImage(imageFilePath: self.game.imageFilePath, image: Image(systemName: "xmark.square"))
                 .frame(height: geo.size.height / 2)
-                Text(self.game.name)
                 if (self.game.statistics != nil) {
                     VStack {
                         HStack{
