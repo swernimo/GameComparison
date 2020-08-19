@@ -221,8 +221,9 @@ class API {
             switch (result) {
             case .success(let data):
                 do {
-                    guard let json = try JSONSerialization.jsonObject(with: data, options:[]) as? [String: Any] else { return }
-                    
+                    let decoder = JSONDecoder()
+                    let result = try decoder.decode(GameComparison.self, from: data)
+                    completion(result)
                 }catch{
                     print("Error unpacking get game details. Error: \(error)")
                 }

@@ -19,6 +19,8 @@ struct SearchResultsView: View {
                SearchResultsItemView(result: item)
             }
         }
+        //TODO
+        //when navigating back to Scan Barcode page clear results
     }
 }
 
