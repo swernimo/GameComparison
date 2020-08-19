@@ -20,6 +20,8 @@ struct SearchByTitleView: View {
                     .border(Color.black, width: 1)
                 Button("Search", action: {
                     if (self.title != "") {
+                        //TODO: clear existing results when searching
+                        //TODO: show loading animation
                         API.searchByTitle(title: self.title, completion: { results in
                             if let results = results{
                                 DispatchQueue.main.async {

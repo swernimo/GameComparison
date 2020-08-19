@@ -43,6 +43,7 @@
 		609572D424E62E1500EB257C /* searchResultsPreviewData.json in Resources */ = {isa = PBXBuildFile; fileRef = 609572D324E62E1500EB257C /* searchResultsPreviewData.json */; };
 		609572D624E702DD00EB257C /* SearchByTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609572D524E702DD00EB257C /* SearchByTitleView.swift */; };
 		60D6599424ECD13700E233D8 /* LibraryStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D6599324ECD13700E233D8 /* LibraryStats.swift */; };
+		60D6599624ED8A5F00E233D8 /* gamecomparison.json in Resources */ = {isa = PBXBuildFile; fileRef = 60D6599524ED8A5F00E233D8 /* gamecomparison.json */; };
 		60E8431824C63F3C00D68893 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E8431724C63F3C00D68893 /* HomeView.swift */; };
 		60E8431A24C7B38400D68893 /* CloseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E8431924C7B38400D68893 /* CloseButtonView.swift */; };
 /* End PBXBuildFile section */
@@ -107,6 +108,7 @@
 		609572D324E62E1500EB257C /* searchResultsPreviewData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchResultsPreviewData.json; sourceTree = "<group>"; };
 		609572D524E702DD00EB257C /* SearchByTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByTitleView.swift; sourceTree = "<group>"; };
 		60D6599324ECD13700E233D8 /* LibraryStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryStats.swift; sourceTree = "<group>"; };
+		60D6599524ED8A5F00E233D8 /* gamecomparison.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = gamecomparison.json; sourceTree = "<group>"; };
 		60E8431724C63F3C00D68893 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		60E8431924C7B38400D68893 /* CloseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,6 +204,7 @@
 				6073354024D37CA900149440 /* Data */,
 				6052C14324B9077400349F49 /* Preview Assets.xcassets */,
 				609572D324E62E1500EB257C /* searchResultsPreviewData.json */,
+				60D6599524ED8A5F00E233D8 /* gamecomparison.json */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60D6599624ED8A5F00E233D8 /* gamecomparison.json in Resources */,
 				6073354424D3C3C200149440 /* collection.json in Resources */,
 				6052C14724B9077400349F49 /* LaunchScreen.storyboard in Resources */,
 				6052C14424B9077400349F49 /* Preview Assets.xcassets in Resources */,

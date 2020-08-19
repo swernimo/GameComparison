@@ -9,6 +9,7 @@
 import Foundation
 
 let searchResultsPreviewData: [SearchResult] = load("searchResultsPreviewData.json")
+let gameComparisonPreviewData: GameComparison = load("gamecomparison.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
