@@ -49,6 +49,6 @@ struct ListDetail: View {
 
 struct ListDetail_Previews: PreviewProvider {
     static var previews: some View {
-        ListDetail(game: Game())
+        ListDetail(game: gameLibraryPreviewData[0])
     }
 }

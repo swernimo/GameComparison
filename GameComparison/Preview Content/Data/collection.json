@@ -1,365 +1,695 @@
 [
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 131835,
-        "subType": "boardgame",
         "name": "Boss Monster: The Dungeon Building Card Game",
         "yearPublished": 2013,
         "imageUrl": "https://cf.geekdo-images.com/original/img/qcHZp-8X-yYTElPJP9NYDc-x_k0=/0x0/pic1732644.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/Rv6CNUMWvDGtjgd4eSyRQQ-i-oc=/fit-in/200x150/pic1732644.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "playingTime": 30,
+            "playerAge": 13,
+            "description": "Inspired by a love of classic video games, Boss Monster: The Dungeon Building Card Game pits 2-4 players in a competition to build the ultimate side-scrolling dungeon. Players compete to lure and destroy hapless adventurers, racing to outbid one another to see who can build the most enticing, treasure-filled dungeon. The goal of Boss Monster is to be the first Boss to amass ten Souls, which are gained when a Hero is lured and defeated &mdash; but a player can lose if his Boss takes five Wounds from Heroes who survive his dungeon.<br/><br/>Playing Boss Monster requires you to juggle two competing priorities: the need to lure Heroes at a faster rate than your opponents, and the need to kill those Heroes before they reach your Boss. Players can build one room per turn, each with its own damage and treasure value. More attractive rooms tend to deal less damage, so a Boss who is too greedy can become inundated with deadly Heroes.<br/><br/>Players interact with each other by building rooms and playing Spells. Because different Heroes seek different treasure types, and rooms are built simultaneously (played face down, then revealed), this means that every &quot;build phase&quot; is a bidding war. Spells are instant-speed effects that can give players advantages or disrupt opponents.<br/><br/>As a standalone card game with 155 cards, Boss Monster contains everything that 2-4 players need to play.<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.8279,
+            "rating": 6.29279,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 13,
-        "subType": "boardgame",
         "name": "Catan",
         "yearPublished": 1995,
         "imageUrl": "https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/g8LvJsd2oLAub6AEKN_Xpdoi8Sw=/fit-in/200x150/pic2419375.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 3,
+            "maxPlayers": 4,
+            "playingTime": 120,
+            "playerAge": 10,
+            "description": "In Catan (formerly The Settlers of Catan), players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources (cards)&mdash;wood, grain, brick, sheep, or stone&mdash;to build up their civilizations to get to 10 victory points and win the game.<br/><br/>Setup includes randomly placing large hexagonal tiles (each showing a resource or the desert) in a honeycomb shape and surrounding them with water tiles, some of which contain ports of exchange. Number disks, which will correspond to die rolls (two 6-sided dice are used), are placed on each resource tile. Each player is given two settlements (think: houses) and roads (sticks) which are, in turn, placed on intersections and borders of the resource tiles. Players collect a hand of resource cards based on which hex tiles their last-placed house is adjacent to. A robber pawn is placed on the desert tile.<br/><br/>A turn consists of possibly playing a development card, rolling the dice, everyone (perhaps) collecting resource cards based on the roll and position of houses (or upgraded cities&mdash;think: hotels) unless a 7 is rolled, turning in resource cards (if possible and desired) for improvements, trading cards at a port, and trading resource cards with other players. If a 7 is rolled, the active player moves the robber to a new hex tile and steals resource cards from other players who have built structures adjacent to that tile.<br/><br/>Points are accumulated by building settlements and cities, having the longest road and the largest army (from some of the development cards), and gathering certain development cards that simply award victory points. When a player has gathered 10 points (some of which may be held in secret), he announces his total and claims the win.<br/><br/>Catan has won multiple awards and is one of the most popular games in recent history due to its amazing ability to appeal to experienced gamers as well as those new to the hobby.<br/><br/>Die Siedler von Catan was originally published by KOSMOS and has gone through multiple editions. It was licensed by Mayfair and has undergone four editions as The Settlers of Catan. In 2015, it was formally renamed Catan to better represent itself as the core and base game of the Catan series. It has been re-published in two travel editions, portable edition and compact edition, as a special gallery edition (replaced in 2009 with a family edition), as an anniversary wooden edition, as a deluxe 3D collector's edition, in the basic Simply Catan, as a beginner version, and with an entirely new theme in Japan and Asia as Settlers of Catan: Rockman Edition. Numerous spin-offs and expansions have also been made for the game.<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 2.3263,
+            "rating": 7.1627,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 926,
-        "subType": "boardgame",
         "name": "Catan: Cities & Knights",
         "yearPublished": 1998,
         "imageUrl": "https://cf.geekdo-images.com/original/img/fnZmueQkDuddB5WC3eXQgBVTFvM=/0x0/pic2420315.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/md4I7PPXsa2BtfG2BwlxYUAnA7k=/fit-in/200x150/pic2420315.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 3,
+            "maxPlayers": 4,
+            "playingTime": 90,
+            "playerAge": 12,
+            "description": "Adds several new aspects to Settlers of Catan but the two major ones are creating knights to protect the land from invading barbarians and building city improvements that confer benefits upon that city's owner. Adds tactical complexity to the game and game length.<br/><br/>Belongs to the Catan Series.<br/><br/>The game changes the base game in three main ways:<br/><br/>First, there are 3 new commodities in the game, distinct from resources - paper, cloth, and coins, which can be acquired from Forest, Meadow, and Mountain spaces, respectively. Cities that would normally produce two of one of those resources instead produce 1 resource and 1 of the corresponding commodity. (To make commodities easier to obtain, each player starts the game with 1 city and 1 settlement on the board.) These commodities allow players to build city improvements that confer various advantages and eventually points.<br/><br/>Second, the deck of development cards is replaced by three different decks, each corresponding to one of the commodities. Building city improvements gives players a chance to draw these cards with every roll of the dice. Building more improvements will increase these chances, but cards cannot be bought directly in any way. These cards are similar to the development cards in the base game, but with a wider range of effects. (Some cards are balanced better as well - the new Resource Monopoly card, for example, can take no more than 2 of the named resource from any one player.)<br/><br/>Finally, players can also build knights on the island along their network of roads. These knights can be used to claim certain intersections and move the Robber (taking the place of Soldier cards), but are also used to defend the island from periodic barbarian attacks. If the island is successfully defended, the player(s) with the most knights are rewarded. If not, the player(s) with the fewest knights each have a city downgraded to a settlement.<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 2.9027,
+            "rating": 7.45903,
+            "suggestedPlayerAge": 12
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 202490,
-        "subType": "boardgame",
         "name": "Chickapig",
         "yearPublished": 2016,
         "imageUrl": "https://cf.geekdo-images.com/original/img/PfVuYzE6pKzQrtziBp-K0ta0zt4=/0x0/pic5030174.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/s6FJk2Zk_jJSck5XnSSLLRciKa4=/fit-in/200x150/pic5030174.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "playingTime": 60,
+            "playerAge": 7,
+            "description": "Break your flock of chickapigs free while dodging opponents, hay bales, and an unruly pooping cow in this strategic board game.<br/><br/>The first player to get their six chickapigs off the board wins. You must coordinate your chickapigs, hay bales, and the cow to help your chickapigs escape through their goal. At the same time, play defense against your opponents with your pieces, or use the cow to drop a poop in their way. Whenever someone goes over a poop, they must take a poop card which are always bad. There are also daisy cards, which are always good.<br/><br/>Chickapig is an abstract game with enough chance to keep everyone competitive.<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.6,
+            "rating": 6.47512,
+            "suggestedPlayerAge": 6
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 194880,
-        "subType": "boardgame",
         "name": "Dream Home",
         "yearPublished": 2016,
         "imageUrl": "https://cf.geekdo-images.com/original/img/NdQkTY4E5yivlVRkZvtKDO5tpxg=/0x0/pic3176771.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/gk29mATFjS3MGvkRNIvsOGA_NyE=/fit-in/200x150/pic3176771.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "playingTime": 30,
+            "playerAge": 7,
+            "description": "What would your house look like? Would you rather have a huge bedroom with an elegant canopy bed or a spacious living room with a grand piano? You are going to play a part of designers who will plan a house and add more and more rooms to it.<br/><br/>Dream Home is a family game about building and furnishing your new house. Over twelve rounds, players collect pairs of cards consisting of a room card and an accessory card (roof, helper, furnishing or tool) and place them on their personal boards, creating their dream homes.<br/><br/>At the end of the game, all players&rsquo; houses are finished and fully furnished. Players compare their houses, counting points for functionality, good design, quality of roof and furnishing. The player with the nicest and most comfortable house wins.<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.675,
+            "rating": 6.9292,
+            "suggestedPlayerAge": 6
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 172225,
-        "subType": "boardgame",
         "name": "Exploding Kittens",
         "yearPublished": 2015,
         "imageUrl": "https://cf.geekdo-images.com/original/img/XW9wAqKOy8kvH6TqxtuwAdFuAoo=/0x0/pic2691976.png",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/qW31_tueq5049lRyZ--sPI-rlBU=/fit-in/200x150/pic2691976.png",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 5,
+            "playingTime": 15,
+            "playerAge": 7,
+            "description": "Exploding Kittens is a kitty-powered version of Russian Roulette. Players take turns drawing cards until someone draws an exploding kitten and loses the game. The deck is made up of cards that let you avoid exploding by peeking at cards before you draw, forcing your opponent to draw multiple cards, or shuffling the deck.<br/><br/>The game gets more and more intense with each card you draw because fewer cards left in the deck means a greater chance of drawing the kitten and exploding in a fiery ball of feline hyperbole.<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.0743,
+            "rating": 6.01374,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 174078,
-        "subType": "boardgame",
         "name": "Holmes: Sherlock & Mycroft",
         "yearPublished": 2015,
         "imageUrl": "https://cf.geekdo-images.com/original/img/Lq6kPFQbCPTGlMICW8_eAAexpuk=/0x0/pic2431481.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/7-CzGksztOqoVtf6LavB_n3OtFk=/fit-in/200x150/pic2431481.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 2,
+            "playingTime": 30,
+            "playerAge": 10,
+            "description": "In February 1895, London woke up to a loud bang. A large pillar of smoke showed that a bomb had exploded in the Houses of Parliament. Security forces were activated immediately and they arrested a suspicious young laborer near the area.<br/><br/>Mycroft Holmes, at the service of the crown, was commissioned to investigate the relationship of the young laborer with anarchist groups. He thinks it will be an easy task that he can do from the comfort of his armchair in the Diogenes Club &mdash; until he is informed of disturbing news; his younger brother Sherlock Holmes, Consulting Detective, has been hired by the boy's parents to prove the innocence of his son, who believes to be a scapegoat of a dark conspiracy.<br/><br/>For the first time, the brightest minds in London face each other. Was the young laborer involved in this terrible attack or he is just a scapegoat for a dark conspiracy?<br/><br/>A game of Holmes: Sherlock &amp; Mycroft lasts seven turns (days of investigation). At the beginning of each day, famous characters extracted from the books of Arthur Conan Doyle appear in London.<br/><br/>Each player has three action tokens that move from one character to another to use their special abilities, knowing that a player can never have two tokens on the same character. Therefore, a character must be freed before reuse. The abilities of each character allow them to obtain Evidence Cards or gain Investigation Tokens in multiple ways. The game has great replay value because it is not known whether a character with a specific ability will make their appearance on the board in the Day 1 or in the final Day 7. Each game is different!<br/><br/>",
+            "recommendedPlayers": 2,
+            "complexity": 1.8361,
+            "rating": 6.86411,
+            "suggestedPlayerAge": 10
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 256538,
-        "subType": "boardgame",
         "name": "Home Alone Game",
         "yearPublished": 2018,
         "imageUrl": "https://cf.geekdo-images.com/original/img/iqMiS6CTmRyG3bgSZPB2MAp6ozw=/0x0/pic4220996.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/SY0niThWtta_ianPhvCCGKBs0j8=/fit-in/200x150/pic4220996.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "playingTime": 20,
+            "playerAge": 8,
+            "description": "It's time to defend the house! When the McCallister family jets off for the holidays, they accidentally leave nine-year-old Kevin behind. And now, the notorious Wet Bandits are casing the neighborhood, hoping to score some valuable loot! Team up as the burglars in Home Alone Game to try to steal the goods, or play as Kevin to unleash an arsenal of creative contraptions to protect the house. Who will triumph: the little guy or the bad guys?<br/><br/>&mdash;description from the publisher<br/><br/>",
+            "recommendedPlayers": 2,
+            "complexity": 2.0,
+            "rating": 6.60403,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 54043,
-        "subType": "boardgame",
         "name": "Jaipur",
         "yearPublished": 2009,
         "imageUrl": "https://cf.geekdo-images.com/original/img/oSMirTNRZpn6QAXpDLDrGixCyAY=/0x0/pic5100947.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/bKogxVLnOSfLrLyPDFtsjKGh5nA=/fit-in/200x150/pic5100947.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 2,
+            "playingTime": 30,
+            "playerAge": 12,
+            "description": "You are one of the two most powerful traders in the city of Jaipur, the capital of Rajasthan, but that's not enough for you because only the merchant with two &quot;seals of excellence&quot; will have the privilege of being invited to the Maharaja's court. You are therefore going to have to do better than your direct competitor by buying, exchanging, and selling at better prices, all while keeping an eye on both your camel herds.<br/><br/>Jaipur is a fast-paced card game, a blend of tactics, risk and luck. On your turn, you can either take or sell cards. If you take cards, you have to choose between taking all the camels, taking one card from the market, or swapping 2-5 cards between the market and your cards.<br/><br/>If you sell cards, you get to sell only one type of good, and you receive as many chips for that good as the number of cards you sold. The chips' values decrease as the game progresses, so you'd better hurry! On the other hand, you receive increasingly high rewards for selling three, four, or five cards of the same good at a time, so you'd better wait!<br/><br/>You can't sell camels, but they're paramount for trading and they're also worth a little something at the end of the round, enough sometimes to secure the win, so you have to use them smartly.<br/><br/>",
+            "recommendedPlayers": 2,
+            "complexity": 1.4966,
+            "rating": 7.51121,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 183251,
-        "subType": "boardgame",
         "name": "Karuba",
         "yearPublished": 2015,
         "imageUrl": "https://cf.geekdo-images.com/original/img/Wf7ocgmPXopC2cgd48UZm4EEr8E=/0x0/pic2727088.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/IRtwFzTtsEYNtpPkJMpG3QJxvCQ=/fit-in/200x150/pic2727088.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "playingTime": 40,
+            "playerAge": 8,
+            "description": "This is a tile-laying race game with players starting with boards that are identical, and one player drawing tiles that they all will use. They race to get their explorers to temples first and earn points. Along the way they can collect additional points by collecting items off the paths they create. The game ends when one player gets all of their explorers to their corresponding temples or whenever the last tile is drawn and placed. Most points wins.<br/><br/>Description from the English Ruleset:<br/><br/>Many moons have come and gone since your boats departed on the journey to Karuba. Once you arrive on the island, each player will lead an expedition team of four adventurers. Now you just have to navigate your way through the dense jungle to make it to the temples. &bdquo;Just&ldquo; may be something of an understatement; the ancient jungle trails have to be found and uncovered first! Hurry up and be the first to reach the temples to collect the most valuable treasures. Many paths have dead ends and you need to be patient to find the right/best way (through the jungle). Look! A gold nugget! You can pick it up and collect it, same applies to the shiny crystals along the paths.<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.4593,
+            "rating": 7.20871,
+            "suggestedPlayerAge": 6
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 204583,
-        "subType": "boardgame",
         "name": "Kingdomino",
         "yearPublished": 2016,
         "imageUrl": "https://cf.geekdo-images.com/original/img/iDSCIiCAd9SQHv3WoYX0QdvDE_0=/0x0/pic3132685.png",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/gE7UpZsOyGWZrENKvoEA9ovTVqc=/fit-in/200x150/pic3132685.png",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "playingTime": 20,
+            "playerAge": 8,
+            "description": "In Kingdomino, you are a lord seeking new lands in which to expand your kingdom. You must explore all the lands, including wheat fields, lakes, and mountains, in order to spot the best plots, while competing with other lords to acquire them first.<br/><br/>The game uses tiles with two sections, similar to Dominoes. Each turn, each player will select a new domino to connect to their existing kingdom, making sure at least one of its sides connects to a matching terrain type already in play. The order of who picks first depends on which tile was previously chosen, with better tiles forcing players to pick later in the next round. The game ends when each player has completed a 5x5 grid (or failed to do so), and points are counted based on number of connecting tiles and valuable crown symbols.<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.2076,
+            "rating": 7.36356,
+            "suggestedPlayerAge": 6
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 50,
-        "subType": "boardgame",
         "name": "Lost Cities",
         "yearPublished": 1999,
         "imageUrl": "https://cf.geekdo-images.com/original/img/d47X0B235NonZ2PJGCFGNZQVWvo=/0x0/pic4597095.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/9wbe0O4YeIw9q9YZ9wObFiEHooQ=/fit-in/200x150/pic4597095.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 2,
+            "playingTime": 30,
+            "playerAge": 10,
+            "description": "Lost Cities is a card game in the Kosmos two-player series. The game originally consisted of a single deck of cards of rank 2&ndash;10 in five different colors with three special &quot;handshakes&quot; (&quot;HS&quot; in scoring examples below) in each suit, but as of 2019 the game now includes six colored suits, with the sixth color being optional for gameplay. A game board is included to organize discarded cards and help players organize their card collections.<br/><br/>The object of the game is to gain points by mounting profitable archaeological expeditions to the different sites represented by the colored suits of cards. On a player's turn, they must first play one card, either to an expedition or by discarding it to the color-appropriate discard pile, then draw one card, either from the deck or from the top of a discard pile. Cards played to expeditions must be in ascending order, but they need not be consecutive. Handshakes are considered lower than a 2 and represent investments in an expedition. Thus, if you play a red 4, you may play any other red card higher than a 4 on a future turn but may no longer play a handshake, the 2, or the 3.<br/><br/>The game continues in this fashion with players alternating turns until the final card is taken from the deck. The rest of the cards in hand are then discarded and players score their expeditions. Each expedition that has at least one card played into it must be scored. Cards played into an expedition are worth their rank in points, and handshakes count as a multiplier against your final total; one handshake doubles an expedition's value, while two handshakes triples that value and three handshakes quadruple it. Expeditions start at a value of -20, so you must play at least 20 points of cards into an expedition in order to make a profit. If you are left with a negative value and have a handshake, the multiplier still applies. A 20-point bonus is awarded to every expedition with at least eight cards played into it. A complete game of Lost Cities lasts three matches, with scores for each match being added together.<br/><br/>Scoring example 1: An expedition has a 2,3,7,8,10 for a total of 30. This expedition is worth 10 total points: 30 plus the initial -20.<br/><br/>Scoring example 2: An expedition has 2 HS, and 4,5,6,7,8,10 for a total of 40. This expedition is worth 80 total points: 40 points for cards, plus the initial -20, &times;3 for the two multipliers, plus the 20-pt bonus for playing 8+ cards.<br/><br/>Scoring example 3: An expedition has 1 HS, and 4,6,7 for a total of 17. This expedition is worth -6 total points: 17 plus the initial -20, &times;2 for the multiplier.<br/><br/>",
+            "recommendedPlayers": 2,
+            "complexity": 1.4991,
+            "rating": 7.17192,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 143884,
-        "subType": "boardgame",
         "name": "Machi Koro",
         "yearPublished": 2012,
         "imageUrl": "https://cf.geekdo-images.com/original/img/-0UXAhHj3Q992K_q2lOVDkjgjTo=/0x0/pic4783831.png",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/DSYk4MtXVS2eP6-X0qWYGGOCMpM=/fit-in/200x150/pic4783831.png",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "playingTime": 30,
+            "playerAge": 10,
+            "description": "Welcome to the city of Machi Koro. You've just been elected Mayor. Congrats! Unfortunately the citizens have some pretty big demands: jobs, a theme park, a couple of cheese factories and maybe even a radio tower. A tough proposition since the city currently consists of a wheat field, a bakery and a single die.<br/><br/>Armed only with your trusty die and a dream, you must grow Machi Koro into the largest city in the region. You will need to collect income from developments, build public works, and steal from your neighbors' coffers. Just make sure they aren't doing the same to you!<br/><br/>Machi Koro is a fast-paced game for 2-4 players. Each player wants to develop the city on their own terms in order to complete all of the landmarks under construction faster than their rivals. On their turn, each player rolls one or two dice. If the sum of the dice rolled matches the number of a building that a player owns, they get the effect of that building; in some cases opponents will also benefit from your dice (just as you can benefit from theirs). Then, with money in hand a player can build a landmark or a new building, ideally adding to the wealth of their city on future turns. The first player to construct all of their landmarks wins!<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.5333,
+            "rating": 6.63165,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 139030,
-        "subType": "boardgame",
         "name": "Mascarade",
         "yearPublished": 2013,
         "imageUrl": "https://cf.geekdo-images.com/original/img/659I4dOGhGMkUiGSZs-tpof9OSo=/0x0/pic1762410.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/py9DL96_4AcB0Oi-qcD6JtQy-Jw=/fit-in/200x150/pic1762410.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 13,
+            "playingTime": 30,
+            "playerAge": 10,
+            "description": "Players in Mascarade start with six coins and a randomly dealt character card. Characters stay face up just long enough for players to more or less memorize them, then are turned face down. Your goal is to be the first player to hold 13 coins, and while you start nearly halfway to that goal, you can go down just as surely as you can go up!<br/><br/>On a turn you take one of three actions:<br/><br/>1) Announce your character: Claim the power of a certain character and take the associated action. You don't have to have that character card in front of you to take this action, but if someone else says that they're that character and reveals the card to prove it, that player takes the action instead while you lose one coin to the tribunal.<br/><br/>2) Swap cards or not: Take another player's character card along with yours, place them under the table, shuffle them around a bit, then give one card back to the other player while keeping one for yourself. You (presumably) know whether you changed characters and can have some idea of who you are now, but that other player might be in the dark.<br/><br/>3) Secretly look at your character: Look at your character card to make sure of who you are.<br/><br/>Play continues until one player obtains 13 coins and wins!<br/><br/>Mascarade includes more character cards than the number of players, so not all characters will be used in each game. The rules suggest that you use certain characters in your first games, but once you know the game, you can try many other distributions. The first edition of Mascarade contains 13 characters. The beggar (woman) has no special ability. Bruno Faidutti says on his blog: &quot;...she has no ability so far. I always like to find blank cards in a game, for which I can imagine my own effects. Here, the card is not blank &ndash; it has a picture and a name, but you can devise its effect, and I'm sure there'll be some prize for the best idea.&quot;<br/><br/>",
+            "recommendedPlayers": 7,
+            "complexity": 1.5221,
+            "rating": 6.62727,
+            "suggestedPlayerAge": 10
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 122298,
-        "subType": "boardgame",
         "name": "Morels",
         "yearPublished": 2012,
         "imageUrl": "https://cf.geekdo-images.com/original/img/0pbRCKcXUJhv09e8snCnxmX_Ebk=/0x0/pic1284667.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/P3IkPfCoi5Ba9KTtn9Vp8aGS6DU=/fit-in/200x150/pic1284667.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 2,
+            "playingTime": 30,
+            "playerAge": 10,
+            "description": "The woods are old-growth, dappled with sunlight. Delicious mushrooms beckon from every grove and hollow. Morels may be the most sought-after in these woods, but there are many tasty and valuable varieties awaiting the savvy collector. Bring a basket if you think it's your lucky day. Forage at night and you will be all alone when you stumble upon a bonanza. If you're hungry, put a pan on the fire and bask in the aroma of chanterelles as you saut&eacute; them in butter. Feeling mercantile? Sell porcini to local aficionados for information that will help you find what you seek deep in the forest.<br/><br/>Morels, a strategic card game for two players, uses two decks: a Day Deck (84 cards) that includes ten different types of mushrooms as well as baskets, cider, butter, pans, and moons; and a smaller Night Deck (8 cards) of mushrooms to be foraged by moonlight. Each mushroom card has two values: one for selling and one for cooking. Selling two or more like mushrooms grants foraging sticks that expand your options in the forest (that is, the running tableau of eight face-up cards on the table), enabling offensive or defensive plays that change with every game played. Cooking sets of three or more like mushrooms &ndash; sizzling in butter or cider if the set is large enough &ndash; earns points toward winning the game. With poisonous mushrooms wielding their wrath and a hand-size limit to manage, card selection is a tricky proposition at every turn.<br/><br/>Following each turn, one card from the forest moves into a decay pile that is available for only a short time. The Day Deck then refills the forest from the back, creating the effect of a walk in the woods in which some strategic morsels are collected, some are passed by, and others lay ahead.<br/><br/>",
+            "recommendedPlayers": 2,
+            "complexity": 1.7372,
+            "rating": 7.01268,
+            "suggestedPlayerAge": 10
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 21763,
-        "subType": "boardgame",
         "name": "Mr. Jack",
         "yearPublished": 2006,
         "imageUrl": "https://cf.geekdo-images.com/original/img/EMVEbNvm38lZHe6Jw12f7CnCiPY=/0x0/pic3066125.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/GBuA0H-JnvKetqDcsBZcMiQT8nU=/fit-in/200x150/pic3066125.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 2,
+            "playingTime": 30,
+            "playerAge": 9,
+            "description": "In Mr. Jack, one of the two players represents Jack the Ripper, who will be one of the eight characters on the board. This player knows which character is Mr. Jack, and his goal is to flee from the district as soon as possible (or avoid being accused for eight turns). The other player represents an independent investigator (not represented on the board) who tries to guess the identity of Jack &mdash; but he can make only one accusation during the game!<br/><br/>During each turn, the players move the characters, using their special powers and placing them either in shadow or light.  At the end of each turn, the witnesses declare whether Jack is visible &mdash; that is, in light or adjacent to another character &mdash; or not (alone in the shadows). This allows the investigator to know which characters are innocent. As the turns progress, the investigator tries to eliminate suspects while Jack tries to escape. Intuition, logic, and cold blood will be necessary for each of the two participants.<br/><br/>",
+            "recommendedPlayers": 2,
+            "complexity": 2.1852,
+            "rating": 7.02316,
+            "suggestedPlayerAge": 10
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 205322,
-        "subType": "boardgame",
         "name": "The Oregon Trail Card Game",
         "yearPublished": 2016,
         "imageUrl": "https://cf.geekdo-images.com/original/img/FxY9Hmh_DCrx7lWA_ZuCHR-s1UM=/0x0/pic3120646.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/i0z4i2u-g0LrZzm_R0-1VJR3WgQ=/fit-in/200x150/pic3120646.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 6,
+            "playingTime": 45,
+            "playerAge": 12,
+            "description": "Description from the publisher:<br/><br/>&quot;Based on the classic computer game&quot;<br/><br/>According to the box:<br/><br/>&quot;You may:<br/>1. Travel the trail<br/>2. Work together to overcome calamities<br/>3. Get at least one member of your party to Oregon<br/>4. Stop and rest<br/>5. Decide which of your friends will  die of dysentery<br/>6. Write your name on a tombstone<br/>What is your choice?&quot;<br/><br/>All sorts of gruesome deaths await you and the rest of your wagon party in this official multi-player card game version of the classic computer game. To win you&rsquo;ll need to keep one player alive all the way from Independence, MO to the Willamette Valley. But between rattlesnakes, starvation, dead oxen, broken bones, dysentery, and a host of other calamities the odds are long . . . almost as long as the Oregon Trail itself.<br/><br/>Players work together to move along the trail, fording rivers and playing Supply Cards to overcome calamities. But be warned&ndash;there will be times when it makes sense to let one of your wagon mates succumb to a calamity rather than expend precious supplies. And every time players go the way of all flesh, you&rsquo;ll flip over the roster card and write their names on tombstones (don&rsquo;t forget to include a quick epitaph). It&rsquo;s a great way to relive your fond memories of one of the world&rsquo;s most beloved computer games, and to kill off your family and friends at the same time.<br/><br/>",
+            "recommendedPlayers": 6,
+            "complexity": 1.1944,
+            "rating": 4.30858,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 256792,
-        "subType": "boardgame",
         "name": "The Oregon Trail Game: Journey to Willamette Valley",
         "yearPublished": 2018,
         "imageUrl": "https://cf.geekdo-images.com/original/img/NO8uTgQ5JIDym-6AuCrw4w1ShcQ=/0x0/pic4276681.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/v0kWD1pP9HYXMmK7a4mnTEcchKs=/fit-in/200x150/pic4276681.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "playingTime": 60,
+            "playerAge": 13,
+            "description": "1848: You and your family have joined a wagon train in Independence, MO that is about to head to Willamette Valley to find your fortune in the West! Your goal is to complete the treacherous journey while keeping as much money as possible to start your new life.<br/><br/>In The Oregon Trail Game: Journey to Willamette Valley, based on The Oregon Trail video game, players place tiles to discover the trails, rivers, forts, and towns in order to move to this new land. This scenic journey would almost be perfect if it weren't for the disease, starvation, drowning, rattlesnakes and other hazards that will plague you along the way.<br/><br/>The biggest reward would be arriving with your family, but there's also limited space for supplies in your wagon. Soon, you'll find yourself debating on the pros and cons of traveling in a wagon with so many people as the winters grow harsher, supplies dwindle, and the food grows scarce. As you throw your dead out of the wagon, you realize you'll miss them&hellip;but it's better this way.<br/><br/>In this competitive racing game, every wagon is for themselves. To start, you will serve as a pioneer and gather your wagon, family members, food, and a pistol. You must hunt for food along the way to help your family avoid starvation. Otherwise, their funeral expenses will deduct from your total fortune.<br/><br/>To undergo the wilderness and face the calamities, you must prepare wisely. During gameplay, you can take up to three of the following actions: move, hunt, buy, pick up hitchhikers, and sell. There are also free actions that do not count against your turn, such as crossing the river and using medicine. Therefore, you must be strategic in your decision-making.<br/><br/>Players continue to take turns until a wagon reaches Willamette Valley or the last trail tile is placed on the board, signaling the end of the game. Your fortune is calculated and the pioneer with the most money will prove victorious.<br/><br/>",
+            "recommendedPlayers": 0,
+            "complexity": 2.0,
+            "rating": 5.89451,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 201406,
-        "subType": "boardgame",
         "name": "OrganATTACK!",
         "yearPublished": 2016,
         "imageUrl": "https://cf.geekdo-images.com/original/img/DDEXIXIu-gxvSIt3Cfmmyc9FvWQ=/0x0/pic4417656.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/-8LkFrOlEJOWJrmWeCeRt0Ll8Mw=/fit-in/200x150/pic4417656.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 6,
+            "playingTime": 15,
+            "playerAge": 8,
+            "description": "Organ ATTACK! blends medically accurate terminology with immature potty humor.<br/><br/>In the game, each player is dealt a set of organs. The players use immunity, affliction, and other tactical cards to protect themselves while inflicting disease &amp; bodily harm on their opponents. For example:<br/><br/>     Give Gallbladder gallstones<br/>     Afflict Thyroid with thyroiditis<br/>     Subject Bowels to the wrath of a day-old burrito from a back-alley food cart<br/><br/><br/><br/><br/>The last person with at least one organ remaining wins.<br/><br/>The object of the game is to remove your opponents' organs using corresponding afflictions before they remove yours. The last person to still have at least one organ is the winner.<br/><br/>Note: May not be suitable for players who are sensitive about discussing medical conditions (for example, playing a &quot;Cancer&quot; card on an opponent).<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.4,
+            "rating": 6.35848,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 157789,
-        "subType": "boardgame",
         "name": "Pandemic: Contagion",
         "yearPublished": 2014,
         "imageUrl": "https://cf.geekdo-images.com/original/img/0LUO05I306aKfd2Xjweub4NKbRg=/0x0/pic2037506.png",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/UX5Kq6tLGsfMhsQJI1hBTMAd_yA=/fit-in/200x150/pic2037506.png",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 5,
+            "playingTime": 30,
+            "playerAge": 14,
+            "description": "After many years of trying to defeat the diseases that threaten mankind&rsquo;s existence, the tables have been turned.  You are now the disease and guess what?  There is no cure.<br/><br/>In Pandemic: Contagion, you are competing against other diseases (fellow players) to see who can eliminate humanity. With no cure to be had, the one of you that wipes out all human civilization will come out on top as the most deadly disease ever known to man, may he rest in peace.<br/><br/>Pandemic: Contagion includes a deck of contagion cards with differing colored borders, city cards with similar colored borders, event/WHO cards, player disease card and disease cubes. On a turn you take two of three possible actions, and you can take the same action twice. Those actions are:<br/><br/><br/>     Draw contagion cards equal to your current incubation rate.<br/>     Advance one of three mutations to the next level.<br/>     Spread disease equal to your current transmission rate.<br/><br/><br/>When the number of diseases equals the city&rsquo;s population number, the city is wiped out.  The player who placed the final disease earns a special action. The player with the most diseases scores the population number. The two smaller numbers are awarded to those with the second- and third-most diseases.<br/><br/>Your disease card has three mutations: Incubation (number of cards you can draw), Transmission (number of disease cubes you can spread), and Resistance (number of cubes/cards you can protect). As an action, you can advance a mutation one level by discarding the required number of cards.<br/><br/>Event cards are drawn at the start of each round and affect everyone during their turn. You might benefit from the card or it could have a negative impact. WHO cards are always bad, but your resistance will lessen whatever the penalty would be based on its level, if you planned ahead.<br/><br/>Mid-game scoring occurs when the second, fourth and sixth skull comes out.  When a city icon appears, a new city is introduced.<br/><br/>Once the event/WHO deck runs out or only two city cards remain in play, the game ends, with players conducting a final scoring round to see which virus is victorious.<br/><br/>Part of the Pandemic series.<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.9022,
+            "rating": 6.45078,
+            "suggestedPlayerAge": 10
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 218603,
-        "subType": "boardgame",
         "name": "Photosynthesis",
         "yearPublished": 2017,
         "imageUrl": "https://cf.geekdo-images.com/original/img/pIBp9VeaI9zAlHERlAVCoK78LqM=/0x0/pic3364832.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/wPVcWFqE4b4xNWYdvpQck96jsaU=/fit-in/200x150/pic3364832.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "playingTime": 60,
+            "playerAge": 10,
+            "description": "The sun shines brightly on the canopy of the forest, and the trees use this wonderful energy to grow and develop their beautiful foliage. Sow your crops wisely and the shadows of your growing trees could slow your opponents down, but don't forget that the sun revolves around the forest. Welcome to the world of Photosynthesis, the green strategy board game!<br/><br/>",
+            "recommendedPlayers": 3,
+            "complexity": 2.2727,
+            "rating": 7.16104,
+            "suggestedPlayerAge": 10
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 177639,
-        "subType": "boardgame",
         "name": "Raptor",
         "yearPublished": 2015,
         "imageUrl": "https://cf.geekdo-images.com/original/img/kzuA4XOQI94oq7hdFESznGnCSuU=/0x0/pic2520016.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/7JXpUQzSIQIVxmZNoiFvdpQTxeg=/fit-in/200x150/pic2520016.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 2,
+            "playingTime": 25,
+            "playerAge": 9,
+            "description": "Mamma Raptor has escaped from her run and laid her eggs in the park. A team of scientists must neutralize her and capture the baby raptors before they run wild into the forest.<br/><br/>Raptor is a card driven boardgame with tactical play and some double guessing. Players use their cards to move their pawns (scientists on one side, Mother and baby raptors on the other) on the board. Every round, the player who played the lowest ranked card can use the corresponding action, while his opponent has movement / attack points equal to the difference between the two cards values. The scientists can use fire, can move by jeep on the tracks, and can even call for reinforcements, while the mamma raptor can hide in the bushes, yell to frighten the scientists, and call for her babies.<br/><br/>",
+            "recommendedPlayers": 2,
+            "complexity": 2.0571,
+            "rating": 7.35458,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 148036,
-        "subType": "boardgame",
         "name": "Risk: Plants vs. Zombies",
         "yearPublished": 2013,
         "imageUrl": "https://cf.geekdo-images.com/original/img/3TRQR0NCkmEZrI9SQK9i0AReGfc=/0x0/pic4915930.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/9psZbJ6IJEh1-NZw5qwL5MiqKws=/fit-in/200x150/pic4915930.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 2,
+            "playingTime": 60,
+            "playerAge": 10,
+            "description": "A mob of fun-dead zombies are invading the quaint town of Brainsborough, while the pea-packing plants branch out for a battle of suburban domination!<br/><br/>Risk: Plants vs. Zombies is a two-player-only version of the decades-old Risk game, with one player controlling the plants of the wildly successful Plants vs. Zombies digital game and the other controlling the zombies. The game features a double-sided game board and three play modes: mission objectives, tower defense, and total domination.<br/><br/>",
+            "recommendedPlayers": 2,
+            "complexity": 1.6667,
+            "rating": 6.10283,
+            "suggestedPlayerAge": 6
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 66056,
-        "subType": "boardgame",
         "name": "Rivals for Catan",
         "yearPublished": 2010,
         "imageUrl": "https://cf.geekdo-images.com/original/img/bYM2AcTF4y0jXsx3BzDk6oBh0Yw=/0x0/pic3736568.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/TxQYRIEiXLkM8L-AX62qj6Vckas=/fit-in/200x150/pic3736568.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 2,
+            "playingTime": 120,
+            "playerAge": 10,
+            "description": "The Rivals for Catan is a reimplementation of Catan Card Game.<br/><br/>The Rivals for Catan was released in German in September of 2010, on the 15th anniversary of the original card game. An English edition was released in the fourth quarter of 2010. The designer of the game, Klaus Teuber, has stated that he completely reworked many of the original card game's mechanics to make it easier for newcomers to play the game.<br/><br/>Each player portrays a prince for Catan, developing their individual provinces and competing to build a more successful province than the other.  The basic mode of play is similar to the original Catan Card Game, where players expand their provinces by building settlements connected by roads.  Players may also build expansions in their settlements that aid them in various ways, or upgrade their settlements to cities to allow more expansions to be built.  They build these additions by using resources that they accumulate each turn, which are determined by the roll of a die.  Cards are drawn on each turn to replenish the players' hands.  The players may also use action cards that directly affect either their own province or their opponent's province.<br/><br/>The Rivals for Catan features a reduced pool of cards, without the more aggressive style of action cards found in the original Catan Card Game.  Therefore, all action cards will be able to be used from the beginning of the game unlike in the original card game.<br/><br/>Ways to Play:<br/>The Introductory Game focuses on the basics of the card game, featuring gameplay that is more appropriate for newcomers.  This game is played to 7 victory points and includes 36 Expansion Cards in four stacks.  This play style should take beginner players 25 to 30 minutes to play.<br/><br/>Three Theme Games add more rules, expansions, and aggressive cards.  These Theme Games may be played individually or combined to play a variant called &quot;The Duel of the Princes.&quot;  Each Theme Game adds 24 Expansion and Event Cards to the cards from the Introductory Game, which are placed in two stacks separately from the cards from the Introductory Game.  When playing a Theme Game, playtime should be around 45 to 60 minutes.<br/><br/>As with the original Catan Card Game, players can also play the Tournament Game, in which each player chooses specific cards to build their deck ahead of time from which they draw from during the game.<br/><br/>Theme:<br/>The theme of The Rivals for Catan is no longer restricted only to the feudal era of the Middle Ages like the original Catan Card Game.  The Introductory Game portrays the very early years of the world of Catan, while each Theme Game takes place in progressively later eras.  These eras are known as &quot;The Era of Gold,&quot; &quot;The Era of Turmoil,&quot; and &quot;The Era of Progress.&quot;<br/><br/>Belongs to the Catan Series.<br/><br/>",
+            "recommendedPlayers": 2,
+            "complexity": 2.3321,
+            "rating": 6.98566,
+            "suggestedPlayerAge": 10
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 199561,
-        "subType": "boardgame",
         "name": "Sagrada",
         "yearPublished": 2017,
         "imageUrl": "https://cf.geekdo-images.com/original/img/OB-txvnkk0dTMShe_5l7zkUZ2y8=/0x0/pic3525224.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/Efxb5We3kIolBOHjvnOffct-w0c=/fit-in/200x150/pic3525224.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 1,
+            "maxPlayers": 4,
+            "playingTime": 45,
+            "playerAge": 14,
+            "description": "Draft dice and use the tools-of-the-trade in Sagrada to carefully construct your stained glass window masterpiece.<br/><br/>In more detail, each player builds a stained glass window by building up a grid of dice on their player board. Each board has some restrictions on which color or shade (value) of die can be placed there. Dice of the same shade or color may never be placed next to each other. Dice are drafted in player order, with the start player rotating each round, snaking back around after the last player drafts two dice. Scoring is variable per game based on achieving various patterns and varieties of placement...as well as bonus points for dark shades of a particular hidden goal color.<br/><br/>Special tools can be used to help you break the rules by spending skill tokens; once a tool is used, it then requires more skill tokens for the other players to use them.<br/><br/>The highest scoring window artisan wins!<br/><br/>",
+            "recommendedPlayers": 2,
+            "complexity": 1.9186,
+            "rating": 7.53023,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 372,
-        "subType": "boardgame",
         "name": "Schotten Totten",
         "yearPublished": 1999,
         "imageUrl": "https://cf.geekdo-images.com/original/img/AGu9cA6dK9POOBnE07f935TSTLQ=/0x0/pic2932872.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/OQR_JpMBvXzmvOV4KbO_iDVV6_8=/fit-in/200x150/pic2932872.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 2,
+            "playingTime": 20,
+            "playerAge": 8,
+            "description": "In Schotten Totten, nine boundary stones lie between you and your opponent.  In front of each, you build poker-like formations of three cards on a side.  Whoever plays the higher-ranking formation wins the stone.  And in a unique twist, you may use your powers of logic to claim a stone even before your opponent has played all three of his cards, by demonstrating that the stone is impossible for him to win.  Successfully claim five stones, or any three adjacent stones, and you win the game.<br/><br/>In 2000 GMT published a rethemed version as Battle Line which includes an extra 10 &quot;tactics&quot; cards that modify the standard game play, and with cards that run from 1 to 10 (instead of 1 to 9).<br/><br/>The 2004 Edition of Schottentotten has these &quot;tactics&quot; cards too.<br/>Schotten-Totten FAQ.<br/><br/>",
+            "recommendedPlayers": 2,
+            "complexity": 1.7425,
+            "rating": 7.3112,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 91534,
-        "subType": "boardgame",
         "name": "Struggle for Catan",
         "yearPublished": 2011,
         "imageUrl": "https://cf.geekdo-images.com/original/img/Lf3vxVq1GZkbNIIi13sq7HuPKiI=/0x0/pic3063589.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/15V2O_hTe4JOdkPjKYiH-TtZD-E=/fit-in/200x150/pic3063589.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "playingTime": 30,
+            "playerAge": 10,
+            "description": "In 2010, designer Klaus Teuber overhauled the two-player Catan card game with the release of The Rivals for Catan &ndash; released in Germany as Die F&uuml;rsten von Catan &ndash; and in 2011 Teuber, Kosmos and Mayfair Games present a new multi-player card game set in the Catan universe: The Struggle for Catan, aka, Die Siedler von Catan: Das schnelle Kartenspiel.<br/><br/>As in the original The Settlers of Catan board game, players need to manage their resources in order to build settlements, roads, cities, city improvements and knights, all of which grant victory points (VPs) or special abilities. Control of roads and knights can change hands during the game, so don't assume that what's yours will stay yours. City improvements are expensive, but they bring you additional VPs and other bonuses, so strive to spiff up your cities! The first player to have ten VPs wins the game.<br/><br/>The game is dice-less and resource gain and exchanging is based on each player's developments making this version less luck dependent than the original. A twist in the game is that certain developments are limited and can be stolen from other players once there are no new ones left. The first player to gain 10 victory points, wins the game.<br/><br/>(Note that Kosmos lists this game with a 30-minute playing time, while Mayfair Games sets the playing time at 45-60 minutes.)<br/><br/>Mixing two copies of game, can be played with 5 and 6 players.<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.6713,
+            "rating": 6.17912,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 9209,
-        "subType": "boardgame",
         "name": "Ticket to Ride",
         "yearPublished": 2004,
         "imageUrl": "https://cf.geekdo-images.com/original/img/bOcAJxw-W-B2Gz0x67z8bjqzJgY=/0x0/pic38668.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/WRanmC5bMp81aFJHqzOi7Kcj-5g=/fit-in/200x150/pic38668.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 5,
+            "playingTime": 60,
+            "playerAge": 8,
+            "description": "With elegantly simple gameplay, Ticket to Ride can be learned in under 15 minutes. Players collect cards of various types of train cars they then use to claim railway routes in North America. The longer the routes, the more points they earn. Additional points come to those who fulfill Destination Tickets &ndash; goal cards that connect distant cities; and to the player who builds the longest continuous route.<br/><br/>&quot;The rules are simple enough to write on a train ticket &ndash; each turn you either draw more cards, claim a route, or get additional Destination Tickets,&quot; says Ticket to Ride author, Alan R. Moon. &quot;The tension comes from being forced to balance greed &ndash; adding more cards to your hand, and fear &ndash; losing a critical route to a competitor.&quot;<br/><br/>Ticket to Ride continues in the tradition of Days of Wonder's big format board games featuring high-quality illustrations and components including: an oversize board map of North America, 225 custom-molded train cars, 144 illustrated cards, and wooden scoring markers.<br/><br/>Since its introduction and numerous subsequent awards, Ticket to Ride has become the BoardGameGeek epitome of a &quot;gateway game&quot; -- simple enough to be taught in a few minutes, and with enough action and tension to keep new players involved and in the game for the duration.<br/><br/>Part of the Ticket to Ride series.<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.8518,
+            "rating": 7.42991,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 14996,
-        "subType": "boardgame",
         "name": "Ticket to Ride: Europe",
         "yearPublished": 2005,
         "imageUrl": "https://cf.geekdo-images.com/original/img/lN5ivSfgaJwEMXgyLijCtyKVUBs=/0x0/pic66668.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/eXshcW5A7ryFnyb3VwlSc8IxIgc=/fit-in/200x150/pic66668.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 5,
+            "playingTime": 60,
+            "playerAge": 8,
+            "description": "Ticket to Ride: Europe takes you on a new train adventure across Europe. From Edinburgh to Constantinople and from Lisbon to Moscow, you'll visit great cities of turn-of-the-century Europe. Like the original Ticket to Ride, the game remains elegantly simple, can be learned in 5 minutes, and appeals to both families and experienced gamers. Ticket to Ride: Europe is a complete, new game and does not require the original version.<br/><br/>More than just a new map, Ticket to Ride: Europe features brand new gameplay elements. Tunnels may require you to pay extra cards to build on them, Ferries require locomotive cards in order to claim them, and Stations allow you to sacrifice a few points in order to use an opponent's route to connect yours. The game also includes larger format cards and Train Station game pieces.<br/><br/>The overall goal remains the same: collect and play train cards in order to place your pieces on the board, attempting to connect cities on your ticket cards. Points are earned both from placing trains and completing tickets but uncompleted tickets lose you points. The player who has the most points at the end of the game wins.<br/><br/>Copyright 2002-2014 Days of Wonder, inc.<br/><br/>Part of the Ticket to Ride series.<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.9442,
+            "rating": 7.55092,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 24439,
-        "subType": "boardgame",
         "name": "Ticket to Ride: USA 1910",
         "yearPublished": 2006,
         "imageUrl": "https://cf.geekdo-images.com/original/img/-KdlixTSQ3z_yPGkZtReI8jAArI=/0x0/pic144599.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/e26tRY6C-oqDANPBOweAAXpbUzc=/fit-in/200x150/pic144599.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 5,
+            "playingTime": 60,
+            "playerAge": 8,
+            "description": "Ticket to Ride: USA 1910 is a card expansion for the original Ticket to Ride boardgame, winner of the 2004 Spiel des Jahres. It contains 181 large format cards (the same size as Ticket to Ride: Europe and Ticket to Ride: Märklin).  This includes 35 new 1910 Destination Tickets, a GlobeTrotter Bonus card for completing the most tickets, 4 Mystery Train Destination Tickets originally provided in the Ticket to Ride: Mystery Train Expansion expansion, and a complete replacement deck of the 141 cards from the original game deck (30 Destination Tickets (4 cards have a reduced value from Ticket to Ride), 110 Train Cards, and 1 Longest Route Bonus Card (Trans America Express)).<br/><br/>The rulebook is from the original game designer Alan R. Moon that gives you three additional different ways to play the game:<br/><br/>     The 1910 Rules: Played as the standard Ticket to Ride, but using only the 1910 Destination Tickets, and GlobeTrotter Bonus card.<br/>     The Big Cities Rules: Played with only the newly identified 35 &quot;Big City&quot; Destination Tickets (15 Standard Tickets, 19 1910 Tickets, and 1 Mystery Train Ticket).<br/>     The Mega Game: featuring all of the game's Destination Tickets and Bonus Cards (30 Standard Tickets, 35 1910 Tickets, 4 Mystery Train Tickets, and both Bonus cards).<br/><br/><br/><br/><br/>Part of Ticket to Ride series.<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.9058,
+            "rating": 8.00572,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 154428,
-        "subType": "boardgame",
         "name": "Trekking the National Parks",
         "yearPublished": 2014,
         "imageUrl": "https://cf.geekdo-images.com/original/img/ijWEFyX6qFiEfa4WFxqMsvqRS5g=/0x0/pic3259093.png",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/meb9eetl8gnNiqRk7ytTCVcTGHA=/fit-in/200x150/pic3259093.png",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 6,
+            "playingTime": 60,
+            "playerAge": 8,
+            "description": "Imagine yourself staring down a giant Grizzly in Katmai National Park.<br/>Take a canoe ride alongside alligators in the swampy waters of the Everglades.<br/>Trek the trails that define our nation&rsquo;s most valuable public resource &ndash; the National Parks!<br/><br/>Trekking the National Parks is a spirited family board game that lets players experience the U.S. National Parks in a fun and competitive way.<br/><br/>Up to six players compete in a cross country race to visit the National Parks and collect the most points. Gathering colored trek cards allows players to move across the map and claim valuable park cards. If a player is the first to visit a National Park, they collect that park's colored stone, which award bonus points at the end of the game. Players must jockey for position and make tough tactical decisions at every turn to emerge victorious!<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.7097,
+            "rating": 7.06984,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 234190,
-        "subType": "boardgame",
         "name": "Unstable Unicorns",
         "yearPublished": 2017,
         "imageUrl": "https://cf.geekdo-images.com/original/img/JXjU3CrzgTFZdiY6fP4zO1YPha0=/0x0/pic3912914.jpg",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/CbklqGrqng5WX5hPPP3bHTWAxrw=/fit-in/200x150/pic3912914.jpg",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 8,
+            "playingTime": 45,
+            "playerAge": 14,
+            "description": "Description from the publisher:<br/><br/>Build a Unicorn Army. Betray your friends. Unicorns are your friends now.<br/><br/>Unstable Unicorns is a strategic card game about everyone&rsquo;s two favorite things: Destruction and Unicorns!<br/><br/>From the back of the box:<br/><br/>Learn how unstable your friendships really are.<br/><br/>You start with a Baby Unicorn in your Stable. SO CUTE!<br/><br/>But don't get too attached, because even Baby Unicorns aren't safe in this game! There are over 20 Magical Unicorns to collect, and each has a special power. Build your Unicorn Army as fast as you can, or be destroyed by one of your so-called friends! Seek revenge or protect your stable using your Magic! Sound easy? Not so fast. Someone could have a Neigh Card (Get it? Neigh?) and send the game into MADNESS! The first person to complete their Unicorn Army shall hereafter be known as The Righteous Ruler of All Things Magical... at least until the next game. Good luck.<br/><br/>Contents: 135 cards and rule book<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 1.5645,
+            "rating": 6.34404,
+            "suggestedPlayerAge": 8
+        }
     },
     {
-        "objectType": "thing",
+        "objectType": "boardgame",
         "id": 232944,
-        "subType": "boardgame",
         "name": "Where in the World is Carmen Sandiego? Card Game",
         "yearPublished": 2017,
         "imageUrl": "https://cf.geekdo-images.com/original/img/BFwew_-7Dq83KWUJzYdr5GAbhC0=/0x0/pic3902270.png",
         "thumbnailUrl": "https://cf.geekdo-images.com/thumb/img/TpjzBESaw9M2JijNWp8YpEHM0WE=/fit-in/200x150/pic3902270.png",
         "owned": true,
-        "numberPlays": 0
+        "numberPlays": 0,
+        "statistics": {
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "playingTime": 50,
+            "playerAge": 8,
+            "description": "Description from the publisher:<br/><br/>Calling all ACME agents to figure out Where in the World is Carmen Sandiego?!?! Can you handle this challenge, Gumshoes? It looks like Carmen&rsquo;s gang has pulled another caper.<br/><br/>In the Where in the World is Carmen Sandiego? Card Game, you will be on a top-secret mission to recover the greatest treasures known to mankind &ndash; The Grand Canyon, the Statue of Liberty&rsquo;s Torch, and more. Get ready to jet set across the globe. Your assignment is to apprehend Carmen Sandiego, track the location of her hideout, and determine which loot she stole.<br/><br/>Gumshoes, your goal is to eliminate as many Loot, Location, and Henchman Cards as possible by finding the matching Loot and Location Cards. This will ultimately lead you to Carmen Sandiego and one Loot-Location Card set.  Just like any good detective, you must be vigilant in collecting evidence to solve this mystery. In your Top-Secret Evidence Journals, keep track of your fellow Gumshoes&rsquo; cards by writing down their Location and Loot Cards and whether they&rsquo;re at the top, center, or bottom of their piles.<br/><br/>If you do not know where Carmen is but you think you&rsquo;ve discovered matching Loot and Location Cards, call out &ldquo;I have a warrant!&rdquo; Once you zero in on Carmen&rsquo;s location, you must declare &ldquo;I have a warrant for Carmen&rsquo;s arrest.&rdquo; The first Gumshoe to make a Loot-Location match and successfully reveal Carmen wins the game. But beware, if you make an incorrect accusation, Carmen can escape!<br/><br/>",
+            "recommendedPlayers": 4,
+            "complexity": 0.0,
+            "rating": 5.52468,
+            "suggestedPlayerAge": 10
+        }
     }
 ]

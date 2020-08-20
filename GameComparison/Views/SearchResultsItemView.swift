@@ -14,7 +14,7 @@ struct SearchResultsItemView: View {
     
     var body: some View {
          HStack {
-            NavigationLink (destination: SearchDetailsView(id: self.result.id)){
+            NavigationLink (destination: SearchDetailsView(id: self.result.id, name: self.result.title)){
                 if (self.image != nil) {
                      self.image!
                      .resizable()

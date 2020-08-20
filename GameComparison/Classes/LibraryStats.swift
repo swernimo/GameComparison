@@ -14,6 +14,10 @@ class LibraryStats{
     public private(set) var avgComplexity: Double = 0
     private var libraryCount: Double
     public private(set) var avgPlayerCount: Double = 0
+    public private(set) var avgPlayerAge: Double = 0
+    public private (set) var avgPlayTime: Double = 0
+    public private(set) var avgMinPlayerCount: Double = 0
+    public private(set) var avgMaxPlayerCount: Double = 0
     
     init(from: [Game]) {
         self.library = from
@@ -21,6 +25,10 @@ class LibraryStats{
         self.avgRating = self.setAverageRating()
         self.avgComplexity = self.setAverageComplexity()
         self.avgPlayerCount = self.setAveragePlayerCount()
+        self.avgPlayerAge = self.setPlayerAge()
+        self.avgPlayTime = self.setAvgeragePlayTime()
+        self.avgMinPlayerCount = self.setAverageMinPlayerCount()
+        self.avgMaxPlayerCount = self.setAverageMaxPlayerCount()
     }
     
     private func setAverageRating() -> Double {
@@ -68,6 +76,69 @@ class LibraryStats{
             difference *= -1
         }
         return difference
+    }
+    
+    private func setPlayerAge() -> Double {
+        let ageSum = self.library.reduce(0, { a, b in
+            a + b.statistics!.suggestedPlayerAge
+        })
         
+        return Double(ageSum) / libraryCount
+    }
+    
+    func getPlayerAgeDifference(_ comparedTo: GameComparisonObject) -> Double {
+        var difference = self.avgPlayerAge - Double(comparedTo.suggestedPlayerAge)
+        if (difference < 0) {
+            difference *= -1
+        }
+        return difference
+    }
+    
+    private func setAvgeragePlayTime() -> Double {
+        let timeSum = self.library.reduce(0, { a, b in
+            a + b.statistics!.playingTime
+        })
+        
+        return Double(timeSum) / libraryCount
+    }
+    
+    func getPlayTimeDifference(_ comparedTo: GameComparisonObject) -> Double {
+        var difference = self.avgPlayTime - Double(comparedTo.playingTime)
+        if (difference < 0) {
+            difference *= -1
+        }
+        return difference
+    }
+    
+    private func setAverageMinPlayerCount() -> Double {
+        let minPlayerSum = self.library.reduce(0, { a, b in
+            a + b.statistics!.minPlayers
+        })
+        
+        return Double(minPlayerSum) / libraryCount
+    }
+    
+    func getAvgMinPlayerCount(_ comparedTo: GameComparisonObject) -> Double {
+        var difference = self.avgMinPlayerCount - Double(comparedTo.minPlayers)
+        if (difference < 0) {
+            difference *= -1
+        }
+        return difference
+    }
+    
+    private func setAverageMaxPlayerCount() -> Double {
+        let maxPlayerSum = self.library.reduce(0, { a, b in
+            a + b.statistics!.maxPlayers
+        })
+        
+        return Double(maxPlayerSum) / libraryCount
+    }
+    
+    func getAvgMaxPlayerCount(_ comparedTo: GameComparisonObject) -> Double {
+        var difference = self.avgMaxPlayerCount - Double(comparedTo.maxPlayers)
+        if (difference < 0) {
+            difference *= -1
+        }
+        return difference
     }
 }

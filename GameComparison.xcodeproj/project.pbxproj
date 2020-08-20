@@ -42,7 +42,6 @@
 		609572D224E5DA2D00EB257C /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609572D124E5DA2D00EB257C /* SearchResultsView.swift */; };
 		609572D424E62E1500EB257C /* searchResultsPreviewData.json in Resources */ = {isa = PBXBuildFile; fileRef = 609572D324E62E1500EB257C /* searchResultsPreviewData.json */; };
 		609572D624E702DD00EB257C /* SearchByTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609572D524E702DD00EB257C /* SearchByTitleView.swift */; };
-		60AF94DE24EE12F7009935FA /* gameLibrary.json in Resources */ = {isa = PBXBuildFile; fileRef = 60AF94DD24EE12F7009935FA /* gameLibrary.json */; };
 		60D6599424ECD13700E233D8 /* LibraryStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D6599324ECD13700E233D8 /* LibraryStats.swift */; };
 		60D6599624ED8A5F00E233D8 /* gamecomparison.json in Resources */ = {isa = PBXBuildFile; fileRef = 60D6599524ED8A5F00E233D8 /* gamecomparison.json */; };
 		60D6599824EDDCD100E233D8 /* ComparsionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D6599724EDDCD100E233D8 /* ComparsionRowView.swift */; };
@@ -109,7 +108,6 @@
 		609572D124E5DA2D00EB257C /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
 		609572D324E62E1500EB257C /* searchResultsPreviewData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchResultsPreviewData.json; sourceTree = "<group>"; };
 		609572D524E702DD00EB257C /* SearchByTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByTitleView.swift; sourceTree = "<group>"; };
-		60AF94DD24EE12F7009935FA /* gameLibrary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = gameLibrary.json; sourceTree = "<group>"; };
 		60D6599324ECD13700E233D8 /* LibraryStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryStats.swift; sourceTree = "<group>"; };
 		60D6599524ED8A5F00E233D8 /* gamecomparison.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = gamecomparison.json; sourceTree = "<group>"; };
 		60D6599724EDDCD100E233D8 /* ComparsionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparsionRowView.swift; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 			children = (
 				609572D324E62E1500EB257C /* searchResultsPreviewData.json */,
 				60D6599524ED8A5F00E233D8 /* gamecomparison.json */,
-				60AF94DD24EE12F7009935FA /* gameLibrary.json */,
 				6073354124D3BF8C00149440 /* collection.json */,
 			);
 			path = Data;
@@ -401,7 +398,6 @@
 				6052C14424B9077400349F49 /* Preview Assets.xcassets in Resources */,
 				6052C14124B9077400349F49 /* Assets.xcassets in Resources */,
 				609572D424E62E1500EB257C /* searchResultsPreviewData.json in Resources */,
-				60AF94DE24EE12F7009935FA /* gameLibrary.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
