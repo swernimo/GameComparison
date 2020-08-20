@@ -10,7 +10,7 @@ import SwiftUI
 import Foundation
 
 struct SearchDetailsView: View {
-    @State var game: GameComparison? = nil
+    @State var game: GameComparisonObject? = nil
     @State var id: Int
     @State var image: Image? = nil
     @State var libraryStats: LibraryStats? = nil
@@ -37,42 +37,9 @@ struct SearchDetailsView: View {
                             Text("Difference")
                             Spacer()
                         }
-                        Text("Rating")
-                        HStack{
-                            Spacer()
-                            Text("\(String(format: "%.2f", self.game!.rating))")
-                                .frame(alignment: .leading)
-                            Spacer()
-                            Text("\(String(format: "%.2f", self.libraryStats!.avgRating))")
-                            Spacer()
-                            
-                            Image(systemName: (self.game!.rating > self.libraryStats!.avgRating) ? "arrow.up" : "arrow.down")
-                                .resizable()
-                                .frame(width: 10, height: 10, alignment: .trailing)
-                                .foregroundColor((self.game!.rating > self.libraryStats!.avgRating) ? .green : .red)
-                            Text("\(String(format: "%.2f", self.libraryStats!.getRatingDifference(self.game!)))")
-                                .foregroundColor((self.game!.rating > self.libraryStats!.avgRating) ? .green : .red)
-                                .frame(alignment: .center)
-                            Spacer()
-                        }
-                        Text("Complexity")
-                        HStack{
-                            Spacer()
-                            Text("\(String(format: "%.2f", self.game!.complexity))")
-                                .frame(alignment: .leading)
-                            Spacer()
-                            Text("\(String(format: "%.2f", self.libraryStats!.avgComplexity))")
-                            Spacer()
-                            
-                            Image(systemName: (self.game!.complexity > self.libraryStats!.avgComplexity) ? "arrow.up" : "arrow.down")
-                                .resizable()
-                                .frame(width: 10, height: 10, alignment: .trailing)
-                                .foregroundColor((self.game!.complexity > self.libraryStats!.avgComplexity) ? .green : .red)
-                            Text("\(String(format: "%.2f", self.libraryStats!.getComplexityDifference(self.game!)))")
-                                .foregroundColor((self.game!.complexity > self.libraryStats!.avgComplexity) ? .green : .red)
-                                .frame(alignment: .center)
-                            Spacer()
-                        }
+                        ComparsionRowView(sectionName: "Rating", gameValue: self.game!.rating, libraryAverage: self.libraryStats!.avgRating, difference: self.libraryStats!.getRatingDifference(self.game!))
+                        ComparsionRowView(sectionName: "Complexity", gameValue: self.game!.complexity, libraryAverage: self.libraryStats!.avgComplexity, difference: self.libraryStats!.getComplexityDifference(self.game!))
+                        ComparsionRowView(sectionName: "Player Count", displayFormat: "%0.f", gameValue: Double(self.game!.recommendedPlayers), libraryAverage: self.libraryStats!.avgPlayerCount, difference: self.libraryStats!.getPlayerCountDifference(self.game!))
                     }
                 }
             }.onAppear(perform: {

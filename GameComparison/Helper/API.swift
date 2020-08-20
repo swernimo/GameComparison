@@ -215,14 +215,14 @@ class API {
         }
     }
     
-    static func searchById(gameId: Int, completion: @escaping (GameComparison?) -> Void){
+    static func searchById(gameId: Int, completion: @escaping (GameComparisonObject?) -> Void){
         let url = "\(baseURL)/GetGameDetails/\(gameId)?code=crYQF4zV6K76qVi8MDa3aoTXbvHfiW6MkizmtPeeVxSly1gnh1Qc2g=="
         NetworkService.shared.request(url, completion: { result in
             switch (result) {
             case .success(let data):
                 do {
                     let decoder = JSONDecoder()
-                    let result = try decoder.decode(GameComparison.self, from: data)
+                    let result = try decoder.decode(GameComparisonObject.self, from: data)
                     completion(result)
                 }catch{
                     print("Error unpacking get game details. Error: \(error)")

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GameComparison: Codable {
+class GameComparisonObject: Codable {
     public var id: Int
     public var name: String
     public var objectType: String
