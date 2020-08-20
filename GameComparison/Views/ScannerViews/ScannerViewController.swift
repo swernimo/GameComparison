@@ -7,9 +7,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var searchResults: SearchResultObersable = SearchResultObersable()
-
+    var searchResultsView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+                    
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipe))
+        swipeDown.direction = UISwipeGestureRecognizer.Direction.down
+        self.view.addGestureRecognizer(swipeDown)
 
         view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
@@ -86,7 +91,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
 
     func found(code: String) {
-        //TODO: make this observable
         API.searchByUPC(code, completion: { result in
             if let result = result {
                 if (result.count == 0) {
@@ -95,13 +99,15 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                    }
                 } else {
                     self.captureSession.startRunning()
-                    self.searchResults.results = result
-                    self.displaySearchResults()
+                    if(self.searchResultsView == nil) {
+                        self.searchResults.results = result
+                        self.displaySearchResults()
+                    }
                 }
             }
         })
     }
-    //TODO: move result funcs to SwiftUI views
+    
     private func displayCodeNotFoundAlert(upc: String) -> Void {
         let ac = UIAlertController(title:"Game Not Found", message: "Please search by game title", preferredStyle: .alert)
         let searchAction = UIAlertAction(title: "Search", style: .default, handler: { _ in
@@ -137,12 +143,33 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     private func displaySearchResults() -> Void{
         //TODO: if only 1 search result is found go straight to detail page
-        self.captureSession.stopRunning()
         let resultsView = SearchResultsView()
         .environmentObject(self.searchResults)
         let host = UIHostingController(rootView: resultsView)
         DispatchQueue.main.async {
-            self.present(host, animated: false)
+            host.view.translatesAutoresizingMaskIntoConstraints = true
+            host.view.frame = self.view.frame.offsetBy(dx: 0, dy: (self.view.frame.height * 0.5))
+            self.searchResultsView = host.view
+            self.view.addSubview(self.searchResultsView )
+            self.addChild(host)
+        }
+    }
+    
+    func addSwipe() {
+        let directions: [UISwipeGestureRecognizer.Direction] = [.right, .left, .up, .down]
+        for direction in directions {
+            let gesture = UISwipeGestureRecognizer(target: self, action: Selector(("handleSwipe:")))
+            gesture.direction = direction
+            self.view.addGestureRecognizer(gesture)
+        }
+    }
+
+    @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
+        if(sender.direction == .down && self.searchResultsView != nil) {
+            DispatchQueue.main.async {
+                self.searchResultsView.removeFromSuperview()
+                self.searchResultsView = nil
+            }
         }
     }
     

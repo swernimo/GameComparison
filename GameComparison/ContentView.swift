@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var helper: ScannerHelper
     @EnvironmentObject var library: Library
     
     var appDelegate = (UIApplication.shared.delegate as? AppDelegate)
@@ -23,6 +22,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-        .environmentObject(ScannerHelper())
     }
 }

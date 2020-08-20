@@ -9,6 +9,7 @@ struct ScannerViewControllerRepresentable: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> ScannerViewController {
         let view = ScannerViewController()
+        
         view.navigationController?.setNavigationBarHidden(true, animated: false)
         return view
     }
