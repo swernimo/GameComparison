@@ -16,13 +16,11 @@ struct SearchDetailsView: View {
     @State var libraryStats: LibraryStats? = nil
     @State var name: String
     var body: some View {
+        //TODO: make scroll view work. may need to set cover image to fixed size
 //        ScrollView(.vertical, showsIndicators: true) {
             GeometryReader { geo in
                 VStack {
                     if (self.game != nil) {
-//                        self.navigationBarTitle(self.game!.name)
-//                        Text(self.game!.name)
-//                            .font(.title)
                         if(self.image != nil) {
                             self.image!
                             .resizable()
@@ -39,6 +37,7 @@ struct SearchDetailsView: View {
                                 Text("Difference")
                                 Spacer()
                             }
+                            //TODO: add padding/space between each row
                             ComparsionRowView(sectionName: "Rating", gameValue: self.game!.rating, libraryAverage: self.libraryStats!.avgRating, difference: self.libraryStats!.getRatingDifference(self.game!))
                             ComparsionRowView(sectionName: "Complexity", gameValue: self.game!.complexity, libraryAverage: self.libraryStats!.avgComplexity, difference: self.libraryStats!.getComplexityDifference(self.game!))
                             ComparsionRowView(sectionName: "Recommended Player Count", displayFormat: "%0.f", gameValue: Double(self.game!.recommendedPlayers), libraryAverage: self.libraryStats!.avgPlayerCount, difference: self.libraryStats!.getPlayerCountDifference(self.game!))

@@ -22,6 +22,7 @@ struct SearchByTitleView: View {
                     if (self.title != "") {
                         //TODO: clear existing results when searching
                         //TODO: show loading animation
+                        //TODO: search on keyboard return
                         API.searchByTitle(title: self.title, completion: { results in
                             if let results = results{
                                 DispatchQueue.main.async {

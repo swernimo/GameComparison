@@ -86,6 +86,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
 
     func found(code: String) {
+        //TODO: make this observable
         API.searchByUPC(code, completion: { result in
             if let result = result {
                 if (result.count == 0) {
@@ -100,7 +101,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             }
         })
     }
-    
+    //TODO: move result funcs to SwiftUI views
     private func displayCodeNotFoundAlert(upc: String) -> Void {
         let ac = UIAlertController(title:"Game Not Found", message: "Please search by game title", preferredStyle: .alert)
         let searchAction = UIAlertAction(title: "Search", style: .default, handler: { _ in
@@ -135,6 +136,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     private func displaySearchResults() -> Void{
+        //TODO: if only 1 search result is found go straight to detail page
         self.captureSession.stopRunning()
         let resultsView = SearchResultsView()
         .environmentObject(self.searchResults)
