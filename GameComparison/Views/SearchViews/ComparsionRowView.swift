@@ -17,28 +17,50 @@ struct ComparsionRowView: View {
     var body: some View {
         VStack{
             Text("\(self.sectionName)")
+                .font(.headline)
             HStack{
                 Spacer()
-                Text("\(String(format: displayFormat, gameValue))")
-                    .frame(alignment: .leading)
+                if (Int(gameValue) == 0){
+                    Text("-")
+                        .frame(alignment: .leading)
+                } else {
+                    Text("\(String(format: displayFormat, gameValue))")
+                        .frame(alignment: .leading)
+                }
                 Spacer()
                 Text("\(String(format: displayFormat, libraryAverage))")
                 Spacer()
-                Image(systemName: (gameValue > libraryAverage) ? "arrow.up" : "arrow.down")
-                    .resizable()
-                    .frame(width: 10, height: 10, alignment: .trailing)
-                    .foregroundColor((gameValue > libraryAverage) ? .green : .red)
-                Text("\(String(format: displayFormat, difference))")
-                    .foregroundColor((gameValue > libraryAverage) ? .green : .red)
-                    .frame(alignment: .center)
-                Spacer()
+                if (Int(gameValue) == Int(libraryAverage)) {
+                    Image(systemName: "arrow.right.arrow.left").resizable()
+                        .frame(width: 15, height: 15, alignment: .center)
+//                        .font(.body)
+                    Spacer()
+                } else {
+                    Image(systemName: (gameValue > libraryAverage) ? "arrow.up" : "arrow.down")
+                        .resizable()
+                        .frame(width: 10, height: 10, alignment: .trailing)
+                        .foregroundColor((gameValue > libraryAverage) ? .green : .red)
+                    Text("\(String(format: displayFormat, difference))")
+                        .foregroundColor((gameValue > libraryAverage) ? .green : .red)
+                        .frame(alignment: .center)
+                    Spacer()
+                }
             }
         }
+        .padding(.top, 15)
     }
 }
 
 struct ComparsionRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ComparsionRowView(sectionName: "Rating", displayFormat: "%0.2f", gameValue: 2.55, libraryAverage: 3.012, difference: 0.732)
+        VStack{
+            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.2f", gameValue: 2.55, libraryAverage: 3.012, difference: 0.732)
+            
+            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.2f", gameValue: 5.345, libraryAverage: 3.012, difference: 0.732)
+            
+            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.f", gameValue: 6.45, libraryAverage: 6.32, difference: 0.732)
+            
+            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.f", gameValue: 0, libraryAverage: 6.32, difference: 0.732)
+        }
     }
 }

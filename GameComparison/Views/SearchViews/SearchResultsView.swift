@@ -15,11 +15,11 @@ struct SearchResultsView: View {
     @State var image: Image? = nil
     var body: some View {
         List{
+            //TODO: set the line item for each time to be consisent
             ForEach(self.resultsObservable.results, id: \.id) { item in
                SearchResultsItemView(result: item)
             }
         }
-        //TODO: when navigating back to Scan Barcode page clear results
     }
 }
 
