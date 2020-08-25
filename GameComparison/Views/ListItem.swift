@@ -25,18 +25,14 @@ struct ListItem: View {
                 Spacer()
             }
         }.onAppear(perform: {
-            if let imageData = UserDefaults.standard.object(forKey: self.game.imageFilePath) as? Data {
+            ImageHelper.shared.retrieveImage(url: self.game.imageUrl, key: self.game.imageFilePath, completion: { imageData in
+                if let imageData = imageData {
                     let uiImage = UIImage(data: imageData)!
                     self.image = Image(uiImage: uiImage)
-            } else {
-                API.downloadImage(url: self.game.imageUrl, completion: { data in
-                    if (data != nil) {
-                        UserDefaults.standard.set(data, forKey: self.game.imageFilePath)
-                        let uiImage = UIImage(data: data!)!
-                        self.image = Image(uiImage: uiImage)
-                    }
-                })
-            }
+                } else {
+                    self.image = Image(systemName: "xmark.square")
+                }
+            })
         })
     }
 }

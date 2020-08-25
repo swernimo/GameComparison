@@ -48,7 +48,6 @@ func loadCollection() -> [Game] {
         
         let remoteLibrary: [Game] = json.compactMap({
             guard
-                let subType = $0["subType"] as? String,
                 let objectType = $0["objectType"] as? String,
                 let id = $0["id"] as? Int32,
                 let name = $0["name"] as? String,
@@ -69,7 +68,6 @@ func loadCollection() -> [Game] {
             else { return nil }
             
             let game = Game(context: CoreDataService.shared.context)
-            game.subtype = subType
             game.type = objectType
             game.id = id
             game.name = name

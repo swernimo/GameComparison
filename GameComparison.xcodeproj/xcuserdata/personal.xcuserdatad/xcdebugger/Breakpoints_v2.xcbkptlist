@@ -3,4 +3,70 @@
    uuid = "607D3219-C8E0-4E9F-9420-0BC6CBBA85D8"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F961F83-2B3F-44DB-BEFA-184FA1F1601E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GameComparison/Helper/API.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "getGameLibrary(username:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1F961F83-2B3F-44DB-BEFA-184FA1F1601E - 2e06622027c7b746"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameComparison.API.getGameLibrary(username: Swift.String) -&gt; ()"
+                  moduleName = "GameComparison"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/personal/Documents/GameComparison/GameComparison/Helper/API.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "472">
+               </Location>
+               <Location
+                  uuid = "1F961F83-2B3F-44DB-BEFA-184FA1F1601E - aceb6a712335c3cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Result&lt;Foundation.Data, __C.NSError&gt;) -&gt; () in GameComparison.API.getGameLibrary(username: Swift.String) -&gt; ()"
+                  moduleName = "GameComparison"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/personal/Documents/GameComparison/GameComparison/Helper/API.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "312">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E41B3D79-E0EB-4FBB-B5ED-CE26A4A3D975"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GameComparison/Helper/API.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "getGameLibrary(username:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

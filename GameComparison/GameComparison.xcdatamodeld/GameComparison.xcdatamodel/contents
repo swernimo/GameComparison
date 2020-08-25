@@ -7,7 +7,6 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="numberPlays" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="owned" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="subtype" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <attribute name="yearPublished" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="statistics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameStatistics" inverseName="game" inverseEntity="GameStatistics"/>
@@ -35,7 +34,7 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Game" positionX="-18" positionY="90" width="128" height="193"/>
+        <element name="Game" positionX="-18" positionY="90" width="128" height="178"/>
         <element name="GameStatistics" positionX="-36" positionY="36" width="128" height="193"/>
     </elements>
 </model>

@@ -50,13 +50,14 @@ struct SearchDetailsView: View {
                     API.searchById(gameId: self.id, completion: { details in
                         if let details = details {
                             self.game = details
-                            API.downloadImage(url: details.imageUrl, completion: { imageData in
-                                if let data = imageData {
-                                    guard let uiImage = UIImage(data: data)
-                                        else { return }
-                                    self.image = Image(uiImage: uiImage)
-                                }
-                            })
+                            //TODO: switch to image helper retrieve image
+//                            API.downloadImage(url: details.imageUrl, completion: { imageData in
+//                                if let data = imageData {
+//                                    guard let uiImage = UIImage(data: data)
+//                                        else { return }
+//                                    self.image = Image(uiImage: uiImage)
+//                                }
+//                            })
                         }
                     })
                     let gameLibrary = CoreDataService.shared.fetchGameLibrary()

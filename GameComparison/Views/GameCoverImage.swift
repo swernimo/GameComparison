@@ -18,12 +18,14 @@ struct GameCoverImage: View {
                 self.image
                 .resizable()
             }.onAppear(perform: {
-                if let imageData = UserDefaults.standard.object(forKey: self.imageFilePath) as? Data {
+                ImageHelper.shared.retrieveImage(url: nil, key: self.imageFilePath, completion: { imageData in
+                    if let imageData = imageData {
                         let uiImage = UIImage(data: imageData)!
                         self.image = Image(uiImage: uiImage)
-                } else {
-                    self.image = Image(systemName: "xmark.square")
-                }
+                    } else {
+                        self.image = Image(systemName: "xmark.square")
+                    }
+                })
             })
         }
     }

@@ -30,10 +30,9 @@ struct ComparsionRowView: View {
                 Spacer()
                 Text("\(String(format: displayFormat, libraryAverage))")
                 Spacer()
-                if (Int(gameValue) == Int(libraryAverage)) {
+                if (Int(gameValue) == Int(libraryAverage) && self.displayFormat == "%0.f") {
                     Image(systemName: "arrow.right.arrow.left").resizable()
                         .frame(width: 15, height: 15, alignment: .center)
-//                        .font(.body)
                     Spacer()
                 } else {
                     Image(systemName: (gameValue > libraryAverage) ? "arrow.up" : "arrow.down")

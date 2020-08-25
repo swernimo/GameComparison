@@ -13,11 +13,35 @@ import SwiftUI
 struct SearchResultsView: View {
     @EnvironmentObject var resultsObservable: SearchResultObersable
     @State var image: Image? = nil
+    @State var showCloseButton: Bool = false
+    @State var closeBtnCallback: (() -> ())? = nil
     var body: some View {
-        List{
-            //TODO: set the line item for each time to be consisent
-            ForEach(self.resultsObservable.results, id: \.id) { item in
-               SearchResultsItemView(result: item)
+        GeometryReader { geo in
+            VStack{
+                if(self.showCloseButton) {
+                    HStack{
+                        Button(action: ({
+                            guard let closure = self.closeBtnCallback
+                                else { return }
+                            closure()
+                        })) {
+                            Image(systemName: "xmark.circle")
+                                .imageScale(.medium)
+                                .font(.title)
+                                .foregroundColor(.black)
+                        }
+                        .padding(.trailing, 15)
+                        .padding(.top, 10)
+                    }
+                    .frame(width: geo.size.width, height: (geo.size.height * 0.05), alignment: .trailing)
+                .frame(minWidth: 15)
+                }
+                List{
+                    ForEach(self.resultsObservable.results, id: \.id) { item in
+                       SearchResultsItemView(result: item)
+                        .frame(width: geo.size.width, height: 110, alignment: .leading)
+                    }
+                }.frame(minWidth: 100, minHeight: 100, alignment: .leading)
             }
         }
     }
@@ -25,7 +49,7 @@ struct SearchResultsView: View {
 
 struct SearchResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResultsView()
-        .environmentObject(SearchResultObersable())
+        SearchResultsView(showCloseButton: true)
+            .environmentObject(SearchResultObersable())
     }
 }

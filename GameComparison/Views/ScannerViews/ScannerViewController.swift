@@ -11,10 +11,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                    
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipe))
-        swipeDown.direction = UISwipeGestureRecognizer.Direction.down
-        self.view.addGestureRecognizer(swipeDown)
 
         view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
@@ -143,7 +139,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     private func displaySearchResults() -> Void{
         //TODO: if only 1 search result is found go straight to detail page
-        let resultsView = SearchResultsView()
+        let resultsView = SearchResultsView(showCloseButton: true, closeBtnCallback: {
+            self.searchResultsView.removeFromSuperview()
+        })
         .environmentObject(self.searchResults)
         let host = UIHostingController(rootView: resultsView)
         DispatchQueue.main.async {
@@ -152,24 +150,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             self.searchResultsView = host.view
             self.view.addSubview(self.searchResultsView )
             self.addChild(host)
-        }
-    }
-    
-    func addSwipe() {
-        let directions: [UISwipeGestureRecognizer.Direction] = [.right, .left, .up, .down]
-        for direction in directions {
-            let gesture = UISwipeGestureRecognizer(target: self, action: Selector(("handleSwipe:")))
-            gesture.direction = direction
-            self.view.addGestureRecognizer(gesture)
-        }
-    }
-
-    @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
-        if(sender.direction == .down && self.searchResultsView != nil) {
-            DispatchQueue.main.async {
-                self.searchResultsView.removeFromSuperview()
-                self.searchResultsView = nil
-            }
         }
     }
     
