@@ -80,7 +80,6 @@ class API {
                         let alreadySaved = savedLibrary.contains(where: {
                             return $0.id == remote.id
                         })
-//TODO: BUG. App not showing new items first time they are downloaded
                         if (alreadySaved == false) {
                             DispatchQueue.main.async {
                                 self.gameLibrary.library.append(remote)

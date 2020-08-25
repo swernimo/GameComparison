@@ -14,6 +14,8 @@ struct ComparsionRowView: View {
     @State var gameValue: Double
     @State var libraryAverage: Double
     @State var difference: Double
+    @State var goodColor: Color = .green
+    @State var badColor: Color = .red
     var body: some View {
         VStack{
             Text("\(self.sectionName)")
@@ -38,9 +40,9 @@ struct ComparsionRowView: View {
                     Image(systemName: (gameValue > libraryAverage) ? "arrow.up" : "arrow.down")
                         .resizable()
                         .frame(width: 10, height: 10, alignment: .trailing)
-                        .foregroundColor((gameValue > libraryAverage) ? .green : .red)
+                        .foregroundColor((gameValue < libraryAverage) ? self.goodColor : self.badColor)
                     Text("\(String(format: displayFormat, difference))")
-                        .foregroundColor((gameValue > libraryAverage) ? .green : .red)
+                        .foregroundColor((gameValue < libraryAverage) ? self.goodColor : self.badColor)
                         .frame(alignment: .center)
                     Spacer()
                 }
@@ -53,13 +55,15 @@ struct ComparsionRowView: View {
 struct ComparsionRowView_Previews: PreviewProvider {
     static var previews: some View {
         VStack{
-            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.2f", gameValue: 2.55, libraryAverage: 3.012, difference: 0.732)
+            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.2f", gameValue: 2.55, libraryAverage: 3.012, difference: 0.732, goodColor: .red, badColor: .green)
             
             ComparsionRowView(sectionName: "Rating", displayFormat: "%0.2f", gameValue: 5.345, libraryAverage: 3.012, difference: 0.732)
             
             ComparsionRowView(sectionName: "Rating", displayFormat: "%0.f", gameValue: 6.45, libraryAverage: 6.32, difference: 0.732)
             
             ComparsionRowView(sectionName: "Rating", displayFormat: "%0.f", gameValue: 0, libraryAverage: 6.32, difference: 0.732)
+            
+            ComparsionRowView(sectionName: "Complexity", displayFormat: "%0.2f", gameValue: 5.345, libraryAverage: 3.012, difference: 0.732)
         }
     }
 }

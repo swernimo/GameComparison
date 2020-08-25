@@ -36,7 +36,8 @@ struct SearchDetailsView: View {
                                     Text("Difference")
                                     Spacer()
                                 }
-                                ComparsionRowView(sectionName: "Rating", gameValue: self.game!.rating, libraryAverage: self.libraryStats!.avgRating, difference: self.libraryStats!.getRatingDifference(self.game!))
+                                ComparsionRowView(sectionName: "Rating", gameValue: self.game!.rating, libraryAverage: self.libraryStats!.avgRating, difference: self.libraryStats!.getRatingDifference(self.game!),
+                                                  goodColor: .red, badColor: .green)
                                 ComparsionRowView(sectionName: "Complexity", gameValue: self.game!.complexity, libraryAverage: self.libraryStats!.avgComplexity, difference: self.libraryStats!.getComplexityDifference(self.game!))
                                 ComparsionRowView(sectionName: "Recommended Player Count", displayFormat: "%0.f", gameValue: Double(self.game!.recommendedPlayers), libraryAverage: self.libraryStats!.avgPlayerCount, difference: self.libraryStats!.getPlayerCountDifference(self.game!))
                                 ComparsionRowView(sectionName: "Recommended Player Age", displayFormat: "%0.f", gameValue: Double(self.game!.suggestedPlayerAge), libraryAverage: self.libraryStats!.avgPlayerAge, difference: self.libraryStats!.getPlayerAgeDifference(self.game!))
@@ -50,14 +51,14 @@ struct SearchDetailsView: View {
                     API.searchById(gameId: self.id, completion: { details in
                         if let details = details {
                             self.game = details
-                            //TODO: switch to image helper retrieve image
-//                            API.downloadImage(url: details.imageUrl, completion: { imageData in
-//                                if let data = imageData {
-//                                    guard let uiImage = UIImage(data: data)
-//                                        else { return }
-//                                    self.image = Image(uiImage: uiImage)
-//                                }
-//                            })
+                            ImageHelper.shared.retrieveImage(url: self.game!.imageUrl, key: "\(self.game!.id)", completion: { imageData in
+                                if let imageData = imageData {
+                                    let uiImage = UIImage(data: imageData)!
+                                    self.image = Image(uiImage: uiImage)
+                                } else {
+                                    self.image = Image(systemName: "xmark.square")
+                                }
+                            })
                         }
                     })
                     let gameLibrary = CoreDataService.shared.fetchGameLibrary()
