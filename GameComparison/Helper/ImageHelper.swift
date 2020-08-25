@@ -61,4 +61,14 @@ class ImageHelper {
             })
         }
     }
+    
+    func deleteImage(forKey key: String) -> Void {
+        if let filePath = self.filePath(forKey: key) {
+            do{
+                try FileManager.default.removeItem(at: filePath)
+            }catch{
+                print("Error trying to delete image from disk with error \(error)")
+            }
+        }
+    }
 }

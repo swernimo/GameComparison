@@ -87,16 +87,18 @@ class API {
                             }
                         }
                     }
-                    //MARK: TODO: remove items from saved library that are no longer present in remote collection
-//                    for saved in remoteLibrary {
-//                        let deleted = remoteLibrary.contains(where: { $0.id == saved.id})
-//                        
-//                        if(deleted == false) {
-//                            self.gameLibrary.library.removeAll(where: { $0.id == saved.id})
-//                            print(saved)
-                    //delete image from disk
-//                        }
-//                    }
+                    
+                    for saved in self.gameLibrary.library {
+                        let deleted = !remoteLibrary.contains(where: { $0.id == saved.id})
+                        if(deleted) {
+                            print("Game \(saved.name) has been deleted")
+                            DispatchQueue.main.async {
+                                self.gameLibrary.library.removeAll(where: { $0.id == saved.id})
+                            }
+                            CoreDataService.shared.context.delete(saved)
+                            ImageHelper.shared.deleteImage(forKey: "\(saved.id)")
+                        }
+                    }
                 } catch {
                     print(error)
                 }
