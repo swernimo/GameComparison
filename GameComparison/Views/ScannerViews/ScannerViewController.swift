@@ -8,6 +8,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var previewLayer: AVCaptureVideoPreviewLayer!
     var searchResults: SearchResultObersable = SearchResultObersable()
     var searchResultsView: UIView!
+    var foundCodeCallback: ((_ code: String?) -> ())? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,21 +88,25 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
 
     func found(code: String) {
-        API.searchByUPC(code, completion: { result in
-            if let result = result {
-                if (result.count == 0) {
-                   DispatchQueue.main.async {
-                    self.displayCodeNotFoundAlert(upc: code)
-                   }
-                } else {
-                    self.captureSession.startRunning()
-                    if(self.searchResultsView == nil) {
-                        self.searchResults.results = result
-                        self.displaySearchResults()
+        if (foundCodeCallback != nil) {
+            self.foundCodeCallback!(code)
+        } else {
+            API.searchByUPC(code, completion: { result in
+                if let result = result {
+                    if (result.count == 0) {
+                       DispatchQueue.main.async {
+                        self.displayCodeNotFoundAlert(upc: code)
+                       }
+                    } else {
+                        self.captureSession.startRunning()
+                        if(self.searchResultsView == nil) {
+                            self.searchResults.results = result
+                            self.displaySearchResults()
+                        }
                     }
                 }
-            }
-        })
+            })
+        }
     }
     
     private func displayCodeNotFoundAlert(upc: String) -> Void {
@@ -138,7 +143,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     private func displaySearchResults() -> Void{
-        //TODO: if only 1 search result is found go straight to detail page
         let resultsView = SearchResultsView(showCloseButton: true, closeBtnCallback: {
             self.searchResultsView.removeFromSuperview()
         })
