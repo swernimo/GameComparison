@@ -212,4 +212,8 @@ class API {
             }
         })
     }
+    
+    static func addBarcode(game: Game, barcode: String) -> Void {
+        
+    }
 }
