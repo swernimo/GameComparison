@@ -14,7 +14,7 @@ class NetworkService {
     private init() {}
     static let shared = NetworkService()
     
-    func request(_ urlPath: String?, completion: @escaping (Result<Data, NSError>) -> Void ) {
+    func get(_ urlPath: String?, completion: @escaping (Result<Data, NSError>) -> Void ) {
         guard let url = URL(string: urlPath!) else { return }
         let session = URLSession.shared
         
@@ -27,6 +27,23 @@ class NetworkService {
                 completion(.failure(error as NSError))
             }
         })
+        task.resume()
+    }
+    
+    func post(_ urlPath: String?, completion: @escaping (Result<Data, NSError>) -> Void ) {
+        guard let url = URL(string: urlPath!) else { return }
+        let session = URLSession.shared
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let task = session.dataTask(with: request, completionHandler: { data, response, error in
+            if let d = data {
+                completion(.success(d))
+            } else if let error = error {
+                completion(.failure(error as NSError))
+            }
+        })
+        
         task.resume()
     }
 }

@@ -66,11 +66,12 @@ struct ListDetail: View {
         })
             .alert(isPresented: $showAlert, content: {
             Alert(title: Text("Add Barcode"), message: Text("Is \(self.barcode) for \(self.game.name)"), primaryButton: .default(Text("Yes"), action: {
-                API.addBarcode(game: self.game, barcode: self.barcode)
+                API.addBarcode(game: self.game, barcode: self.barcode, completion: { _ in
+                })
                 self.addBarcode = false
                 self.showAlert = false
             }), secondaryButton: .cancel(Text("No"), action: {
-                self.addBarcode = true
+                self.addBarcode = false
                 self.showAlert = false
             })
         )})

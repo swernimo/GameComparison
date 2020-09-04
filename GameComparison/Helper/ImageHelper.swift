@@ -48,7 +48,7 @@ class ImageHelper {
             print("Error download image cannot be nil")
             completion(nil)
         } else {
-            NetworkService.shared.request(url!, completion: { result in
+            NetworkService.shared.get(url!, completion: { result in
                 switch result {
                 case .success(let data):
                     completion(data)
