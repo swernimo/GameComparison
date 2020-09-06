@@ -16,54 +16,69 @@ struct ComparsionRowView: View {
     @State var difference: Double
     @State var goodColor: Color = .green
     @State var badColor: Color = .red
+    @State private var addBarcode: Bool = false
+    @State var gameId: Int32
+    @State var gameName: String
+    
     var body: some View {
-        VStack{
-            Text("\(self.sectionName)")
-                .font(.headline)
-            HStack{
-                Spacer()
-                if (Int(gameValue) == 0){
-                    Text("-")
-                        .frame(alignment: .leading)
-                } else {
-                    Text("\(String(format: displayFormat, gameValue))")
-                        .frame(alignment: .leading)
+//        GeometryReader { geo in
+            ZStack {
+                VStack{
+                        Text("\(self.sectionName)")
+                            .font(.headline)
+                        HStack{
+                            Spacer()
+                            if (Int(self.gameValue) == 0){
+                                Text("-")
+                                .frame(alignment: .leading)
+                            } else {
+                                Text("\(String(format: self.displayFormat, self.gameValue))")
+                                .frame(alignment: .leading)
+                            }
+                            Spacer()
+                            Text("\(String(format: self.displayFormat, self.libraryAverage))")
+                            Spacer()
+                            if (Int(self.gameValue) == Int(self.libraryAverage) && self.displayFormat == "%0.f") {
+                                Image(systemName: "arrow.right.arrow.left").resizable()
+                                    .frame(width: 15, height: 15, alignment: .center)
+                                Spacer()
+                            } else {
+                                Image(systemName: (self.gameValue > self.libraryAverage) ? "arrow.up" : "arrow.down")
+                                    .resizable()
+                                    .frame(width: 10, height: 10, alignment: .trailing)
+                                    .foregroundColor((self.gameValue < self.libraryAverage) ? self.goodColor : self.badColor)
+                                Text("\(String(format: self.displayFormat, self.difference))")
+                                    .foregroundColor((self.gameValue < self.libraryAverage) ? self.goodColor : self.badColor)
+                                    .frame(alignment: .center)
+                                Spacer()
+                            }
+                        }
+        //            }
                 }
-                Spacer()
-                Text("\(String(format: displayFormat, libraryAverage))")
-                Spacer()
-                if (Int(gameValue) == Int(libraryAverage) && self.displayFormat == "%0.f") {
-                    Image(systemName: "arrow.right.arrow.left").resizable()
-                        .frame(width: 15, height: 15, alignment: .center)
-                    Spacer()
-                } else {
-                    Image(systemName: (gameValue > libraryAverage) ? "arrow.up" : "arrow.down")
-                        .resizable()
-                        .frame(width: 10, height: 10, alignment: .trailing)
-                        .foregroundColor((gameValue < libraryAverage) ? self.goodColor : self.badColor)
-                    Text("\(String(format: displayFormat, difference))")
-                        .foregroundColor((gameValue < libraryAverage) ? self.goodColor : self.badColor)
-                        .frame(alignment: .center)
-                    Spacer()
-                }
-            }
+                .padding(.top, 15)
+                .navigationBarItems(trailing: Button(action: {
+                    self.addBarcode.toggle()
+                }){
+                  Image(systemName: "barcode.viewfinder")
+                   .imageScale(.small)
+                   .font(.title)
+                })
         }
-        .padding(.top, 15)
     }
 }
 
 struct ComparsionRowView_Previews: PreviewProvider {
     static var previews: some View {
         VStack{
-            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.2f", gameValue: 2.55, libraryAverage: 3.012, difference: 0.732, goodColor: .red, badColor: .green)
+            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.2f", gameValue: 2.55, libraryAverage: 3.012, difference: 0.732, goodColor: .red, badColor: .green, gameId: -1, gameName: "Name")
             
-            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.2f", gameValue: 5.345, libraryAverage: 3.012, difference: 0.732)
+            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.2f", gameValue: 5.345, libraryAverage: 3.012, difference: 0.732, gameId: -1, gameName: "Name")
             
-            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.f", gameValue: 6.45, libraryAverage: 6.32, difference: 0.732)
+            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.f", gameValue: 6.45, libraryAverage: 6.32, difference: 0.732, gameId: -1, gameName: "Name")
             
-            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.f", gameValue: 0, libraryAverage: 6.32, difference: 0.732)
+            ComparsionRowView(sectionName: "Rating", displayFormat: "%0.f", gameValue: 0, libraryAverage: 6.32, difference: 0.732, gameId: -1, gameName: "Name")
             
-            ComparsionRowView(sectionName: "Complexity", displayFormat: "%0.2f", gameValue: 5.345, libraryAverage: 3.012, difference: 0.732)
+            ComparsionRowView(sectionName: "Complexity", displayFormat: "%0.2f", gameValue: 5.345, libraryAverage: 3.012, difference: 0.732, gameId: -1, gameName: "Name")
         }
     }
 }

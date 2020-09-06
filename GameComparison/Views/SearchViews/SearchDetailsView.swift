@@ -37,13 +37,20 @@ struct SearchDetailsView: View {
                                     Spacer()
                                 }
                                 ComparsionRowView(sectionName: "Rating", gameValue: self.game!.rating, libraryAverage: self.libraryStats!.avgRating, difference: self.libraryStats!.getRatingDifference(self.game!),
-                                                  goodColor: .red, badColor: .green)
-                                ComparsionRowView(sectionName: "Complexity", gameValue: self.game!.complexity, libraryAverage: self.libraryStats!.avgComplexity, difference: self.libraryStats!.getComplexityDifference(self.game!))
-                                ComparsionRowView(sectionName: "Recommended Player Count", displayFormat: "%0.f", gameValue: Double(self.game!.recommendedPlayers), libraryAverage: self.libraryStats!.avgPlayerCount, difference: self.libraryStats!.getPlayerCountDifference(self.game!))
-                                ComparsionRowView(sectionName: "Recommended Player Age", displayFormat: "%0.f", gameValue: Double(self.game!.suggestedPlayerAge), libraryAverage: self.libraryStats!.avgPlayerAge, difference: self.libraryStats!.getPlayerAgeDifference(self.game!))
-                                ComparsionRowView(sectionName: "Play Time", displayFormat: "%0.f", gameValue: Double(self.game!.playingTime), libraryAverage: self.libraryStats!.avgPlayTime, difference: self.libraryStats!.getPlayTimeDifference(self.game!))
-                                ComparsionRowView(sectionName: "Min Players", displayFormat: "%0.f", gameValue: Double(self.game!.minPlayers), libraryAverage: self.libraryStats!.avgMinPlayerCount, difference: self.libraryStats!.getAvgMinPlayerCount(self.game!))
-                                ComparsionRowView(sectionName: "Max Players", displayFormat: "%0.f", gameValue: Double(self.game!.maxPlayers), libraryAverage: self.libraryStats!.avgMaxPlayerCount, difference: self.libraryStats!.getAvgMaxPlayerCount(self.game!))
+                                                  goodColor: .red, badColor: .green, gameId: Int32(self.game!.id), gameName: self.game!.name)
+                            
+                                ComparsionRowView(sectionName: "Complexity", gameValue: self.game!.complexity, libraryAverage: self.libraryStats!.avgComplexity, difference: self.libraryStats!.getComplexityDifference(self.game!), gameId: Int32(self.game!.id), gameName: self.game!.name)
+                            
+                                ComparsionRowView(sectionName: "Recommended Player Count", displayFormat: "%0.f", gameValue: Double(self.game!.recommendedPlayers), libraryAverage: self.libraryStats!.avgPlayerCount, difference: self.libraryStats!.getPlayerCountDifference(self.game!), gameId: Int32(self.game!.id), gameName: self.game!.name)
+                            
+                                ComparsionRowView(sectionName: "Recommended Player Age", displayFormat: "%0.f", gameValue: Double(self.game!.suggestedPlayerAge), libraryAverage: self.libraryStats!.avgPlayerAge, difference: self.libraryStats!.getPlayerAgeDifference(self.game!), gameId: Int32(self.game!.id), gameName: self.game!.name)
+                        
+                                ComparsionRowView(sectionName: "Play Time", displayFormat: "%0.f", gameValue: Double(self.game!.playingTime), libraryAverage: self.libraryStats!.avgPlayTime, difference: self.libraryStats!.getPlayTimeDifference(self.game!), gameId: Int32(self.game!.id), gameName: self.game!.name)
+                           
+                                ComparsionRowView(sectionName: "Min Players", displayFormat: "%0.f", gameValue: Double(self.game!.minPlayers), libraryAverage: self.libraryStats!.avgMinPlayerCount, difference: self.libraryStats!.getAvgMinPlayerCount(self.game!), gameId: Int32(self.game!.id), gameName: self.game!.name)
+                           
+                                ComparsionRowView(sectionName: "Max Players", displayFormat: "%0.f", gameValue: Double(self.game!.maxPlayers), libraryAverage: self.libraryStats!.avgMaxPlayerCount, difference: self.libraryStats!.getAvgMaxPlayerCount(self.game!), gameId: Int32(self.game!.id), gameName: self.game!.name)
+                                
                             }
                         }
                     }

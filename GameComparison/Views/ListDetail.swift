@@ -11,8 +11,6 @@ import SwiftUI
 struct ListDetail: View {
     @State var game: Game
     @State private var addBarcode: Bool = false
-    @State private var barcode = ""
-    @State private var showAlert: Bool = false;
     
     var body: some View {
         GeometryReader { geo in
@@ -48,10 +46,9 @@ struct ListDetail: View {
                     }
                 }
                 if (self.addBarcode) {
-                    AddBarcodeView(codeFoundCallback: { code in
-                        self.barcode = code!
-                        self.showAlert = true
-                    })
+                    AddBarcodeView(completeCallback: {
+                        self.addBarcode = false
+                    }, gameId: self.game.id, name: self.game.name)
                     .transition(.move(edge: .bottom))
                     .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
                 }
@@ -64,17 +61,7 @@ struct ListDetail: View {
            .imageScale(.small)
            .font(.title)
         })
-            .alert(isPresented: $showAlert, content: {
-            Alert(title: Text("Add Barcode"), message: Text("Is \(self.barcode) for \(self.game.name)"), primaryButton: .default(Text("Yes"), action: {
-                API.addBarcode(game: self.game, barcode: self.barcode, completion: { _ in
-                })
-                self.addBarcode = false
-                self.showAlert = false
-            }), secondaryButton: .cancel(Text("No"), action: {
-                self.addBarcode = false
-                self.showAlert = false
-            })
-        )})
+            
     }
 }
 

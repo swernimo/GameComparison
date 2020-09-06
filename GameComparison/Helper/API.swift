@@ -212,8 +212,8 @@ class API {
         })
     }
     
-    static func addBarcode(game: Game, barcode: String, completion: @escaping (Bool) -> Void) -> Void {
-        let url = "\(baseURL)/AddBarcode/\(game.id)/\(barcode)/?code=aQ2L5SLf73NubCvMG8IYL5oMjFvRPBpCbSOp3YK22mfS9y6aPnlKRA=="
+    static func addBarcode(gameId: Int32, barcode: String, completion: @escaping (Bool) -> Void) -> Void {
+        let url = "\(baseURL)/AddBarcode/\(gameId)/\(barcode)/?code=aQ2L5SLf73NubCvMG8IYL5oMjFvRPBpCbSOp3YK22mfS9y6aPnlKRA=="
         NetworkService.shared.post(url, completion: { result in
             switch (result) {
             case .success(_):
