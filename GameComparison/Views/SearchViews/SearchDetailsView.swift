@@ -81,9 +81,15 @@ struct SearchDetailsView: View {
                 .navigationBarItems(trailing: Button(action: {
                     self.addBarcode.toggle()
                 }){
-                  Image(systemName: "barcode.viewfinder")
-                   .imageScale(.small)
-                   .font(.title)
+                    if (self.addBarcode) {
+                        Image(systemName: "xmark.circle")
+                         .imageScale(.small)
+                         .font(.title)
+                    } else {
+                        Image(systemName: "barcode.viewfinder")
+                         .imageScale(.small)
+                         .font(.title)
+                    }
                 })
         }
     }
