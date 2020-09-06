@@ -15,6 +15,7 @@ struct SearchDetailsView: View {
     @State var image: Image? = nil
     @State var libraryStats: LibraryStats? = nil
     @State var name: String
+    @State private var addBarcode: Bool = false
     var body: some View {
             GeometryReader { geo in
                     VStack {
@@ -26,32 +27,37 @@ struct SearchDetailsView: View {
                                     .frame(width: (geo.size.width * 0.8), height: (geo.size.height * 0.4), alignment: .center)
                                     .aspectRatio(contentMode: ContentMode.fit)
                             }
-                            VStack{
-                                HStack{
-                                    Spacer()
-                                    Text("This Game")
-                                    Spacer()
-                                    Text("Your Library Average")
-                                    Spacer()
-                                    Text("Difference")
-                                    Spacer()
-                                }
-                                ComparsionRowView(sectionName: "Rating", gameValue: self.game!.rating, libraryAverage: self.libraryStats!.avgRating, difference: self.libraryStats!.getRatingDifference(self.game!),
-                                                  goodColor: .red, badColor: .green, gameId: Int32(self.game!.id), gameName: self.game!.name)
-                            
-                                ComparsionRowView(sectionName: "Complexity", gameValue: self.game!.complexity, libraryAverage: self.libraryStats!.avgComplexity, difference: self.libraryStats!.getComplexityDifference(self.game!), gameId: Int32(self.game!.id), gameName: self.game!.name)
-                            
-                                ComparsionRowView(sectionName: "Recommended Player Count", displayFormat: "%0.f", gameValue: Double(self.game!.recommendedPlayers), libraryAverage: self.libraryStats!.avgPlayerCount, difference: self.libraryStats!.getPlayerCountDifference(self.game!), gameId: Int32(self.game!.id), gameName: self.game!.name)
-                            
-                                ComparsionRowView(sectionName: "Recommended Player Age", displayFormat: "%0.f", gameValue: Double(self.game!.suggestedPlayerAge), libraryAverage: self.libraryStats!.avgPlayerAge, difference: self.libraryStats!.getPlayerAgeDifference(self.game!), gameId: Int32(self.game!.id), gameName: self.game!.name)
-                        
-                                ComparsionRowView(sectionName: "Play Time", displayFormat: "%0.f", gameValue: Double(self.game!.playingTime), libraryAverage: self.libraryStats!.avgPlayTime, difference: self.libraryStats!.getPlayTimeDifference(self.game!), gameId: Int32(self.game!.id), gameName: self.game!.name)
-                           
-                                ComparsionRowView(sectionName: "Min Players", displayFormat: "%0.f", gameValue: Double(self.game!.minPlayers), libraryAverage: self.libraryStats!.avgMinPlayerCount, difference: self.libraryStats!.getAvgMinPlayerCount(self.game!), gameId: Int32(self.game!.id), gameName: self.game!.name)
-                           
-                                ComparsionRowView(sectionName: "Max Players", displayFormat: "%0.f", gameValue: Double(self.game!.maxPlayers), libraryAverage: self.libraryStats!.avgMaxPlayerCount, difference: self.libraryStats!.getAvgMaxPlayerCount(self.game!), gameId: Int32(self.game!.id), gameName: self.game!.name)
-                                
+                            HStack{
+                                Spacer()
+                                Text("This Game")
+                                Spacer()
+                                Text("Your Library Average")
+                                Spacer()
+                                Text("Difference")
+                                Spacer()
                             }
+                            ComparsionRowView(sectionName: "Rating", gameValue: self.game!.rating, libraryAverage: self.libraryStats!.avgRating, difference: self.libraryStats!.getRatingDifference(self.game!),
+                                              goodColor: .red, badColor: .green)
+                        
+                            ComparsionRowView(sectionName: "Complexity", gameValue: self.game!.complexity, libraryAverage: self.libraryStats!.avgComplexity, difference: self.libraryStats!.getComplexityDifference(self.game!))
+                        
+                            ComparsionRowView(sectionName: "Recommended Player Count", displayFormat: "%0.f", gameValue: Double(self.game!.recommendedPlayers), libraryAverage: self.libraryStats!.avgPlayerCount, difference: self.libraryStats!.getPlayerCountDifference(self.game!))
+                        
+                            ComparsionRowView(sectionName: "Recommended Player Age", displayFormat: "%0.f", gameValue: Double(self.game!.suggestedPlayerAge), libraryAverage: self.libraryStats!.avgPlayerAge, difference: self.libraryStats!.getPlayerAgeDifference(self.game!))
+                    
+                            ComparsionRowView(sectionName: "Play Time", displayFormat: "%0.f", gameValue: Double(self.game!.playingTime), libraryAverage: self.libraryStats!.avgPlayTime, difference: self.libraryStats!.getPlayTimeDifference(self.game!))
+                       
+                            ComparsionRowView(sectionName: "Min Players", displayFormat: "%0.f", gameValue: Double(self.game!.minPlayers), libraryAverage: self.libraryStats!.avgMinPlayerCount, difference: self.libraryStats!.getAvgMinPlayerCount(self.game!))
+                       
+                            ComparsionRowView(sectionName: "Max Players", displayFormat: "%0.f", gameValue: Double(self.game!.maxPlayers), libraryAverage: self.libraryStats!.avgMaxPlayerCount, difference: self.libraryStats!.getAvgMaxPlayerCount(self.game!))
+                            
+                        }
+                         if (self.addBarcode) {
+                            AddBarcodeView(completeCallback: {
+                                self.addBarcode = false
+                            }, gameId: Int32(self.game!.id), name: self.name)
+                            .transition(.move(edge: .bottom))
+                            .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
                         }
                     }
                 }.onAppear(perform: {
@@ -72,6 +78,13 @@ struct SearchDetailsView: View {
                     self.libraryStats = LibraryStats(from: gameLibrary)
                 })
                 .navigationBarTitle(self.name)
+                .navigationBarItems(trailing: Button(action: {
+                    self.addBarcode.toggle()
+                }){
+                  Image(systemName: "barcode.viewfinder")
+                   .imageScale(.small)
+                   .font(.title)
+                })
         }
     }
 }
