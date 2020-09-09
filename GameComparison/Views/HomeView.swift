@@ -17,7 +17,7 @@ struct HomeView: View {
     var body: some View {
         GeometryReader { geo in
             VStack {
-                VStack{
+                ZStack{
                     NavigationView {
                         List{
                             ForEach(self.library.library, id: \.id) { item in
@@ -28,25 +28,20 @@ struct HomeView: View {
                             }
                         }
                         .navigationBarTitle("My Game Library", displayMode: .inline)
-                        .navigationBarItems(trailing:
-                            NavigationLink(destination: ScannerView()){
+                        .navigationBarItems(leading: HamburgerButtonView(showMenu: self.$showMenu), trailing: NavigationLink(destination: ScannerView()){
                                 Image(systemName: "barcode.viewfinder")
                                     .imageScale(.small)
                                     .font(.title)
                         })
-                        .navigationBarItems(leading: Button(action: {
-                            self.showMenu.toggle()
-                        }){
-                          Image(systemName: "line.horizontal.3")
-                            .imageScale(.small)
-                            .font(.title)
-                        })
                     }
+                    .frame(width: geo.size.width)
+                    .offset(x: self.showMenu ? geo.size.width * 0.5 : 0)
+                    .disabled(self.showMenu)
                     if (self.showMenu) {
-                        MenuView()
-//                        MenuView(showMenu: self.$showMenu)
-                            .frame(width: (geo.size.width * 0.5), height: geo.size.height, alignment: .leading)
+                        MenuView(showMenu: self.$showMenu)
+                            .frame(width: (geo.size.width * 0.6), height: geo.size.height, alignment: .leading)
                             .transition(.move(edge: .leading))
+                            .offset(x: (geo.size.width * -0.2))
                     }
                 }
             }.onAppear(perform: {

@@ -12,23 +12,26 @@ struct MenuView: View {
     @Binding var showMenu: Bool
     var body: some View {
         GeometryReader { geo in
-            VStack{
-                NavigationLink (destination: AboutView()) {
-                    Text("Home")
-                    .padding(.top, 100)
+            NavigationView {
+                VStack (alignment: .leading){
+                    NavigationLink (destination: AboutView()) {
+                        Text("Home")
+                        .padding(.top, 100)
+                    }
+                    NavigationLink (destination: AboutView()) {
+                        Text("About Page")
+                        .padding(.top, 20)
+                    }
+                    Spacer()
                 }
-                NavigationLink (destination: AboutView()) {
-                    Text("About Page")
-                    .padding(.top, 20)
-                }
-                Spacer()
+                .foregroundColor(.blue)
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color(.white))
+                .edgesIgnoringSafeArea(.all)
+                .navigationBarItems(leading: HamburgerButtonView(showMenu: self.$showMenu))
             }
-            .foregroundColor(.white)
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
         }
-         .background(Color(.black))
-            .edgesIgnoringSafeArea(.all)
     }
 }
 
