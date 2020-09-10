@@ -15,14 +15,25 @@ struct MenuView: View {
             NavigationView {
                 VStack (alignment: .leading){
                     NavigationLink (destination: AboutView()) {
-                        Text("Home")
+                        Text("My Library")
                         .padding(.top, 100)
                     }
                     NavigationLink (destination: AboutView()) {
-                        Text("About Page")
+                        Text("About")
                         .padding(.top, 20)
                     }
                     Spacer()
+                    Button(action: {
+                        /*
+                         TODO:
+                            login user out
+                            clear their game library from core data
+                            clear their username from keychain
+                            redirect to home
+                         **/
+                    }){
+                        Text("Logout")
+                    }.padding(.leading, (geo.size.width * 0.35))
                 }
                 .foregroundColor(.blue)
                 .padding()
