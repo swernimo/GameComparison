@@ -12,6 +12,7 @@ struct ListDetail: View {
     @State var game: Game
     @State private var addBarcode: Bool = false
     @State private var showDescription: Bool = false
+    @State var gameDescription: String = ""
     
     var body: some View {
         GeometryReader { geo in
@@ -28,6 +29,7 @@ struct ListDetail: View {
                                     .frame(maxWidth: (geo.size.width), maxHeight: (geo.size.height * 0.1))
                                     .gesture(TapGesture()
                                         .onEnded{ _ in
+                                            self.gameDescription = self.game.statistics!.desc
                                             self.showDescription = true
                                         })
                             }
@@ -69,8 +71,9 @@ struct ListDetail: View {
             ScrollView{
                 Text("Swipe down to close")
                     .font(.footnote)
-//                HTMLTextView(html: self.game.statistics!.desc)
+                HTMLStringView(htmlContent: self.game.statistics!.desc)
                 Text(self.game.statistics!.desc)
+                .hidden()
             }
             .padding(.leading, 10)
         }
