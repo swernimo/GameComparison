@@ -11,6 +11,7 @@ import SwiftUI
 struct ListDetail: View {
     @State var game: Game
     @State private var addBarcode: Bool = false
+    @State private var showDescription: Bool = false
     
     var body: some View {
         GeometryReader { geo in
@@ -21,6 +22,15 @@ struct ListDetail: View {
                     .frame(height: geo.size.height / 2)
                     if (self.game.statistics != nil) {
                         VStack {
+                            if (self.game.statistics?.desc != nil) {
+                                Text(self.game.statistics?.desc ?? "")
+                                    .font(.subheadline)
+                                    .frame(maxWidth: (geo.size.width), maxHeight: (geo.size.height * 0.1))
+                                    .gesture(TapGesture()
+                                        .onEnded{ _ in
+                                            self.showDescription = true
+                                        })
+                            }
                             HStack{
                                 Text("Complexity: \(String(format: "%.2f", self.game.statistics!.complexity)) / 5")
                                 Spacer()
@@ -43,6 +53,7 @@ struct ListDetail: View {
                                 Text("Community Suggested Players: \(self.game.statistics!.recommendedPlayers)")
                             }
                         }
+                        .padding(.leading, (geo.size.width * 0.01))
                     }
                 }
                 if (self.addBarcode) {
@@ -53,6 +64,15 @@ struct ListDetail: View {
                     .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
                 }
             }
+        }
+        .sheet(isPresented: self.$showDescription) {
+            ScrollView{
+                Text("Swipe down to close")
+                    .font(.footnote)
+//                HTMLTextView(html: self.game.statistics!.desc)
+                Text(self.game.statistics!.desc)
+            }
+            .padding(.leading, 10)
         }
         .navigationBarItems(trailing: Button(action: {
             self.addBarcode.toggle()
@@ -67,7 +87,6 @@ struct ListDetail: View {
                  .font(.title)
             }
         })
-            
     }
 }
 
