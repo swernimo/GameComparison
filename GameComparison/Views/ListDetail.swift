@@ -68,11 +68,13 @@ struct ListDetail: View {
             }
         }
         .sheet(isPresented: self.$showDescription) {
+            Text("Swipe down to close")
+                .font(.footnote)
             ScrollView{
-                Text("Swipe down to close")
-                    .font(.footnote)
                 HTMLStringView(htmlContent: self.game.statistics!.desc)
+                    .frame(height: 800)
                 Text(self.game.statistics!.desc)
+                .frame(width: 1, height: 1)
                 .hidden()
             }
             .padding(.leading, 10)
