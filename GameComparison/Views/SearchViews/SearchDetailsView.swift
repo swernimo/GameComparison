@@ -27,6 +27,7 @@ struct SearchDetailsView: View {
                                     .frame(width: (geo.size.width * 0.8), height: (geo.size.height * 0.4), alignment: .center)
                                     .aspectRatio(contentMode: ContentMode.fit)
                             }
+                                //TODO: add flag if game in library
                             HStack{
                                 Spacer()
                                 Text("This Game")
