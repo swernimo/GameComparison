@@ -46,6 +46,7 @@
 		60C364B9250D646100145987 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C364B8250D646100145987 /* KeychainItemAccessibility.swift */; };
 		60C364BB250D648700145987 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C364BA250D648700145987 /* KeychainWrapper.swift */; };
 		60C364BD250D6F6400145987 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C364BC250D6F6400145987 /* Consts.swift */; };
+		60C364BF250DD4DB00145987 /* TermsOfUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C364BE250DD4DB00145987 /* TermsOfUseView.swift */; };
 		60D27A072505954100D85276 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D27A062505954100D85276 /* MenuView.swift */; };
 		60D27A092505955700D85276 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D27A082505955700D85276 /* AboutView.swift */; };
 		60D27A0C250824A500D85276 /* HamburgerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D27A0B250824A500D85276 /* HamburgerButtonView.swift */; };
@@ -119,6 +120,7 @@
 		60C364B8250D646100145987 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		60C364BA250D648700145987 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		60C364BC250D6F6400145987 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		60C364BE250DD4DB00145987 /* TermsOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseView.swift; sourceTree = "<group>"; };
 		60D27A062505954100D85276 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		60D27A082505955700D85276 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		60D27A0B250824A500D85276 /* HamburgerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerButtonView.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				60C364B3250AB3EA00145987 /* HTMLView.swift */,
 				6073354724D3CDDC00149440 /* GameCoverImage.swift */,
 				60D27A082505955700D85276 /* AboutView.swift */,
+				60C364BE250DD4DB00145987 /* TermsOfUseView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				6052C13D24B9077300349F49 /* GameComparison.xcdatamodeld in Sources */,
 				6073358024D4C76900149440 /* GameStatistics+CoreDataClass.swift in Sources */,
 				60139FCE24BF6CF400B3E42E /* ScannerViewControllerRepresentable.swift in Sources */,
+				60C364BF250DD4DB00145987 /* TermsOfUseView.swift in Sources */,
 				60084BA524E4E96D004131D6 /* SearchResult.swift in Sources */,
 				60C364BD250D6F6400145987 /* Consts.swift in Sources */,
 				6073357F24D4C76900149440 /* Game+CoreDataProperties.swift in Sources */,
