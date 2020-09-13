@@ -23,17 +23,15 @@ struct MenuView: View {
                         .padding(.top, 20)
                     }
                     Spacer()
-                    Button(action: {
-                        /*
-                         TODO:
-                            login user out
-                            clear their game library from core data
-                            clear their username from keychain
-                            redirect to home
-                         **/
-                    }){
+                    NavigationLink (destination: ContentView()) {
                         Text("Logout")
-                    }.padding(.leading, (geo.size.width * 0.35))
+                            .padding(.leading, (geo.size.width * 0.35))
+                    }.simultaneousGesture(TapGesture().onEnded({
+                        print("clearing username from keychain")
+                        KeychainWrapper.standard.removeObject(forKey: Consts.KeychainKeys.Username)
+                        CoreDataService.shared.deleteAllData()
+                        self.showMenu = false
+                    }))
                 }
                 .foregroundColor(.blue)
                 .padding()

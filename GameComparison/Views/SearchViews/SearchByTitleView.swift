@@ -33,6 +33,7 @@ struct SearchByTitleView: View {
                             //TODO: search on keyboard return
                             API.searchByTitle(title: self.title, completion: { results in
                             //TODO: dismiss keyboard
+                                
                                 self.disableSearch = false
                                 if let results = results{
                                     DispatchQueue.main.async {

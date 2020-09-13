@@ -13,6 +13,8 @@ import UIKit
 struct HomeView: View {
     @EnvironmentObject var library: Library
     @State private var showMenu = false
+    @State private var promptLogin = false
+    @State private var username = ""
     
     var body: some View {
         GeometryReader { geo in
@@ -45,8 +47,30 @@ struct HomeView: View {
                     }
                 }
             }.onAppear(perform: {
-                API(self.library).getGameLibrary(username: "swernimo")
+                if let username = KeychainWrapper.standard.string(forKey: Consts.KeychainKeys.Username) {
+                    print("retrieved username \(username) from keychain")
+                    API(self.library).getGameLibrary(username: username)
+                } else {
+                    print("no username found. prompt for login")
+                    self.promptLogin = true
+                }
             })
+                .popover(isPresented: self.$promptLogin, content: {
+                    //TODO: need to style the popover
+                    VStack {
+                        TextField("Enter Username", text: self.$username)
+                        Button(action: {
+                            print("Saving username \(self.username) to keychain")
+                            KeychainWrapper.standard.set(self.username, forKey: Consts.KeychainKeys.Username)
+                            API(self.library).getGameLibrary(username: self.username)
+                            self.promptLogin = false
+                        }) {
+                            Text("Login")
+                        }
+                        
+                    }
+                    
+                })
         }
     }
 }

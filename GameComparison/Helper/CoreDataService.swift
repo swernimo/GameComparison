@@ -14,8 +14,6 @@ class CoreDataService {
     
     static let shared = CoreDataService()
     var context: NSManagedObjectContext { return persistentContainer.viewContext }
-    
-    // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
         let container = NSPersistentCloudKitContainer(name: "GameComparison")
@@ -26,8 +24,6 @@ class CoreDataService {
         })
         return container
     }()
-
-    // MARK: - Core Data Saving support
 
     func saveContext () {
         let context = persistentContainer.viewContext
@@ -56,4 +52,23 @@ class CoreDataService {
          }
         return []
      }
+    
+    func deleteAllData() {
+        deleteGameLibrary()
+    }
+    
+    private func deleteGameLibrary() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Game")
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try context.fetch(fetchRequest)
+            for object in results {
+                guard let objectData = object as? NSManagedObject else {continue}
+                context.delete(objectData)
+            }
+        } catch let error {
+            print("Detele all data in Game error :", error)
+        }
+        
+    }
 }
