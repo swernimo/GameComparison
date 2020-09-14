@@ -10,12 +10,22 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var library: Library
+    @State private var acceptedTerms = false
     
     var appDelegate = (UIApplication.shared.delegate as? AppDelegate)
     
     var body: some View {
-        HomeView()
-            .environmentObject(self.library)
+        VStack{
+            if (acceptedTerms) {
+                HomeView()
+                    .environmentObject(self.library)
+            } else {
+                TermsOfUseView()
+                    .environmentObject(self.library)
+            }
+        }.onAppear(perform: {
+            self.acceptedTerms = UserDefaultsService.shared.getTermsAccepted()
+        })
     }
 }
 

@@ -14,13 +14,17 @@ struct MenuView: View {
         GeometryReader { geo in
             NavigationView {
                 VStack (alignment: .leading){
-                    NavigationLink (destination: AboutView()) {
+                    NavigationLink (destination: HomeView()) {
                         Text("My Library")
                         .padding(.top, 100)
                     }
                     NavigationLink (destination: AboutView()) {
                         Text("About")
                         .padding(.top, 20)
+                    }
+                    NavigationLink (destination: TermsOfUseView()) {
+                        Text("Terms of Use")
+                            .padding(.top, 20)
                     }
                     Spacer()
                     NavigationLink (destination: ContentView()) {

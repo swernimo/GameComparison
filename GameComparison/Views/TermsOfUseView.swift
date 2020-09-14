@@ -10,30 +10,32 @@ import SwiftUI
 
 struct TermsOfUseView: View {
     //TODO: Get actual TOS
+    @EnvironmentObject var library: Library
     var body: some View {
         GeometryReader { geo in
+        NavigationView{
             VStack{
                 ScrollView{
                    Text("This is my Terms of Use Page")
                 }.frame(width: (geo.size.width * 0.9))
                 HStack{
-                    Spacer()
-                    Button(action: {
-                        print("Decline terms of use")
-                        //TODO: How to handle declining TOS?
-                    }){
-                        Text("Decline")
+                        Spacer()
+                        Button(action: {
+                            print("Decline terms of use")
+                            //TODO: How to handle declining TOS?
+                            UserDefaultsService.shared.setTermsAccepted(false)
+                        }){
+                            Text("Decline")
+                        }
+                        Spacer()
+                        NavigationLink (destination: ContentView()){
+                            Text("Accept")
+                        }.simultaneousGesture(TapGesture().onEnded{
+                            print("Accepted terms of use")
+                            UserDefaultsService.shared.setTermsAccepted(true)
+                            })
+                        Spacer()
                     }
-                    Spacer()
-                    NavigationLink (destination: ContentView()){
-                        Text("Accept")
-                    }.simultaneousGesture(TapGesture().onEnded{
-                        print("Accepted terms of use")
-                        /*TODO: implement accepting Terms
-                            save that user accepted terms to UserDefaults
-                        */
-                    })
-                    Spacer()
                 }
             }
         }

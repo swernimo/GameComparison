@@ -16,4 +16,8 @@ struct Consts {
     public class URLs {
         public static var APIBaseURL = "https://gamecomparison.azurewebsites.net/api"
     }
+    
+    public class UserDefaultsKeys {
+        public static let TermsAccepted = "TermsAccepted"
+    }
 }
