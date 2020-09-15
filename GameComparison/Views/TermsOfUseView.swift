@@ -24,16 +24,18 @@ struct TermsOfUseView: View {
                             print("Decline terms of use")
                             //TODO: How to handle declining TOS?
                             UserDefaultsService.shared.setTermsAccepted(false)
+                            KeychainWrapper.shared.removeObject(forKey: Consts.KeychainKeys.Username)
+                            CoreDataService.shared.deleteAllData()
                         }){
                             Text("Decline")
                         }
                         Spacer()
                         NavigationLink (destination: ContentView()){
                             Text("Accept")
-                        }.simultaneousGesture(TapGesture().onEnded{
-                            print("Accepted terms of use")
+                        }.simultaneousGesture(TapGesture().onEnded {
                             UserDefaultsService.shared.setTermsAccepted(true)
-                            })
+                        })
+                        .navigationBarBackButtonHidden(true)
                         Spacer()
                     }
                 }

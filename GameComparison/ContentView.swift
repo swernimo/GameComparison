@@ -26,6 +26,8 @@ struct ContentView: View {
         }.onAppear(perform: {
             self.acceptedTerms = UserDefaultsService.shared.getTermsAccepted()
         })
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
 }
 

@@ -32,7 +32,7 @@ struct MenuView: View {
                             .padding(.leading, (geo.size.width * 0.35))
                     }.simultaneousGesture(TapGesture().onEnded({
                         print("clearing username from keychain")
-                        KeychainWrapper.standard.removeObject(forKey: Consts.KeychainKeys.Username)
+                        KeychainWrapper.shared.removeObject(forKey: Consts.KeychainKeys.Username)
                         CoreDataService.shared.deleteAllData()
                         self.showMenu = false
                     }))

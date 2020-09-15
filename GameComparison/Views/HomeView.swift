@@ -36,6 +36,7 @@ struct HomeView: View {
                                     .font(.title)
                         })
                     }
+                    .navigationBarBackButtonHidden(true)
                     .frame(width: geo.size.width)
                     .offset(x: self.showMenu ? geo.size.width * 0.5 : 0)
                     .disabled(self.showMenu)
@@ -47,7 +48,7 @@ struct HomeView: View {
                     }
                 }
             }.onAppear(perform: {
-                if let username = KeychainWrapper.standard.string(forKey: Consts.KeychainKeys.Username) {
+                if let username = KeychainWrapper.shared.string(forKey: Consts.KeychainKeys.Username) {
                     print("retrieved username \(username) from keychain")
                     API(self.library).getGameLibrary(username: username)
                 } else {
@@ -61,7 +62,7 @@ struct HomeView: View {
                         TextField("Enter Username", text: self.$username)
                         Button(action: {
                             print("Saving username \(self.username) to keychain")
-                            KeychainWrapper.standard.set(self.username, forKey: Consts.KeychainKeys.Username)
+                            KeychainWrapper.shared.set(self.username, forKey: Consts.KeychainKeys.Username)
                             API(self.library).getGameLibrary(username: self.username)
                             self.promptLogin = false
                         }) {
