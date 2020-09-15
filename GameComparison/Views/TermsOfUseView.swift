@@ -11,6 +11,7 @@ import SwiftUI
 struct TermsOfUseView: View {
     //TODO: Get actual TOS
     @EnvironmentObject var library: Library
+    @State private var showAlert = false
     var body: some View {
         GeometryReader { geo in
         NavigationView{
@@ -22,7 +23,7 @@ struct TermsOfUseView: View {
                         Spacer()
                         Button(action: {
                             print("Decline terms of use")
-                            //TODO: How to handle declining TOS?
+                            self.showAlert = true
                             UserDefaultsService.shared.setTermsAccepted(false)
                             KeychainWrapper.shared.removeObject(forKey: Consts.KeychainKeys.Username)
                             CoreDataService.shared.deleteAllData()
@@ -40,7 +41,9 @@ struct TermsOfUseView: View {
                     }
                 }
             }
-        }
+        }.alert(isPresented: self.$showAlert, content: {
+            Alert(title: Text("Terms of Use"), message: Text("You must accept terms of use to use the app"), dismissButton: .cancel(Text("Okay")))
+        })
     }
 }
 
