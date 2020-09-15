@@ -16,6 +16,7 @@ struct SearchDetailsView: View {
     @State var libraryStats: LibraryStats? = nil
     @State var name: String
     @State private var addBarcode: Bool = false
+    @State private var inLibrary = false
     var body: some View {
             GeometryReader { geo in
                     VStack {
@@ -27,7 +28,6 @@ struct SearchDetailsView: View {
                                     .frame(width: (geo.size.width * 0.8), height: (geo.size.height * 0.4), alignment: .center)
                                     .aspectRatio(contentMode: ContentMode.fit)
                             }
-                                //TODO: add flag if game in library
                             HStack{
                                 Spacer()
                                 Text("This Game")
@@ -35,6 +35,21 @@ struct SearchDetailsView: View {
                                 Text("Your Library Average")
                                 Spacer()
                                 Text("Difference")
+                                Spacer()
+                            }
+                            HStack{
+                                Spacer()
+                                if (self.inLibrary) {
+                                    Image(systemName: "checkmark.circle")
+                                        .foregroundColor(.green)
+                                        .font(.title)
+                                    Text("In Library")
+                                }else {
+                                    Image(systemName: "xmark.circle")
+                                        .foregroundColor(.red)
+                                        .font(.title)
+                                    Text("Not In Library")
+                                }
                                 Spacer()
                             }
                             ComparsionRowView(sectionName: "Rating", gameValue: self.game!.rating, libraryAverage: self.libraryStats!.avgRating, difference: self.libraryStats!.getRatingDifference(self.game!),
@@ -77,6 +92,7 @@ struct SearchDetailsView: View {
                     })
                     let gameLibrary = CoreDataService.shared.fetchGameLibrary()
                     self.libraryStats = LibraryStats(from: gameLibrary)
+                    self.inLibrary = gameLibrary.contains(where: { Int($0.id) == self.id })
                 })
                 .navigationBarTitle(self.name)
                 .navigationBarItems(trailing: Button(action: {
@@ -106,6 +122,10 @@ struct SearchDetailsView_Previews: PreviewProvider {
                }
                .environmentObject(UserData())
          **/
-        SearchDetailsView(game: gameComparisonPreviewData, id: 123, image: Image(systemName: "xmark.square"), libraryStats: LibraryStats(from: gameLibraryPreviewData), name: "Boss Monster")
+        Group {
+            SearchDetailsView(game: gameComparisonPreviewData, id: 131835, image: Image(systemName: "xmark.square"), libraryStats: LibraryStats(from: gameLibraryPreviewData), name: "Boss Monster")
+            
+            SearchDetailsView(game: gameComparisonPreviewData, id: 123, image: Image(systemName: "xmark.square"), libraryStats: LibraryStats(from: gameLibraryPreviewData), name: "Boss Monster")
+        }
     }
 }
