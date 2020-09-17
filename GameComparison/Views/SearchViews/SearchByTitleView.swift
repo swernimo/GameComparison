@@ -19,7 +19,6 @@ struct SearchByTitleView: View {
             VStack{
                 HStack{
                     //TODO: pin the textfield and button to the top of the page
-                    //TODO: when navigating back to Scan Barcode page clear results
                     TextField("Enter Game Title", text: self.$title)
                         .border(Color.black, width: 1)
                         .frame(width: (geo.size.width * 0.7), height: 15, alignment: .trailing)
@@ -28,12 +27,11 @@ struct SearchByTitleView: View {
                     Button("Search", action: {
                         if (self.title != "") {
                             self.disableSearch = true
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                             //TODO: clear existing results when searching
                             //TODO: show loading animation
                             //TODO: search on keyboard return
                             API.searchByTitle(title: self.title, completion: { results in
-                            //TODO: dismiss keyboard
-                                
                                 self.disableSearch = false
                                 if let results = results{
                                     DispatchQueue.main.async {
@@ -62,7 +60,11 @@ struct SearchByTitleView: View {
                         .environmentObject(self.results)
                 }
             }
-        }
+        }.navigationBarItems(leading: NavigationLink(destination: ScannerView()) {
+            Image(systemName: "chevron.left")
+        }).simultaneousGesture(TapGesture().onEnded({
+            self.results.results = []
+        }))
     }
 }
 
