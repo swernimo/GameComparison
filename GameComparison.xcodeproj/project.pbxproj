@@ -49,6 +49,8 @@
 		60C364BF250DD4DB00145987 /* TermsOfUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C364BE250DD4DB00145987 /* TermsOfUseView.swift */; };
 		60C364C1250F088F00145987 /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C364C0250F088F00145987 /* UserDefaultService.swift */; };
 		60C364C32510442300145987 /* TransparentNavigationViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C364C22510442300145987 /* TransparentNavigationViewStyle.swift */; };
+		60C364C625155BF000145987 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C364C525155BF000145987 /* ActivityIndicator.swift */; };
+		60C364C825155C3100145987 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C364C725155C3100145987 /* LoadingView.swift */; };
 		60D27A072505954100D85276 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D27A062505954100D85276 /* MenuView.swift */; };
 		60D27A092505955700D85276 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D27A082505955700D85276 /* AboutView.swift */; };
 		60D27A0C250824A500D85276 /* HamburgerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D27A0B250824A500D85276 /* HamburgerButtonView.swift */; };
@@ -125,6 +127,8 @@
 		60C364BE250DD4DB00145987 /* TermsOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseView.swift; sourceTree = "<group>"; };
 		60C364C0250F088F00145987 /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
 		60C364C22510442300145987 /* TransparentNavigationViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentNavigationViewStyle.swift; sourceTree = "<group>"; };
+		60C364C525155BF000145987 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		60C364C725155C3100145987 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		60D27A062505954100D85276 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		60D27A082505955700D85276 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		60D27A0B250824A500D85276 /* HamburgerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerButtonView.swift; sourceTree = "<group>"; };
@@ -288,6 +292,7 @@
 		6077FFDA24C63F0400A39BBA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				60C364C425155BDA00145987 /* LoadingIndicatorViews */,
 				60D27A0A2508248A00D85276 /* MenuViews */,
 				60180C8224E796E200580F45 /* SearchViews */,
 				60180C8124E796CD00580F45 /* ScannerViews */,
@@ -314,6 +319,15 @@
 				60D6599324ECD13700E233D8 /* LibraryStats.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		60C364C425155BDA00145987 /* LoadingIndicatorViews */ = {
+			isa = PBXGroup;
+			children = (
+				60C364C525155BF000145987 /* ActivityIndicator.swift */,
+				60C364C725155C3100145987 /* LoadingView.swift */,
+			);
+			path = LoadingIndicatorViews;
 			sourceTree = "<group>";
 		};
 		60D27A0A2508248A00D85276 /* MenuViews */ = {
@@ -501,10 +515,12 @@
 				60C364BD250D6F6400145987 /* Consts.swift in Sources */,
 				6073357F24D4C76900149440 /* Game+CoreDataProperties.swift in Sources */,
 				60180C8024E72A2E00580F45 /* SearchResultObservable.swift in Sources */,
+				60C364C625155BF000145987 /* ActivityIndicator.swift in Sources */,
 				6073353D24D26E4500149440 /* ListItem.swift in Sources */,
 				609572D624E702DD00EB257C /* SearchByTitleView.swift in Sources */,
 				60C364B9250D646100145987 /* KeychainItemAccessibility.swift in Sources */,
 				60D6599424ECD13700E233D8 /* LibraryStats.swift in Sources */,
+				60C364C825155C3100145987 /* LoadingView.swift in Sources */,
 				6073354624D3CC4900149440 /* ListDetail.swift in Sources */,
 				60E8431A24C7B38400D68893 /* CloseButtonView.swift in Sources */,
 				6073354824D3CDDC00149440 /* GameCoverImage.swift in Sources */,
