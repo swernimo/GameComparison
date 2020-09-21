@@ -59,6 +59,7 @@
 		60D6599824EDDCD100E233D8 /* ComparsionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D6599724EDDCD100E233D8 /* ComparsionRowView.swift */; };
 		60E8431824C63F3C00D68893 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E8431724C63F3C00D68893 /* HomeView.swift */; };
 		60E8431A24C7B38400D68893 /* CloseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E8431924C7B38400D68893 /* CloseButtonView.swift */; };
+		60FFDBE225183EC0007717D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60FFDBE125183EC0007717D4 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,7 @@
 		60D6599724EDDCD100E233D8 /* ComparsionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparsionRowView.swift; sourceTree = "<group>"; };
 		60E8431724C63F3C00D68893 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		60E8431924C7B38400D68893 /* CloseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonView.swift; sourceTree = "<group>"; };
+		60FFDBE125183EC0007717D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				6052C14024B9077400349F49 /* Assets.xcassets */,
 				6052C14524B9077400349F49 /* LaunchScreen.storyboard */,
 				6052C14824B9077400349F49 /* Info.plist */,
+				60FFDBE125183EC0007717D4 /* GoogleService-Info.plist */,
 				6052C13B24B9077300349F49 /* GameComparison.xcdatamodeld */,
 				6052C14224B9077400349F49 /* Preview Content */,
 			);
@@ -404,7 +407,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = TheBlindSquirrel;
 				TargetAttributes = {
 					6052C13324B9077300349F49 = {
@@ -451,6 +454,7 @@
 				6052C14424B9077400349F49 /* Preview Assets.xcassets in Resources */,
 				6052C14124B9077400349F49 /* Assets.xcassets in Resources */,
 				609572D424E62E1500EB257C /* searchResultsPreviewData.json in Resources */,
+				60FFDBE225183EC0007717D4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +615,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -635,7 +640,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -671,6 +676,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -689,7 +695,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

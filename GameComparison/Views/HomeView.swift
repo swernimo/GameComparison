@@ -59,7 +59,7 @@ struct HomeView: View {
                 .popover(isPresented: self.$promptLogin, content: {
                     //TODO: need to style the popover
                     VStack {
-                        TextField("Enter Username", text: self.$username)
+                        TextField("Enter Boardgame Geek Username", text: self.$username)
                         Button(action: {
                             print("Saving username \(self.username) to keychain")
                             KeychainWrapper.shared.set(self.username, forKey: Consts.KeychainKeys.Username)
@@ -68,7 +68,9 @@ struct HomeView: View {
                         }) {
                             Text("Login")
                         }
-                        
+                        Spacer()
+                        Text("Create Account")
+                        //TODO: add link to BGG to create Account
                     }
                     
                 })

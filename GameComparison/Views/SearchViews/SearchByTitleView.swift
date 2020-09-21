@@ -63,11 +63,11 @@ struct SearchByTitleView: View {
                 }
                 LoadingView(loading: self.$showLoading)
             }
-        }.navigationBarItems(leading: NavigationLink(destination: ScannerView()) {
+        }/*.navigationBarItems(leading: NavigationLink(destination: ScannerView()) {
             Image(systemName: "chevron.left")
         }).simultaneousGesture(TapGesture().onEnded({
             self.results.results = []
-        }))
+        }))*/
     }
 }
 

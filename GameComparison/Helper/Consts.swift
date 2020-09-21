@@ -14,7 +14,8 @@ struct Consts {
     }
     
     public class URLs {
-        public static var APIBaseURL = "https://gamecomparison.azurewebsites.net/api"
+        public static var APIBaseURL = "https://gamecompare.azurewebsites.net/api/"
+        public static var APIFunctionKey = "F8KpIclG5DNThaiayIOCkV500mOVruFjLYrCBEenj7OTykMV/UjLDw=="
     }
     
     public class UserDefaultsKeys {

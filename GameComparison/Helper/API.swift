@@ -21,10 +21,12 @@ class API {
         var savedLibrary = CoreDataService.shared.fetchGameLibrary()
         savedLibrary.sort(by: {$1.name > $0.name })
         self.gameLibrary.library = savedLibrary
+//        #if DEBUG
+//        self.gameLibrary.library = gameLibraryPreviewData
+//        #endif
         let username = username.trimmingCharacters(in: .whitespaces)
-        let url = "\(Consts.URLs.APIBaseURL)/GetCollection/\(username)?code=rXtVglq/1uPAmep6lFGGo4ix93bgqmH45eUDxDcc0DboxYZjFXYQTg=="
-        print("Trying to get collection for username \(username)")
-        print("Trying to get collection url \(url)")
+        let url = "\(Consts.URLs.APIBaseURL)/GetCollection/\(username)?code=\(Consts.URLs.APIFunctionKey)"
+        
         NetworkService.shared.get(url, completion: { result in
             
             switch (result) {
@@ -113,7 +115,7 @@ class API {
     }
     
     static func getGameStatistics(game: Game, completion: @escaping (GameStatistics?) -> Void) {
-        NetworkService.shared.get("\(Consts.URLs.APIBaseURL)/GetGameStatistics/\(game.id)?code=rT/jCOHWPKD1H9EUfAsFjbR/XrVxPvqpqB9uRu17hw7RN7fptWVF3Q==", completion: { result in
+        NetworkService.shared.get("\(Consts.URLs.APIBaseURL)/GetGameStatistics/\(game.id)?code=\(Consts.URLs.APIFunctionKey)", completion: { result in
             
             switch result {
             case .success(let data):
@@ -146,7 +148,7 @@ class API {
     }
     
     static func searchByUPC(_ upc: String, completion: @escaping ([SearchResult]?) -> Void) {
-        let url = "\(Consts.URLs.APIBaseURL)/SearchByUPC/\(upc)?code=56/LrUp1AlKCVG6KyRSBiW58TY5JQOTe/RSqk3TKUx6CTakcaalYpg=="
+        let url = "\(Consts.URLs.APIBaseURL)/SearchByUPC/\(upc)?code=\(Consts.URLs.APIFunctionKey)"
         NetworkService.shared.get(url, completion: { result in
             switch (result) {
             case .success(let data):
@@ -169,7 +171,7 @@ class API {
     
     static func searchByTitle(title: String, completion: @escaping ([SearchResult]?) -> Void){
         if let parameters = title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            let url = "\(Consts.URLs.APIBaseURL)/SearchByTitle/?code=yX9iVu2lUu4ToPRXRtOgqO6/8aCnk7W4hHTyQOj3hmN0ui3EA0cwBg==&title=\(parameters)"
+            let url = "\(Consts.URLs.APIBaseURL)/SearchByTitle/?code=\(Consts.URLs.APIFunctionKey)&title=\(parameters)"
             NetworkService.shared.get(url, completion: { result in
                 switch (result) {
                 case .success(let data):
@@ -194,7 +196,7 @@ class API {
     }
     
     static func searchById(gameId: Int, completion: @escaping (GameComparisonObject?) -> Void){
-        let url = "\(Consts.URLs.APIBaseURL)/GetGameDetails/\(gameId)?code=crYQF4zV6K76qVi8MDa3aoTXbvHfiW6MkizmtPeeVxSly1gnh1Qc2g=="
+        let url = "\(Consts.URLs.APIBaseURL)/GetGameDetails/\(gameId)?code=\(Consts.URLs.APIFunctionKey)"
         NetworkService.shared.get(url, completion: { result in
             switch (result) {
             case .success(let data):
@@ -215,7 +217,7 @@ class API {
     }
     
     static func addBarcode(gameId: Int32, barcode: String, completion: @escaping (Bool) -> Void) -> Void {
-        let url = "\(Consts.URLs.APIBaseURL)/AddBarcode/\(gameId)/\(barcode)/?code=aQ2L5SLf73NubCvMG8IYL5oMjFvRPBpCbSOp3YK22mfS9y6aPnlKRA=="
+        let url = "\(Consts.URLs.APIBaseURL)/AddBarcode/\(gameId)/\(barcode)/?code=\(Consts.URLs.APIFunctionKey)"
         NetworkService.shared.post(url, completion: { result in
             switch (result) {
             case .success(_):

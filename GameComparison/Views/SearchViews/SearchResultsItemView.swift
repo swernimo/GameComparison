@@ -22,6 +22,11 @@ struct SearchResultsItemView: View {
                     .aspectRatio(contentMode: .fit)
                 }
                 Text(result.title)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .padding(.trailing, 20)
+                    .font(.title)
+                    .foregroundColor(.gray)
             }
        }.onAppear(perform: {
         ImageHelper.shared.retrieveImage(url: self.result.imageURL, key: "\(self.result.id)"
