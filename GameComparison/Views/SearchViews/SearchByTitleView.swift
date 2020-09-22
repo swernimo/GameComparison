@@ -63,6 +63,7 @@ struct SearchByTitleView: View {
                 }
                 LoadingView(loading: self.$showLoading)
             }
+            //TODO: clear the search results only when navigating back
         }/*.navigationBarItems(leading: NavigationLink(destination: ScannerView()) {
             Image(systemName: "chevron.left")
         }).simultaneousGesture(TapGesture().onEnded({

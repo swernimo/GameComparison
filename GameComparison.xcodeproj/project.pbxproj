@@ -39,6 +39,7 @@
 		6073358324D5203100149440 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073358224D5203100149440 /* NetworkService.swift */; };
 		6073358524D5231000149440 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073358424D5231000149440 /* CoreDataService.swift */; };
 		6073358724D8BFD700149440 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073358624D8BFD700149440 /* Library.swift */; };
+		6086D4B2251993E100822CB1 /* QueryStringParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6086D4B1251993E100822CB1 /* QueryStringParameters.swift */; };
 		609572D224E5DA2D00EB257C /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609572D124E5DA2D00EB257C /* SearchResultsView.swift */; };
 		609572D424E62E1500EB257C /* searchResultsPreviewData.json in Resources */ = {isa = PBXBuildFile; fileRef = 609572D324E62E1500EB257C /* searchResultsPreviewData.json */; };
 		609572D624E702DD00EB257C /* SearchByTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609572D524E702DD00EB257C /* SearchByTitleView.swift */; };
@@ -118,6 +119,7 @@
 		6073358224D5203100149440 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		6073358424D5231000149440 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		6073358624D8BFD700149440 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		6086D4B1251993E100822CB1 /* QueryStringParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryStringParameters.swift; sourceTree = "<group>"; };
 		609572D124E5DA2D00EB257C /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
 		609572D324E62E1500EB257C /* searchResultsPreviewData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchResultsPreviewData.json; sourceTree = "<group>"; };
 		609572D524E702DD00EB257C /* SearchByTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByTitleView.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				60180C7F24E72A2E00580F45 /* SearchResultObservable.swift */,
 				6069BC8B24E9DDD9006B18BE /* GameComparison.swift */,
 				60D6599324ECD13700E233D8 /* LibraryStats.swift */,
+				6086D4B1251993E100822CB1 /* QueryStringParameters.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				60E8431824C63F3C00D68893 /* HomeView.swift in Sources */,
 				60D27A092505955700D85276 /* AboutView.swift in Sources */,
 				6052C13824B9077300349F49 /* AppDelegate.swift in Sources */,
+				6086D4B2251993E100822CB1 /* QueryStringParameters.swift in Sources */,
 				60C364B4250AB3EA00145987 /* HTMLView.swift in Sources */,
 				6017FDFA24FC97B3006E7A8B /* AddBarcodeView.swift in Sources */,
 				6052C13A24B9077300349F49 /* SceneDelegate.swift in Sources */,

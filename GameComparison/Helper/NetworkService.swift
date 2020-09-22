@@ -14,8 +14,21 @@ class NetworkService {
     private init() {}
     static let shared = NetworkService()
     
-    func get(_ urlPath: String?, completion: @escaping (Result<Data, NSError>) -> Void ) {
-        guard let url = URL(string: urlPath!) else { return }
+    func get(_ urlPath: String, queryString: [QueryStringParameters]? = nil, completion: @escaping (Result<Data, NSError>) -> Void ) {
+        var urlString = Consts.URLs.APIBaseURL + "/" + urlPath
+        if queryString != nil && queryString!.isEmpty == false{
+            urlString += "?"
+            queryString!.forEach({ param in
+                if let value = param.value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+//                    let value = "\(param.value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))"
+                    urlString += "&\(param.key)=\(value)"
+                }
+            })
+            urlString += "&code=\(Consts.URLs.APIFunctionKey)"
+        } else {
+            urlString += "?code=\(Consts.URLs.APIFunctionKey)"
+        }
+        guard let url = URL(string: urlString) else { return }
         let session = URLSession.shared
         
         let task = session.dataTask(with: url, completionHandler: {
@@ -30,8 +43,8 @@ class NetworkService {
         task.resume()
     }
     
-    func post(_ urlPath: String?, completion: @escaping (Result<Data, NSError>) -> Void ) {
-        guard let url = URL(string: urlPath!) else { return }
+    func post(_ urlPath: String, completion: @escaping (Result<Data, NSError>) -> Void ) {
+        guard let url = URL(string: urlPath) else { return }
         let session = URLSession.shared
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

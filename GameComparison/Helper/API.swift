@@ -25,9 +25,7 @@ class API {
 //        self.gameLibrary.library = gameLibraryPreviewData
 //        #endif
         let username = username.trimmingCharacters(in: .whitespaces)
-        let url = "\(Consts.URLs.APIBaseURL)/GetCollection/\(username)?code=\(Consts.URLs.APIFunctionKey)"
-        
-        NetworkService.shared.get(url, completion: { result in
+        NetworkService.shared.get("/GetCollection/\(username)", completion: { result in
             
             switch (result) {
             case .success(let rawData):
@@ -115,8 +113,7 @@ class API {
     }
     
     static func getGameStatistics(game: Game, completion: @escaping (GameStatistics?) -> Void) {
-        NetworkService.shared.get("\(Consts.URLs.APIBaseURL)/GetGameStatistics/\(game.id)?code=\(Consts.URLs.APIFunctionKey)", completion: { result in
-            
+        NetworkService.shared.get("/GetGameStatistics/\(game.id)", completion: { result in
             switch result {
             case .success(let data):
                 do {
@@ -148,8 +145,7 @@ class API {
     }
     
     static func searchByUPC(_ upc: String, completion: @escaping ([SearchResult]?) -> Void) {
-        let url = "\(Consts.URLs.APIBaseURL)/SearchByUPC/\(upc)?code=\(Consts.URLs.APIFunctionKey)"
-        NetworkService.shared.get(url, completion: { result in
+        NetworkService.shared.get("/SearchByUPC/\(upc)", completion: { result in
             switch (result) {
             case .success(let data):
                 do {
@@ -170,9 +166,10 @@ class API {
     }
     
     static func searchByTitle(title: String, completion: @escaping ([SearchResult]?) -> Void){
-        if let parameters = title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            let url = "\(Consts.URLs.APIBaseURL)/SearchByTitle/?code=\(Consts.URLs.APIFunctionKey)&title=\(parameters)"
-            NetworkService.shared.get(url, completion: { result in
+        var queryParams = [QueryStringParameters]()
+        let param = QueryStringParameters(key: "title", value: title)
+        queryParams.append(param)
+            NetworkService.shared.get("/SearchByTitle/", queryString: queryParams, completion: { result in
                 switch (result) {
                 case .success(let data):
                     do {
@@ -192,12 +189,10 @@ class API {
                     break;
                 }
             })
-        }
     }
     
-    static func searchById(gameId: Int, completion: @escaping (GameComparisonObject?) -> Void){
-        let url = "\(Consts.URLs.APIBaseURL)/GetGameDetails/\(gameId)?code=\(Consts.URLs.APIFunctionKey)"
-        NetworkService.shared.get(url, completion: { result in
+    static func searchById(gameId: Int, completion: @escaping (GameComparisonObject?) -> Void) {
+        NetworkService.shared.get("/GetGameDetails/\(gameId)", completion: { result in
             switch (result) {
             case .success(let data):
                 do {
