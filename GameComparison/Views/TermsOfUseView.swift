@@ -44,6 +44,9 @@ struct TermsOfUseView: View {
         }.alert(isPresented: self.$showAlert, content: {
             Alert(title: Text("Terms of Use"), message: Text("You must accept terms of use to use the app"), dismissButton: .cancel(Text("Okay")))
         })
+        .onAppear(perform: {
+            AnalysticsService.shared.logPageView("Terms of Use")
+        })
     }
 }
 

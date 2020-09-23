@@ -38,6 +38,9 @@ struct AddBarcodeView: View {
                 }
             })
         )})
+         .onAppear(perform: {
+            AnalysticsService.shared.logPageView("Add Barcode View")
+         })
     }
 }
 

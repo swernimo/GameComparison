@@ -77,6 +77,7 @@ struct SearchDetailsView: View {
                         }
                     }
                 }.onAppear(perform: {
+                    AnalysticsService.shared.logPageView("Game Comparison Viewd")
                     API.searchById(gameId: self.id, completion: { details in
                         if let details = details {
                             self.game = details

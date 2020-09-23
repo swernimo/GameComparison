@@ -44,6 +44,9 @@ struct SearchResultsView: View {
                 }.frame(minWidth: 100, minHeight: 100, alignment: .leading)
             }
         }
+        .onAppear(perform: {
+            AnalysticsService.shared.logPageView("Search Results Views")
+        })
     }
 }
 

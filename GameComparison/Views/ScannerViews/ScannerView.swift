@@ -23,6 +23,9 @@ struct ScannerView: View {
                         .foregroundColor(.blue)
                 }
             })
+            .onAppear(perform: {
+                AnalysticsService.shared.logPageView("Scanner View")
+            })
     }
 }
 

@@ -21,9 +21,6 @@ class API {
         var savedLibrary = CoreDataService.shared.fetchGameLibrary()
         savedLibrary.sort(by: {$1.name > $0.name })
         self.gameLibrary.library = savedLibrary
-//        #if DEBUG
-//        self.gameLibrary.library = gameLibraryPreviewData
-//        #endif
         let username = username.trimmingCharacters(in: .whitespaces)
         NetworkService.shared.get("/GetCollection/\(username)", completion: { result in
             

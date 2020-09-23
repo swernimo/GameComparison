@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -40,6 +40,7 @@
 		6073358524D5231000149440 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073358424D5231000149440 /* CoreDataService.swift */; };
 		6073358724D8BFD700149440 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073358624D8BFD700149440 /* Library.swift */; };
 		6086D4B2251993E100822CB1 /* QueryStringParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6086D4B1251993E100822CB1 /* QueryStringParameters.swift */; };
+		6093B0B9251A3115001CB8B2 /* AnalysticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093B0B8251A3115001CB8B2 /* AnalysticsService.swift */; };
 		609572D224E5DA2D00EB257C /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609572D124E5DA2D00EB257C /* SearchResultsView.swift */; };
 		609572D424E62E1500EB257C /* searchResultsPreviewData.json in Resources */ = {isa = PBXBuildFile; fileRef = 609572D324E62E1500EB257C /* searchResultsPreviewData.json */; };
 		609572D624E702DD00EB257C /* SearchByTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609572D524E702DD00EB257C /* SearchByTitleView.swift */; };
@@ -126,6 +127,7 @@
 		6073358424D5231000149440 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		6073358624D8BFD700149440 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		6086D4B1251993E100822CB1 /* QueryStringParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryStringParameters.swift; sourceTree = "<group>"; };
+		6093B0B8251A3115001CB8B2 /* AnalysticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysticsService.swift; sourceTree = "<group>"; };
 		609572D124E5DA2D00EB257C /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
 		609572D324E62E1500EB257C /* searchResultsPreviewData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchResultsPreviewData.json; sourceTree = "<group>"; };
 		609572D524E702DD00EB257C /* SearchByTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByTitleView.swift; sourceTree = "<group>"; };
@@ -203,7 +205,6 @@
 				41205C6662F15BA4BC3259FA /* Pods-GameComparisonTests.debug.xcconfig */,
 				7B8D7F425C7C22DEAF364883 /* Pods-GameComparisonTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -310,6 +311,7 @@
 				60C364BA250D648700145987 /* KeychainWrapper.swift */,
 				60C364BC250D6F6400145987 /* Consts.swift */,
 				60C364C0250F088F00145987 /* UserDefaultService.swift */,
+				6093B0B8251A3115001CB8B2 /* AnalysticsService.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -664,6 +666,7 @@
 				6052C13D24B9077300349F49 /* GameComparison.xcdatamodeld in Sources */,
 				6073358024D4C76900149440 /* GameStatistics+CoreDataClass.swift in Sources */,
 				60139FCE24BF6CF400B3E42E /* ScannerViewControllerRepresentable.swift in Sources */,
+				6093B0B9251A3115001CB8B2 /* AnalysticsService.swift in Sources */,
 				60C364BF250DD4DB00145987 /* TermsOfUseView.swift in Sources */,
 				60084BA524E4E96D004131D6 /* SearchResult.swift in Sources */,
 				60C364BD250D6F6400145987 /* Consts.swift in Sources */,

@@ -48,6 +48,7 @@ struct HomeView: View {
                     }
                 }
             }.onAppear(perform: {
+                AnalysticsService.shared.logPageView("Home")
                 if let username = KeychainWrapper.shared.string(forKey: Consts.KeychainKeys.Username) {
                     print("retrieved username \(username) from keychain")
                     API(self.library).getGameLibrary(username: username)
@@ -56,24 +57,24 @@ struct HomeView: View {
                     self.promptLogin = true
                 }
             })
-                .popover(isPresented: self.$promptLogin, content: {
-                    //TODO: need to style the popover
-                    VStack {
-                        TextField("Enter Boardgame Geek Username", text: self.$username)
-                        Button(action: {
-                            print("Saving username \(self.username) to keychain")
-                            KeychainWrapper.shared.set(self.username, forKey: Consts.KeychainKeys.Username)
-                            API(self.library).getGameLibrary(username: self.username)
-                            self.promptLogin = false
-                        }) {
-                            Text("Login")
-                        }
-                        Spacer()
-                        Text("Create Account")
-                        //TODO: add link to BGG to create Account
+            .popover(isPresented: self.$promptLogin, content: {
+                //TODO: need to style the popover
+                VStack {
+                    TextField("Enter Boardgame Geek Username", text: self.$username)
+                    Button(action: {
+                        print("Saving username \(self.username) to keychain")
+                        KeychainWrapper.shared.set(self.username, forKey: Consts.KeychainKeys.Username)
+                        API(self.library).getGameLibrary(username: self.username)
+                        self.promptLogin = false
+                    }) {
+                        Text("Login")
                     }
-                    
-                })
+                    Spacer()
+                    Text("Create Account")
+                    //TODO: add link to BGG to create Account
+                }
+                
+            })
         }
     }
 }

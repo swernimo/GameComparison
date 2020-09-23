@@ -92,6 +92,9 @@ struct ListDetail: View {
                  .font(.title)
             }
         })
+        .onAppear(perform: {
+            AnalysticsService.shared.logPageView("Item Detail for \(self.game.name)")
+        })
     }
 }
 

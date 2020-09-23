@@ -14,6 +14,9 @@ struct AboutView: View {
             Text("About page")
         }
         .navigationBarTitle("About")
+        .onAppear(perform: {
+            AnalysticsService.shared.logPageView("About")
+        })
     }
     
 }

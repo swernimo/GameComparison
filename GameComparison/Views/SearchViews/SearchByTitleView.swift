@@ -69,6 +69,9 @@ struct SearchByTitleView: View {
         }).simultaneousGesture(TapGesture().onEnded({
             self.results.results = []
         }))*/
+        .onAppear(perform: {
+            AnalysticsService.shared.logPageView("Search by Title")
+        })
     }
 }
 
