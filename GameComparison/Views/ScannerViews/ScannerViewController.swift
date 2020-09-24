@@ -88,6 +88,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
 
     func found(code: String) {
+        AnalysticsService.shared.logEvent("Barcode Found", pageName: "Scanner View")
         if (foundCodeCallback != nil) {
             self.foundCodeCallback!(code)
         } else {
@@ -112,6 +113,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     private func displayCodeNotFoundAlert(upc: String) -> Void {
         let ac = UIAlertController(title:"Game Not Found", message: "Please search by game title", preferredStyle: .alert)
         let searchAction = UIAlertAction(title: "Search", style: .default, handler: { _ in
+            AnalysticsService.shared.logButtonClick("Search", pageName: "Game Not Found Alert")
             if let name = ac.textFields![0].text {
                 if (name != "") {
                     API.searchByTitle(title: name, completion: { results in
@@ -131,6 +133,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             }
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            AnalysticsService.shared.logButtonClick("Cancel", pageName: "Game Not Found Alert")
             self.captureSession.startRunning()
         })
         ac.addTextField { textField in
@@ -138,7 +141,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
         ac.addAction(searchAction)
         ac.addAction(cancelAction)
-        
+        AnalysticsService.shared.logPageView("Game Not Found Alert")
         self.present(ac, animated: true)
     }
     

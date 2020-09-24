@@ -82,4 +82,11 @@ class AnalysticsService {
         eventParams["Page_Viewed"] = pageName
         Analytics.logEvent("ButtonClicked", parameters: eventParams)
     }
+    
+    public func logEvent(_ event: String, pageName: String) {
+        var params = getCommonParameters()
+        params["Event"] = event
+        params["Page_Viewed"] = pageName
+        Analytics.logEvent("Event", parameters: params)
+    }
 }

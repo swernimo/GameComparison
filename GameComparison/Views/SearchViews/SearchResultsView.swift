@@ -21,6 +21,7 @@ struct SearchResultsView: View {
                 if(self.showCloseButton) {
                     HStack{
                         Button(action: ({
+                            AnalysticsService.shared.logButtonClick("Close", pageName: "Search Results View")
                             guard let closure = self.closeBtnCallback
                                 else { return }
                             closure()
@@ -45,7 +46,7 @@ struct SearchResultsView: View {
             }
         }
         .onAppear(perform: {
-            AnalysticsService.shared.logPageView("Search Results Views")
+            AnalysticsService.shared.logPageView("Search Results View")
         })
     }
 }

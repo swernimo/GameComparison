@@ -13,6 +13,11 @@ struct HamburgerButtonView: View {
     var body: some View {
         Button(action: {
             self.showMenu.toggle()
+            if (self.showMenu) {
+                AnalysticsService.shared.logButtonClick("Show Menu", pageName: "Menu")
+            } else {
+                AnalysticsService.shared.logButtonClick("Hide Menu", pageName: "Menu")
+            }
         }){
           Image(systemName: "line.horizontal.3")
             .imageScale(.small)

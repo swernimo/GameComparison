@@ -12,6 +12,7 @@ struct CloseButtonView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         Button(action: ({
+            AnalysticsService.shared.logButtonClick("Close", pageName: "Scanner View")
             self.presentationMode.wrappedValue.dismiss()
         })) {
             Image(systemName: "xmark.circle")

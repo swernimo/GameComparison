@@ -17,21 +17,27 @@ struct MenuView: View {
                     NavigationLink (destination: HomeView()) {
                         Text("My Library")
                         .padding(.top, 100)
-                    }
+                    }.gesture(TapGesture().onEnded({
+                        AnalysticsService.shared.logButtonClick("My Library", pageName: "Menu")
+                    }))
                     NavigationLink (destination: AboutView()) {
                         Text("About")
                         .padding(.top, 20)
-                    }
+                    }.gesture(TapGesture().onEnded({
+                        AnalysticsService.shared.logButtonClick("About", pageName: "Menu")
+                    }))
                     NavigationLink (destination: TermsOfUseView()) {
                         Text("Terms of Use")
                             .padding(.top, 20)
-                    }
+                    }.gesture(TapGesture().onEnded({
+                        AnalysticsService.shared.logButtonClick("Terms of Use", pageName: "Menu")
+                    }))
                     Spacer()
                     NavigationLink (destination: ContentView()) {
                         Text("Logout")
                             .padding(.leading, (geo.size.width * 0.35))
                     }.simultaneousGesture(TapGesture().onEnded({
-                        print("clearing username from keychain")
+                        AnalysticsService.shared.logButtonClick("Logout", pageName: "Menu")
                         KeychainWrapper.shared.removeObject(forKey: Consts.KeychainKeys.Username)
                         CoreDataService.shared.deleteAllData()
                         self.showMenu = false

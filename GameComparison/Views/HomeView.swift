@@ -62,7 +62,7 @@ struct HomeView: View {
                 VStack {
                     TextField("Enter Boardgame Geek Username", text: self.$username)
                     Button(action: {
-                        print("Saving username \(self.username) to keychain")
+                        AnalysticsService.shared.logButtonClick("Login", pageName: "Home")
                         KeychainWrapper.shared.set(self.username, forKey: Consts.KeychainKeys.Username)
                         API(self.library).getGameLibrary(username: self.username)
                         self.promptLogin = false

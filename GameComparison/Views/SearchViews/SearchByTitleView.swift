@@ -28,9 +28,9 @@ struct SearchByTitleView: View {
                             .padding(.top, (geo.size.height * 0.03))
                         Button("Search", action: {
                             if (self.title != "") {
+                                AnalysticsService.shared.logButtonClick("Search", pageName: "Search by Title")
                                 self.disableSearch = true
                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                                //TODO: clear existing results when searching
                                 self.showLoading = true
                                 API.searchByTitle(title: self.title, completion: { results in
                                     self.disableSearch = false
