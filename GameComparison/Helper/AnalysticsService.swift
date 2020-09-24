@@ -9,14 +9,15 @@
 import Foundation
 import UIKit
 import FirebaseAnalytics
+import FirebaseCrashlytics
 
 class AnalysticsService {
     static let shared = AnalysticsService()
+    
     private let device = UIDevice.current
     
     public func logPageView(_ pageName: String) -> Void {
-        var eventParams = getCommonParameters()
-        eventParams["Page_Viewed"] = pageName
+        let eventParams = getCommonParameters(pageName)
         Analytics.logEvent("PageView", parameters: eventParams)
     }
     
@@ -65,28 +66,34 @@ class AnalysticsService {
         }
     }
     
-    private func getCommonParameters() -> [String: Any] {
+    private func getCommonParameters(_ pageViewed: String) -> [String: Any] {
         return [
             "OS_Version": device.systemVersion,
             "Device_UUID": device.identifierForVendor!,
             "Device_Name": device.name,
             "Device_Model": mapModel(device.model),
             "Device_SystemName": device.systemName,
-            "Device_LocalizedModel": device.localizedModel
+            "Device_LocalizedModel": device.localizedModel,
+            "Page_Viewed": pageViewed
         ]
     }
     
     public func logButtonClick(_ buttonName: String, pageName: String) -> Void {
-        var eventParams = getCommonParameters()
+        var eventParams = getCommonParameters(pageName)
         eventParams["Button_Clicked"] = buttonName
-        eventParams["Page_Viewed"] = pageName
         Analytics.logEvent("ButtonClicked", parameters: eventParams)
     }
     
     public func logEvent(_ event: String, pageName: String) {
-        var params = getCommonParameters()
+        var params = getCommonParameters(pageName)
         params["Event"] = event
-        params["Page_Viewed"] = pageName
         Analytics.logEvent("Event", parameters: params)
+    }
+    
+    public func logException(exception: NSError, pageName: String) {
+        var params = getCommonParameters(pageName)
+        params["Error"] = exception
+//        Analytics.loge
+        
     }
 }

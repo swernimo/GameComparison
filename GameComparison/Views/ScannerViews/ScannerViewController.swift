@@ -119,11 +119,13 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                     API.searchByTitle(title: name, completion: { results in
                     self.captureSession.startRunning()
                         if let results = results {
-                            self.searchResults.results = results
-                            if (results.count > 0) {
-                                self.displaySearchResults()
-                            } else {
-                                self.displayNoResultsAlert()
+                            DispatchQueue.main.async {
+                                self.searchResults.results = results
+                                if (results.count > 0) {
+                                    self.displaySearchResults()
+                                } else {
+                                    self.displayNoResultsAlert()
+                                }
                             }
                         }
                     })

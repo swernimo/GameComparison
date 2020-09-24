@@ -90,7 +90,6 @@ class API {
                     for saved in self.gameLibrary.library {
                         let deleted = !remoteLibrary.contains(where: { $0.id == saved.id})
                         if(deleted) {
-                            print("Game \(saved.name) has been deleted")
                             DispatchQueue.main.async {
                                 self.gameLibrary.library.removeAll(where: { $0.id == saved.id})
                             }
