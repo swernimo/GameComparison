@@ -75,4 +75,11 @@ class AnalysticsService {
             "Device_LocalizedModel": device.localizedModel
         ]
     }
+    
+    public func logButtonClick(_ buttonName: String, pageName: String) -> Void {
+        var eventParams = getCommonParameters()
+        eventParams["Button_Clicked"] = buttonName
+        eventParams["Page_Viewed"] = pageName
+        Analytics.logEvent("ButtonClicked", parameters: eventParams)
+    }
 }

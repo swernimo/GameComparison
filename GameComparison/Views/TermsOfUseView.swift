@@ -22,6 +22,7 @@ struct TermsOfUseView: View {
                 HStack{
                         Spacer()
                         Button(action: {
+                            AnalysticsService.shared.logButtonClick("Decline", pageName: "Terms of Use")
                             print("Decline terms of use")
                             self.showAlert = true
                             UserDefaultsService.shared.setTermsAccepted(false)
@@ -34,7 +35,9 @@ struct TermsOfUseView: View {
                         NavigationLink (destination: ContentView()){
                             Text("Accept")
                         }.simultaneousGesture(TapGesture().onEnded {
+                            AnalysticsService.shared.logButtonClick("Accept", pageName: "Terms of Use")
                             UserDefaultsService.shared.setTermsAccepted(true)
+                            //check if username is already stored, if so upload terms, username, UUID & timestamp
                         })
                         .navigationBarBackButtonHidden(true)
                         Spacer()

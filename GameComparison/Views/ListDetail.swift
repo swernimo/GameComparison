@@ -93,7 +93,7 @@ struct ListDetail: View {
             }
         })
         .onAppear(perform: {
-            AnalysticsService.shared.logPageView("Item Detail for \(self.game.name)")
+            AnalysticsService.shared.logPageView("Item Detail")
         })
     }
 }
