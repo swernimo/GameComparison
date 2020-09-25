@@ -30,15 +30,6 @@ struct SearchDetailsView: View {
                             }
                             HStack{
                                 Spacer()
-                                Text("This Game")
-                                Spacer()
-                                Text("Your Library Average")
-                                Spacer()
-                                Text("Difference")
-                                Spacer()
-                            }
-                            HStack{
-                                Spacer()
                                 if (self.inLibrary) {
                                     Image(systemName: "checkmark.circle")
                                         .foregroundColor(.green)
@@ -50,6 +41,15 @@ struct SearchDetailsView: View {
                                         .font(.title)
                                     Text("Not In Library")
                                 }
+                                Spacer()
+                            }
+                            HStack{
+                                Spacer()
+                                Text("This Game")
+                                Spacer()
+                                Text("Your Library Average")
+                                Spacer()
+                                Text("Difference")
                                 Spacer()
                             }
                             ComparsionRowView(sectionName: "Rating", gameValue: self.game!.rating, libraryAverage: self.libraryStats!.avgRating, difference: self.libraryStats!.getRatingDifference(self.game!),
