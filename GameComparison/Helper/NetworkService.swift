@@ -59,4 +59,20 @@ class NetworkService {
         
         task.resume()
     }
+    
+    func downloadImage(_ urlPath: String, completion: @escaping (Result<Data, NSError>) -> Void ) {
+        guard let url = URL(string: urlPath) else { return }
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: url, completionHandler: {
+            data, _, err in
+            
+            if let d = data {
+                completion(.success(d))
+            } else if let error = err {
+                completion(.failure(error as NSError))
+            }
+        })
+        task.resume()
+    }
 }

@@ -8,14 +8,24 @@ class ImageHelper {
     
     func retrieveImage(url: String?, key: String, completion: @escaping (Data?) -> Void) {
         if let filePath = self.filePath(forKey: key), let fileData = FileManager.default.contents(atPath: filePath.path) {
+            if(fileData.isEmpty) {
+                downloadImage(forURL: url, completion: { data in
+                    if let data = data {
+                        self.saveImageToDisk(forKey: key, withData: data)
+                        completion(data)
+                    } else {
+                        completion(nil)
+                    }
+                })
+            } else {
                 completion(fileData)
+            }
         } else {
             downloadImage(forURL: url, completion: { data in
                 if let data = data {
                     self.saveImageToDisk(forKey: key, withData: data)
                     completion(data)
                 } else {
-                    print("Error downloading image at \(String(describing: url))")
                     completion(nil)
                 }
             })
@@ -26,7 +36,7 @@ class ImageHelper {
         let fileManager = FileManager.default
         guard let documentURL = fileManager.urls(for: .documentDirectory,
                                                 in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
-        
+       
         return documentURL.appendingPathComponent(key)
     }
     
@@ -45,10 +55,10 @@ class ImageHelper {
     
     private func downloadImage(forURL url: String?, completion: @escaping (Data?) -> Void ){
         if (url == nil) {
-            print("Error download image cannot be nil")
+            print("Error download image URL cannot be nil")
             completion(nil)
         } else {
-            NetworkService.shared.get(url!, completion: { result in
+            NetworkService.shared.downloadImage(url!, completion: { result in
                 switch result {
                 case .success(let data):
                     completion(data)

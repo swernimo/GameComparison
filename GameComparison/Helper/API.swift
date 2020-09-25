@@ -98,47 +98,47 @@ class API {
                         }
                     }
                 } catch {
-                    print(error)
+                    AnalysticsService.shared.logException(exception: error, errorMsg: "Error deserializing game library JSON")
                 }
                 break
-            case .failure(let error):
-                print(error)
+            case .failure (let error):
+                AnalysticsService.shared.logException(exception: error, errorMsg: "Error getting game library")
                 break
             }
         })
     }
     
-    static func getGameStatistics(game: Game, completion: @escaping (GameStatistics?) -> Void) {
-        NetworkService.shared.get("/GetGameStatistics/\(game.id)", completion: { result in
-            switch result {
-            case .success(let data):
-                do {
-                    guard let json = try JSONSerialization.jsonObject(with: data, options:[]) as? [String: Any] else { return }
-                    
-                    let stats = GameStatistics(context: CoreDataService.shared.context)
-                    stats.complexity = (json["complexity"] as? Double)!
-                    stats.desc = (json["description"] as? String)!
-                    stats.maxPlayers = (json["maxPlayers"] as? Int32)!
-                    stats.minPlayers = (json["minPlayers"] as? Int32)!
-                    stats.playerAge = (json["playerAge"] as? Int32)!
-                    stats.playingTime = (json["playingTime"] as? Int32)!
-                    stats.rating = (json["rating"] as? Double)!
-                    stats.recommendedPlayers = (json["recommendedPlayers"] as? Int32)!
-                    stats.suggestedPlayerAge = (json["suggestedPlayerAge"] as? Int32)!
-                    completion(stats)
-                    
-                }catch {
-                    print("Error while unpacking get statistics result. Error: \(error)")
-                    completion(nil)
-                }
-                break;
-            case .failure(let error):
-                print(error)
+    func getGameStatistics(game: Game, completion: @escaping (GameStatistics?) -> Void) {
+    NetworkService.shared.get("/GetGameStatistics/\(game.id)", completion: { result in
+        switch result {
+        case .success(let data):
+            do {
+                guard let json = try JSONSerialization.jsonObject(with: data, options:[]) as? [String: Any] else { return }
+                
+                let stats = GameStatistics(context: CoreDataService.shared.context)
+                stats.complexity = (json["complexity"] as? Double)!
+                stats.desc = (json["description"] as? String)!
+                stats.maxPlayers = (json["maxPlayers"] as? Int32)!
+                stats.minPlayers = (json["minPlayers"] as? Int32)!
+                stats.playerAge = (json["playerAge"] as? Int32)!
+                stats.playingTime = (json["playingTime"] as? Int32)!
+                stats.rating = (json["rating"] as? Double)!
+                stats.recommendedPlayers = (json["recommendedPlayers"] as? Int32)!
+                stats.suggestedPlayerAge = (json["suggestedPlayerAge"] as? Int32)!
+                completion(stats)
+                
+            }catch {
+                AnalysticsService.shared.logException(exception: error, errorMsg: "Error unpacking get statistics")
                 completion(nil)
-                break;
             }
-        })
-    }
+            break;
+        case .failure(let error):
+            AnalysticsService.shared.logException(exception: error, errorMsg: "Error getting statistics")
+            completion(nil)
+            break;
+        }
+    })
+}
     
     static func searchByUPC(_ upc: String, completion: @escaping ([SearchResult]?) -> Void) {
         NetworkService.shared.get("/SearchByUPC/\(upc)", completion: { result in

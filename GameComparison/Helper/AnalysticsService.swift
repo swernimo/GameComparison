@@ -90,10 +90,8 @@ class AnalysticsService {
         Analytics.logEvent("Event", parameters: params)
     }
     
-    public func logException(exception: NSError, pageName: String) {
-        var params = getCommonParameters(pageName)
-        params["Error"] = exception
-//        Analytics.loge
-        
+    public func logException(exception: Error, errorMsg: String) {
+        Crashlytics.crashlytics().record(error: exception)
+        Crashlytics.crashlytics().log(errorMsg)
     }
 }
