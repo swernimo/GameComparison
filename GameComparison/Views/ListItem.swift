@@ -26,11 +26,7 @@ struct ListItem: View {
             }
         }.onAppear(perform: {
             ImageHelper.shared.retrieveImage(url: self.game.imageUrl, key: self.game.imageFilePath, completion: { imageData in
-                guard let uiImage = UIImage(data: imageData!) else {
-                    self.image = Image(systemName: "xmark.square")
-                    return
-                }
-                self.image = Image(uiImage: uiImage)
+                self.image = ImageHelper.shared.getImage(data: imageData)
             })
         })
     }

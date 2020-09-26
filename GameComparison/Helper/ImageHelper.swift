@@ -2,6 +2,7 @@
 //Modified by: Sean Wernimont 2020
 
 import Foundation
+import SwiftUI
 
 class ImageHelper {
     static let shared = ImageHelper()
@@ -80,5 +81,13 @@ class ImageHelper {
                 print("Error trying to delete image from disk with error \(error)")
             }
         }
+    }
+    
+    func getImage(data: Data?) -> Image {
+        guard let data = data else {
+            return Image(systemName: "xmark.square")
+        }
+        let uiImage = UIImage(data: data)!
+        return Image(uiImage: uiImage)
     }
 }

@@ -19,11 +19,7 @@ struct GameCoverImage: View {
                 .resizable()
             }.onAppear(perform: {
                 ImageHelper.shared.retrieveImage(url: nil, key: self.imageFilePath, completion: { imageData in
-                    guard let uiImage = UIImage(data: imageData!) else {
-                        self.image = Image(systemName: "xmark.square")
-                        return
-                    }
-                    self.image = Image(uiImage: uiImage)
+                        self.image = ImageHelper.shared.getImage(data: imageData)
                 })
             })
         }

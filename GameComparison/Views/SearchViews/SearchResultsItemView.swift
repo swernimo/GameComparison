@@ -31,15 +31,7 @@ struct SearchResultsItemView: View {
        }.onAppear(perform: {
         ImageHelper.shared.retrieveImage(url: self.result.imageURL, key: "\(self.result.id)"
             , completion: { imageData in
-                if imageData != nil {
-                    guard let uiImage = UIImage(data: imageData!) else {
-                        self.image = Image(systemName: "xmark.square")
-                        return
-                    }
-                    self.image = Image(uiImage: uiImage)
-                } else {
-                    self.image = Image(systemName: "xmark.square")
-                }
+                self.image = ImageHelper.shared.getImage(data: imageData)
         })
        })
     }
