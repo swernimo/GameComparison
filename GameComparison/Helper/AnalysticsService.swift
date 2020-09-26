@@ -94,4 +94,8 @@ class AnalysticsService {
         Crashlytics.crashlytics().record(error: exception)
         Crashlytics.crashlytics().log(errorMsg)
     }
+    
+    public func logMessage(_ msg: String) {
+        Crashlytics.crashlytics().log(msg)
+    }
 }

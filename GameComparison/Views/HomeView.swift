@@ -50,10 +50,8 @@ struct HomeView: View {
             }.onAppear(perform: {
                 AnalysticsService.shared.logPageView("Home")
                 if let username = KeychainWrapper.shared.string(forKey: Consts.KeychainKeys.Username) {
-                    print("retrieved username \(username) from keychain")
                     API(self.library).getGameLibrary(username: username)
                 } else {
-                    print("no username found. prompt for login")
                     self.promptLogin = true
                 }
             })

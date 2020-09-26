@@ -32,9 +32,7 @@ class CoreDataService {
             do {
                 try context.save()
             } catch {
-                let nserror = error as NSError
-                print(nserror)
-//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                AnalysticsService.shared.logException(exception: error, errorMsg: "Error saving context")
             }
         }
     }
@@ -48,7 +46,7 @@ class CoreDataService {
             guard let library = result as? [Game] else { return [] }
             return library
          } catch {
-             print("Fetching data Failed")
+            AnalysticsService.shared.logException(exception: error, errorMsg: "Fetching data Failed")
          }
         return []
      }
@@ -67,7 +65,7 @@ class CoreDataService {
                 context.delete(objectData)
             }
         } catch let error {
-            print("Detele all data in Game error :", error)
+            AnalysticsService.shared.logException(exception: error, errorMsg: "Error deleting all data")
         }
         
     }

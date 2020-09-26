@@ -23,7 +23,6 @@ struct TermsOfUseView: View {
                         Spacer()
                         Button(action: {
                             AnalysticsService.shared.logButtonClick("Decline", pageName: "Terms of Use")
-                            print("Decline terms of use")
                             self.showAlert = true
                             UserDefaultsService.shared.setTermsAccepted(false)
                             KeychainWrapper.shared.removeObject(forKey: Consts.KeychainKeys.Username)

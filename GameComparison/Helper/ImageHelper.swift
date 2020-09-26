@@ -43,20 +43,20 @@ class ImageHelper {
     
     private func saveImageToDisk(forKey key: String, withData data:Data) -> Void {
         guard let url = filePath(forKey: key) else {
-            print("Error could not find file url for key \(key)")
+            AnalysticsService.shared.logMessage("Error could not find file url for key \(key)")
             return
         }
         
         do {
             try data.write(to: url)
         }catch{
-            print("Error trying to save image to disk at location: \(url) with error: \(error)")
+            AnalysticsService.shared.logException(exception: error, errorMsg: "Error trying to save image to disk at location \(url)")
         }
     }
     
     private func downloadImage(forURL url: String?, completion: @escaping (Data?) -> Void ){
         if (url == nil) {
-            print("Error download image URL cannot be nil")
+            AnalysticsService.shared.logMessage("Error download image URL cannot be nil")
             completion(nil)
         } else {
             NetworkService.shared.downloadImage(url!, completion: { result in
@@ -65,7 +65,7 @@ class ImageHelper {
                     completion(data)
                     break
                 case .failure(let error):
-                    print("Error. Failed network request when downloading image from \(url!) with error \(error)")
+                    AnalysticsService.shared.logException(exception: error, errorMsg: "Failed network request when downloading image from \(String(describing: url))")
                     completion(nil)
                     break
                 }
@@ -78,7 +78,7 @@ class ImageHelper {
             do{
                 try FileManager.default.removeItem(at: filePath)
             }catch{
-                print("Error trying to delete image from disk with error \(error)")
+                AnalysticsService.shared.logException(exception: error, errorMsg: "Error deleting image from disk")
             }
         }
     }
