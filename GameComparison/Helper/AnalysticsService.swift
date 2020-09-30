@@ -74,7 +74,8 @@ class AnalysticsService {
             "Device_Model": mapModel(device.model),
             "Device_SystemName": device.systemName,
             "Device_LocalizedModel": device.localizedModel,
-            "Page_Viewed": pageViewed
+            "Page_Viewed": pageViewed,
+            "App_Version": Bundle.main.infoDictionary?["CFBundleShortVersionString"]
         ]
     }
     

@@ -20,7 +20,6 @@ class NetworkService {
             urlString += "?"
             queryString!.forEach({ param in
                 if let value = param.value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-//                    let value = "\(param.value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))"
                     urlString += "&\(param.key)=\(value)"
                 }
             })
@@ -28,26 +27,20 @@ class NetworkService {
         } else {
             urlString += "?code=\(Consts.URLs.APIFunctionKey)"
         }
-        guard let url = URL(string: urlString) else { return }
-        let session = URLSession.shared
         
-        let task = session.dataTask(with: url, completionHandler: {
-            data, _, err in
-            
-            if let d = data {
-                completion(.success(d))
-            } else if let error = err {
-                completion(.failure(error as NSError))
-            }
-        })
-        task.resume()
+        makeRequest(urlString, method: "GET", completion: completion)
     }
     
     func post(_ urlPath: String, completion: @escaping (Result<Data, NSError>) -> Void ) {
-        guard let url = URL(string: urlPath) else { return }
+        makeRequest(urlPath, method: "POST", completion: completion)
+    }
+    
+    private func makeRequest(_ url: String, method: String, completion: @escaping (Result<Data, NSError>) -> Void) {
+        guard let url = URL(string: url) else { return }
         let session = URLSession.shared
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = method
+        request.addValue("\(String(describing: UIDevice.current.identifierForVendor))", forHTTPHeaderField: "DeviceInfo")
         
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
             if let d = data {
@@ -58,21 +51,10 @@ class NetworkService {
         })
         
         task.resume()
+        
     }
     
     func downloadImage(_ urlPath: String, completion: @escaping (Result<Data, NSError>) -> Void ) {
-        guard let url = URL(string: urlPath) else { return }
-        let session = URLSession.shared
-        
-        let task = session.dataTask(with: url, completionHandler: {
-            data, _, err in
-            
-            if let d = data {
-                completion(.success(d))
-            } else if let error = err {
-                completion(.failure(error as NSError))
-            }
-        })
-        task.resume()
+        makeRequest(urlPath, method: "GET", completion: completion)
     }
 }
