@@ -13,6 +13,7 @@ class NetworkService {
     
     private init() {}
     static let shared = NetworkService()
+    static let currentDevice = UIDevice.current
     
     func get(_ urlPath: String, queryString: [QueryStringParameters]? = nil, completion: @escaping (Result<Data, NSError>) -> Void ) {
         var urlString = Consts.URLs.APIBaseURL + "/" + urlPath
@@ -40,7 +41,12 @@ class NetworkService {
         let session = URLSession.shared
         var request = URLRequest(url: url)
         request.httpMethod = method
-        request.addValue("\(String(describing: UIDevice.current.identifierForVendor))", forHTTPHeaderField: "DeviceInfo")
+        let header = "UUID:\(NetworkService.currentDevice.identifierForVendor!)|AppVersion:\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)|Platform:iOS|DeviceVersion:\(NetworkService.currentDevice.systemVersion)|DeviceModel:\(NetworkService.currentDevice.model)"
+        print("uncoded header: \(header)")
+        let utf8 = header.data(using: .utf8)
+        let base64 = utf8?.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
+        print("base 64 encoded header: \(base64!)")
+        request.addValue("\(String(describing: base64))", forHTTPHeaderField: "DeviceInfo")
         
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
             if let d = data {
@@ -51,7 +57,6 @@ class NetworkService {
         })
         
         task.resume()
-        
     }
     
     func downloadImage(_ urlPath: String, completion: @escaping (Result<Data, NSError>) -> Void ) {
