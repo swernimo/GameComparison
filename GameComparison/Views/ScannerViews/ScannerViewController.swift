@@ -93,17 +93,15 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             self.foundCodeCallback!(code)
         } else {
             API.searchByUPC(code, completion: { result in
-                if let result = result {
-                    if (result.count == 0) {
-                       DispatchQueue.main.async {
+                if (result == nil || result!.count == 0) {
+                    DispatchQueue.main.async {
                         self.displayCodeNotFoundAlert(upc: code)
-                       }
-                    } else {
-                        self.captureSession.startRunning()
-                        if(self.searchResultsView == nil) {
-                            self.searchResults.results = result
-                            self.displaySearchResults()
-                        }
+                    }
+                }else {
+                    self.captureSession.startRunning()
+                    if(self.searchResultsView == nil) {
+                        self.searchResults.results = result!
+                        self.displaySearchResults()
                     }
                 }
             })

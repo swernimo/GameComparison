@@ -148,7 +148,7 @@ class API {
                     let decoder = JSONDecoder()
                     let results = try decoder.decode([SearchResult].self, from: data)
                     completion(results)
-                } catch{
+                } catch (let error) {
                     AnalysticsService.shared.logException(exception: error, errorMsg: "Error unpacking search by upc results")
                     completion(nil)
                 }

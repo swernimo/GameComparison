@@ -69,13 +69,13 @@ class AnalysticsService {
     private func getCommonParameters(_ pageViewed: String) -> [String: Any] {
         return [
             "OS_Version": device.systemVersion,
-            "Device_UUID": device.identifierForVendor!,
+            "Device_UUID": device.identifierForVendor ?? "sim device",
             "Device_Name": device.name,
             "Device_Model": mapModel(device.model),
             "Device_SystemName": device.systemName,
             "Device_LocalizedModel": device.localizedModel,
             "Page_Viewed": pageViewed,
-            "App_Version": Bundle.main.infoDictionary?["CFBundleShortVersionString"]
+            "App_Version": Consts.AppSettings.AppVersion
         ]
     }
     
@@ -92,8 +92,8 @@ class AnalysticsService {
     }
     
     public func logException(exception: Error, errorMsg: String) {
-        Crashlytics.crashlytics().record(error: exception)
-        Crashlytics.crashlytics().log(errorMsg)
+//        Crashlytics.crashlytics().record(error: exception)
+//        Crashlytics.crashlytics().log(errorMsg)
     }
     
     public func logMessage(_ msg: String) {

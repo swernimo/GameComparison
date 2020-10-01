@@ -15,15 +15,16 @@ class NetworkService {
     static let shared = NetworkService()
     static let currentDevice = UIDevice.current
     
-    func get(_ urlPath: String, queryString: [QueryStringParameters]? = nil, completion: @escaping (Result<Data, NSError>) -> Void ) {
-        var urlString = Consts.URLs.APIBaseURL + "/" + urlPath
+    func get(_ urlPath: String, queryString: [QueryStringParameters]? = nil, completion: @escaping (Result<Data, Error>) -> Void ) {
+        var urlString = Consts.URLs.APIBaseURL + urlPath
         if queryString != nil && queryString!.isEmpty == false{
             urlString += "?"
             queryString!.forEach({ param in
                 if let value = param.value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-                    urlString += "&\(param.key)=\(value)"
+                    urlString += "\(param.key)=\(value)&"
                 }
             })
+            urlString.removeLast()
             urlString += "&code=\(Consts.URLs.APIFunctionKey)"
         } else {
             urlString += "?code=\(Consts.URLs.APIFunctionKey)"
@@ -32,34 +33,44 @@ class NetworkService {
         makeRequest(urlString, method: "GET", completion: completion)
     }
     
-    func post(_ urlPath: String, completion: @escaping (Result<Data, NSError>) -> Void ) {
+    func post(_ urlPath: String, completion: @escaping (Result<Data, Error>) -> Void ) {
         makeRequest(urlPath, method: "POST", completion: completion)
     }
     
-    private func makeRequest(_ url: String, method: String, completion: @escaping (Result<Data, NSError>) -> Void) {
+    private func makeRequest(_ url: String, method: String, completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = URL(string: url) else { return }
         let session = URLSession.shared
         var request = URLRequest(url: url)
         request.httpMethod = method
         let header = "UUID:\(NetworkService.currentDevice.identifierForVendor!)|AppVersion:\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)|Platform:iOS|DeviceVersion:\(NetworkService.currentDevice.systemVersion)|DeviceModel:\(NetworkService.currentDevice.model)"
-        print("uncoded header: \(header)")
         let utf8 = header.data(using: .utf8)
-        let base64 = utf8?.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
-        print("base 64 encoded header: \(base64!)")
-        request.addValue("\(String(describing: base64))", forHTTPHeaderField: "DeviceInfo")
+        let base64 = utf8!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
+        request.addValue("\(base64)", forHTTPHeaderField: "DeviceInfo")
         
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
-            if let d = data {
-                completion(.success(d))
-            } else if let error = error {
-                completion(.failure(error as NSError))
+            let urlResponse = response as? HTTPURLResponse
+            if (urlResponse != nil) {
+                let statusCode = urlResponse!.statusCode
+                if statusCode != 200 {
+                    completion(.failure(CustomError.runtimeError("URL \(String(describing: urlResponse?.url)) did not return 200")))
+                } else {
+                    if let d = data {
+                        completion(.success(d))
+                    }
+                }
+            } else {
+                if let d = data {
+                    completion(.success(d))
+                } else if let error = error {
+                    completion(.failure(error as NSError))
+                }
             }
         })
         
         task.resume()
     }
     
-    func downloadImage(_ urlPath: String, completion: @escaping (Result<Data, NSError>) -> Void ) {
+    func downloadImage(_ urlPath: String, completion: @escaping (Result<Data, Error>) -> Void ) {
         makeRequest(urlPath, method: "GET", completion: completion)
     }
 }
