@@ -79,7 +79,13 @@ struct ListDetail: View {
             }
             .padding(.leading, 10)
         }
-        .navigationBarItems(trailing: Button(action: {
+        .navigationBarItems(leading: NavigationLink(
+                                destination: HomeView(),
+                                label: {
+                                    Image(systemName: "chevron.left")
+                                        .foregroundColor(.blue)
+                                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                }), trailing: Button(action: {
             self.addBarcode.toggle()
         }){
             if (self.addBarcode) {
@@ -92,6 +98,7 @@ struct ListDetail: View {
                  .font(.title)
             }
         })
+        .navigationBarBackButtonHidden(true)
         .onAppear(perform: {
             AnalysticsService.shared.logPageView("Game Library Item Detail")
         })

@@ -12,7 +12,7 @@ struct MenuView: View {
     @Binding var showMenu: Bool
     var body: some View {
         GeometryReader { geo in
-            NavigationView {
+//            NavigationView {
                 VStack (alignment: .leading){
                     NavigationLink (destination: HomeView()) {
                         Text("My Library")
@@ -50,7 +50,7 @@ struct MenuView: View {
                 .edgesIgnoringSafeArea(.all)
                 .navigationBarItems(leading: HamburgerButtonView(showMenu: self.$showMenu))
             }
-        }
+//        }
     }
 }
 

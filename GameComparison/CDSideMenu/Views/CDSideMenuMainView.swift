@@ -93,7 +93,7 @@ public struct CDSideMenuMainView: View {
     /// Open/Close the left menu
     private func toggleLeftMenu() {
         withAnimation {
-            print(self.sideMenuOpen ? "-- CDSideMenu closing" : "-- CDSideMenu opening")
+//            print(self.sideMenuOpen ? "-- CDSideMenu closing" : "-- CDSideMenu opening")
             self.sideMenuOpen.toggle()
         }
     }

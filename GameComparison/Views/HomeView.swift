@@ -19,39 +19,15 @@ struct HomeView: View {
     var body: some View {
         GeometryReader { geo in
             VStack {
-                ZStack{
-//                    NavigationView {
-                        List{
-                            ForEach(self.library.library, id: \.id) { item in
-                                NavigationLink(destination: ListDetail(game: item)) {
-                                    ListItem(game: item)
-                                        .frame(height: geo.size.height * 0.1)
-                                }
+//                ZStack{
+                    List{
+                        ForEach(self.library.library, id: \.id) { item in
+                            NavigationLink(destination: ListDetail(game: item)) {
+                                ListItem(game: item)
+                                    .frame(height: geo.size.height * 0.1)
                             }
                         }
-//                        .navigationBarTitle("My Game Library", displayMode: .inline)
-//                        .navigationBarItems(leading: HamburgerButtonView(showMenu: self.$showMenu), trailing: NavigationLink(destination: ScannerView()){
-                        /**
-                         leading: NavigationLink(
-                                                 destination: CDSideMenuMainView()
-                                                     .environmentObject(createConfiguration()),
-                                                 label: {
-                                                     Image(systemName: "line.horizontal.3")
-                                                         .imageScale(.small)
-                                                         .font(.title)
-                                                 }),
-                         */
-//                        .navigationBarItems(trailing: NavigationLink(destination: ScannerView()){
-//                                Image(systemName: "barcode.viewfinder")
-//                                    .imageScale(.small)
-//                                    .font(.title)
-//                        })
-                        
 //                    }
-//                    .navigationBarBackButtonHidden(true)
-//                    .frame(width: geo.size.width)
-//                    .offset(x: self.showMenu ? geo.size.width * 0.5 : 0)
-//                    .disabled(self.showMenu)
                 }
             }.onAppear(perform: {
                 AnalysticsService.shared.logPageView("Home")
