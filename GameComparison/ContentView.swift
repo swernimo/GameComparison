@@ -15,19 +15,27 @@ struct ContentView: View {
     var appDelegate = (UIApplication.shared.delegate as? AppDelegate)
     
     var body: some View {
-        VStack{
-            if (acceptedTerms) {
-                HomeView()
-                    .environmentObject(self.library)
-            } else {
-                TermsOfUseView()
-                    .environmentObject(self.library)
-            }
-        }.onAppear(perform: {
-            self.acceptedTerms = UserDefaultsService.shared.getTermsAccepted()
-        })
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
+        CDSideMenuMainView()
+            .environmentObject(self.library)
+            .environmentObject(MenuHelper.shared.createConfiguration())
+            .navigationBarHidden(true)
+            .onAppear(perform: {
+                self.acceptedTerms = UserDefaultsService.shared.getTermsAccepted()
+            })
+            .navigationBarTitle("")
+//        VStack{
+//            if (acceptedTerms) {
+//                HomeView()
+//                    .environmentObject(self.library)
+//            } else {
+//                TermsOfUseView()
+//                    .environmentObject(self.library)
+//            }
+//        }.onAppear(perform: {
+//            self.acceptedTerms = UserDefaultsService.shared.getTermsAccepted()
+//        })
+//        .navigationBarTitle("")
+//        .navigationBarHidden(true)
     }
 }
 

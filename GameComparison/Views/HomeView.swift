@@ -20,7 +20,7 @@ struct HomeView: View {
         GeometryReader { geo in
             VStack {
                 ZStack{
-                    NavigationView {
+//                    NavigationView {
                         List{
                             ForEach(self.library.library, id: \.id) { item in
                                 NavigationLink(destination: ListDetail(game: item)) {
@@ -29,23 +29,29 @@ struct HomeView: View {
                                 }
                             }
                         }
-                        .navigationBarTitle("My Game Library", displayMode: .inline)
-                        .navigationBarItems(leading: HamburgerButtonView(showMenu: self.$showMenu), trailing: NavigationLink(destination: ScannerView()){
-                                Image(systemName: "barcode.viewfinder")
-                                    .imageScale(.small)
-                                    .font(.title)
-                        })
-                    }
-                    .navigationBarBackButtonHidden(true)
-                    .frame(width: geo.size.width)
-                    .offset(x: self.showMenu ? geo.size.width * 0.5 : 0)
-                    .disabled(self.showMenu)
-                    if (self.showMenu) {
-                        MenuView(showMenu: self.$showMenu)
-                            .frame(width: (geo.size.width * 0.6), height: geo.size.height, alignment: .leading)
-                            .transition(.move(edge: .leading))
-                            .offset(x: (geo.size.width * -0.2))
-                    }
+//                        .navigationBarTitle("My Game Library", displayMode: .inline)
+//                        .navigationBarItems(leading: HamburgerButtonView(showMenu: self.$showMenu), trailing: NavigationLink(destination: ScannerView()){
+                        /**
+                         leading: NavigationLink(
+                                                 destination: CDSideMenuMainView()
+                                                     .environmentObject(createConfiguration()),
+                                                 label: {
+                                                     Image(systemName: "line.horizontal.3")
+                                                         .imageScale(.small)
+                                                         .font(.title)
+                                                 }),
+                         */
+//                        .navigationBarItems(trailing: NavigationLink(destination: ScannerView()){
+//                                Image(systemName: "barcode.viewfinder")
+//                                    .imageScale(.small)
+//                                    .font(.title)
+//                        })
+                        
+//                    }
+//                    .navigationBarBackButtonHidden(true)
+//                    .frame(width: geo.size.width)
+//                    .offset(x: self.showMenu ? geo.size.width * 0.5 : 0)
+//                    .disabled(self.showMenu)
                 }
             }.onAppear(perform: {
                 AnalysticsService.shared.logPageView("Home")
