@@ -80,7 +80,7 @@ public class CDSideMenuConfiguration: ObservableObject {
             errorMessage = "You are willing to have the left menu account panel visible; however you do not have any user data. Please set the property 'userData'."
         }
         
-        print("-- CDSideMenu Configuration Check : \(errorMessage != nil ? "FAILED": "PASSED")")
+//        print("-- CDSideMenu Configuration Check : \(errorMessage != nil ? "FAILED": "PASSED")")
         if let errorMessage = errorMessage {
             throw errorMessage
         }
@@ -89,7 +89,7 @@ public class CDSideMenuConfiguration: ObservableObject {
     
     #if DEBUG
     deinit {
-        print("OS reclaiming memory for object CDSideMenuConfiguration")
+//        print("OS reclaiming memory for object CDSideMenuConfiguration")
     }
     #endif
 }

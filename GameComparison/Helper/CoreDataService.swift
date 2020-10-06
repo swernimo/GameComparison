@@ -42,7 +42,7 @@ class CoreDataService {
          let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Game")
          request.returnsObjectsAsFaults = false
          do {
-             let result = try context.fetch(request)
+            let result = try context.fetch(request)
             guard let library = result as? [Game] else { return [] }
             return library
          } catch {

@@ -20,7 +20,13 @@ class API {
     func getGameLibrary(username: String) -> Void {
         var savedLibrary = CoreDataService.shared.fetchGameLibrary()
         savedLibrary.sort(by: {$1.name > $0.name })
-        self.gameLibrary.library = savedLibrary
+        for game in savedLibrary {
+            if (!self.gameLibrary.library.contains(game)) {
+                DispatchQueue.main.async {
+                    self.gameLibrary.library.append(game)
+                }
+            }
+        }
         let username = username.trimmingCharacters(in: .whitespaces)
         NetworkService.shared.get("/GetCollection/\(username)", completion: { result in
             
