@@ -48,9 +48,7 @@ class MenuHelper {
                                                userData: CDUserData(userName: "Chris", imageUrl: ""))
         }
         catch {
-            print("CDSideMenu configuration failed. Please check your error below:")
-            print(error.localizedDescription)
-            print("CDSideMenu Default configuration loaded instead.")
+            AnalysticsService.shared.logException(exception: CustomError.runtimeError("CDSideMenu configuration failed.", error))
             return try! CDSideMenuConfiguration(accountViewHidden: true, menuItems: menuItems)
         }
     }
