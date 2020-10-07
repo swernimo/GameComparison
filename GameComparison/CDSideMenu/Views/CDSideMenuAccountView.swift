@@ -38,19 +38,7 @@ struct CDSideMenuAccountView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
               
-                /// The logout button
-                Button(action: { self.didSelectRowAt(CDAccountItems.logOut.rawValue) }, label: {
-                    HStack {
-                        Image(systemName: "power")
-                            .imageScale(.large)
-                        Text("Logout")
-                            .font(self.configuration.menuFont)
-                        
-                    }
-                    .foregroundColor(.cdOffOrange)
-                    .padding()
-                    
-                })
+               
             }
             .padding(.bottom, 40)
         }
