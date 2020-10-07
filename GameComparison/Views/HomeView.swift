@@ -24,13 +24,7 @@ struct HomeView: View {
                         NavigationLink(destination: ListDetail(game: item)) {
                             ListItem(game: item)
                                 .frame(height: geo.size.height * 0.1)
-                                
                                 .navigationBarTitle("My Game Library", displayMode: .inline)
-                                .navigationBarItems(trailing: NavigationLink(destination: ScannerView()){
-                                        Image(systemName: "barcode.viewfinder")
-                                            .imageScale(.small)
-                                            .font(.title)
-                                })
                                 .navigationBarBackButtonHidden(true)
                         }
                     }

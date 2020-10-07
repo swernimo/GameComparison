@@ -12,17 +12,6 @@ import Combine
 struct ScannerView: View {
     var body: some View {
         ScannerViewControllerRepresentable()
-        .overlay(CloseButtonView()
-            .offset(x: -5, y: 10)
-            .colorInvert(), alignment: .topTrailing)
-            .navigationBarItems(trailing: Button(action: ({})) {
-                NavigationLink (destination: SearchByTitleView(results: SearchResultObersable())) {
-                    Image(systemName: "doc.text.magnifyingglass")
-                        .imageScale(.small)
-                        .font(.title)
-                        .foregroundColor(.blue)
-                }
-            })
             .onAppear(perform: {
                 AnalysticsService.shared.logPageView("Scanner View")
             })

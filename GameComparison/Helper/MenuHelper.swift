@@ -24,6 +24,8 @@ class MenuHelper {
     func createConfiguration() -> CDSideMenuConfiguration {
         var menuItems = [CDSideMenuItem]()
         menuItems.append(CDSideMenuItem(title: "My Library", sfImage: "house", view: AnyView(HomeView())))
+        menuItems.append(CDSideMenuItem(title: "Search by Barcode", sfImage: "barcode.viewfinder", view: AnyView(ScannerView())))
+        menuItems.append(CDSideMenuItem(title: "Search by Title", sfImage: "doc.text.magnifyingglass", view: AnyView(SearchByTitleView(results: SearchResultObersable()))))
         menuItems.append(CDSideMenuItem(title: "About", sfImage: "", view: AnyView(AboutView())))
         menuItems.append(CDSideMenuItem(title: "Terms of Use", sfImage: "book", view: AnyView(TermsOfUseView())))
 
