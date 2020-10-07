@@ -19,20 +19,45 @@ struct HomeView: View {
     var body: some View {
         GeometryReader { geo in
             VStack {
-//                ZStack{
-                    List{
-                        ForEach(self.library.library, id: \.id) { item in
-                            NavigationLink(destination: ListDetail(game: item)) {
-                                ListItem(game: item)
-                                    .frame(height: geo.size.height * 0.1)
-                            }
+                List{
+                    ForEach(self.library.library, id: \.id) { item in
+                        NavigationLink(destination: ListDetail(game: item)) {
+                            ListItem(game: item)
+                                .frame(height: geo.size.height * 0.1)
+                                
+                                .navigationBarTitle("My Game Library", displayMode: .inline)
+                                .navigationBarItems(trailing: NavigationLink(destination: ScannerView()){
+                                        Image(systemName: "barcode.viewfinder")
+                                            .imageScale(.small)
+                                            .font(.title)
+                                })
+                                .navigationBarBackButtonHidden(true)
                         }
-//                    }
+                    }
                 }
-            }.onAppear(perform: {
+            }
+            .onAppear(perform: {
                 AnalysticsService.shared.logPageView("Home")
+                let shouldLoad = UserDefaultsService.shared.getShouldLoadGameLibrary()
                 if let username = KeychainWrapper.shared.string(forKey: Consts.KeychainKeys.Username) {
-                    API(self.library).getGameLibrary(username: username)
+                    if (shouldLoad) {
+                        API(self.library).getGameLibrary(username: username, completion: { library in
+                            if (library != nil) {
+                                UserDefaultsService.shared.setLoadGameLibrary(false)
+                                DispatchQueue.main.async {
+                                    self.library.library = []
+                                    self.library.library = library!
+                                }
+                            }
+                        })
+                    } else {
+                        var savedLibrary = CoreDataService.shared.fetchGameLibrary()
+                        savedLibrary.sort(by: {$1.name > $0.name })
+                        DispatchQueue.main.async {
+                            self.library.library = []
+                            self.library.library = savedLibrary
+                        }
+                    }
                 } else {
                     self.promptLogin = true
                 }
@@ -43,8 +68,26 @@ struct HomeView: View {
                     TextField("Enter Boardgame Geek Username", text: self.$username)
                     Button(action: {
                         AnalysticsService.shared.logButtonClick("Login", pageName: "Home")
-                        KeychainWrapper.shared.set(self.username, forKey: Consts.KeychainKeys.Username)
-                        API(self.library).getGameLibrary(username: self.username)
+                        let shouldLoad = UserDefaultsService.shared.getShouldLoadGameLibrary()
+                        if (shouldLoad) {
+                            KeychainWrapper.shared.set(self.username, forKey: Consts.KeychainKeys.Username)
+                            API(self.library).getGameLibrary(username: self.username, completion: { library in
+                                if (library != nil) {
+                                    UserDefaultsService.shared.setLoadGameLibrary(false)
+                                    DispatchQueue.main.async {
+                                        self.library.library = []
+                                        self.library.library = library!
+                                    }
+                                }
+                            })
+                        }else {
+                            var savedLibrary = CoreDataService.shared.fetchGameLibrary()
+                            savedLibrary.sort(by: {$1.name > $0.name })
+                            DispatchQueue.main.async {
+                                self.library.library = []
+                                self.library.library = savedLibrary
+                            }
+                        }
                         self.promptLogin = false
                     }) {
                         Text("Login")

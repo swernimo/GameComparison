@@ -17,16 +17,16 @@ class API {
         self.gameLibrary = library
     }
     
-    func getGameLibrary(username: String) -> Void {
+    func getGameLibrary(username: String, completion: @escaping ([Game]?) -> Void) -> Void {
         var savedLibrary = CoreDataService.shared.fetchGameLibrary()
         savedLibrary.sort(by: {$1.name > $0.name })
-        for game in savedLibrary {
-            if (!self.gameLibrary.library.contains(game)) {
-                DispatchQueue.main.async {
-                    self.gameLibrary.library.append(game)
-                }
-            }
-        }
+//        for game in savedLibrary {
+//            if (!self.gameLibrary.library.contains(game)) {
+//                DispatchQueue.main.async {
+//                    self.gameLibrary.library.append(game)
+//                }
+//            }
+//        }
         let username = username.trimmingCharacters(in: .whitespaces)
         NetworkService.shared.get("/GetCollection/\(username)", completion: { result in
             
@@ -86,23 +86,27 @@ class API {
                             return $0.id == remote.id
                         })
                         if (alreadySaved == false) {
-                            DispatchQueue.main.async {
-                                self.gameLibrary.library.append(remote)
+//                            DispatchQueue.main.async {
+//                                self.gameLibrary.library.append(remote)
                                 CoreDataService.shared.saveContext()
-                            }
+//                            }
                         }
                     }
                     
-                    for saved in self.gameLibrary.library {
+                    for saved in savedLibrary {
                         let deleted = !remoteLibrary.contains(where: { $0.id == saved.id})
                         if(deleted) {
-                            DispatchQueue.main.async {
-                                self.gameLibrary.library.removeAll(where: { $0.id == saved.id})
-                            }
+//                            DispatchQueue.main.async {
+//                                self.gameLibrary.library.removeAll(where: { $0.id == saved.id})
+//                            }
+                            savedLibrary.removeAll(where: {
+                                $0.id == saved.id
+                            })
                             CoreDataService.shared.context.delete(saved)
                             ImageHelper.shared.deleteImage(forKey: "\(saved.id)")
                         }
                     }
+                    completion(remoteLibrary)
                 } catch {
                     AnalysticsService.shared.logException(exception: error, errorMsg: "Error deserializing game library JSON")
                 }

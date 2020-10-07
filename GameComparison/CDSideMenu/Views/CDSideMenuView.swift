@@ -37,6 +37,19 @@ struct CDSideMenuView: View {
             if !configuration.accountViewHidden && configuration.userData != nil {
                 CDSideMenuAccountView(didSelectRowAt: self.internalDidSelectRowAt, selectedRow: self.selectedRow)
             }
+            /// The logout button
+            Button(action: { self.didSelectRowAt(CDAccountItems.logOut.rawValue) }, label: {
+                HStack {
+                    Image(systemName: "power")
+                        .imageScale(.large)
+                    Text("Logout")
+                        .font(self.configuration.menuFont)
+                    
+                }
+                .foregroundColor(.cdOffOrange)
+                .padding()
+                
+            }).padding(.bottom, 40)
         }
         .modifier(CDSideMenuView.Modifiers())
     }

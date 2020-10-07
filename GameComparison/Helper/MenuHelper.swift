@@ -14,7 +14,10 @@ class MenuHelper {
     
     /// Conforms to CDSideMenuConfigurator protocol
     func didLogout(_ notification: Notification) {
-        print("User logged out! UserData will be in notification.object")
+        AnalysticsService.shared.logButtonClick("Logout", pageName: "Menu")
+        KeychainWrapper.shared.removeObject(forKey: Consts.KeychainKeys.Username)
+        CoreDataService.shared.deleteAllData()
+        UserDefaultsService.shared.setLoadGameLibrary(true)
     }
     
     /// Conforms to CDSideMenuConfigurator protocol
@@ -30,7 +33,7 @@ class MenuHelper {
         
         do {
             return try CDSideMenuConfiguration(navigationBarHidden: false,
-                                               accountViewHidden: false,
+                                               accountViewHidden: true,
                                                menuBackgroundColor: .cdDarkGray,
                                                menuForegroundColor: .white,
                                                viewsBackgroundColor: .white,

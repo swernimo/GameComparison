@@ -22,6 +22,7 @@ struct Consts {
     
     public class UserDefaultsKeys {
         public static let TermsAccepted = "TermsAccepted"
+        public static let LoadLibrary = "LoadLibrary"
     }
     
     public class AppSettings {

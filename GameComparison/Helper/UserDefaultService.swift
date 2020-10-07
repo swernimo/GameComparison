@@ -22,4 +22,16 @@ class UserDefaultsService {
     func getTermsAccepted() -> Bool {
         return defaults.bool(forKey: Consts.UserDefaultsKeys.TermsAccepted)
     }
+    
+    func getShouldLoadGameLibrary() -> Bool {
+        let obj = defaults.object(forKey: Consts.UserDefaultsKeys.LoadLibrary)
+        if (obj == nil) {
+            return true
+        }
+        return defaults.bool(forKey: Consts.UserDefaultsKeys.LoadLibrary)
+    }
+    
+    func setLoadGameLibrary(_ shouldLoad: Bool) -> Void {
+        defaults.set(shouldLoad, forKey: Consts.UserDefaultsKeys.LoadLibrary)
+    }
 }
