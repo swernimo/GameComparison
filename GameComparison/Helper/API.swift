@@ -230,4 +230,28 @@ class API {
             }
         })
     }
+    
+    static func saveTerms(completion: @escaping (Bool) -> Void) -> Void {
+        if let username = KeychainWrapper.shared.string(forKey: Consts.KeychainKeys.Username) {
+            if let terms = Consts.TermsOfUse.loadTerms() {
+                let body = ["username": username, "terms" : terms]
+                NetworkService.shared.post("/SaveTerms", body: body, completion: { result in
+                    switch (result) {
+                        case .success:
+                            completion(true)
+                        break;
+                        case .failure(let error):
+                            AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error trying to save accepted terms", error))
+                            completion(false)
+                        break;
+                    }
+                })
+            } else {
+                completion(false)
+            }
+        }else {
+            completion(false)
+        }
+        
+    }
 }

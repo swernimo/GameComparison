@@ -34,4 +34,12 @@ class UserDefaultsService {
     func setLoadGameLibrary(_ shouldLoad: Bool) -> Void {
         defaults.set(shouldLoad, forKey: Consts.UserDefaultsKeys.LoadLibrary)
     }
+    
+    func getTermsSaved() -> Bool {
+        return defaults.bool(forKey: Consts.UserDefaultsKeys.TermsSaved)
+    }
+    
+    func setTermsSaved(_ saved: Bool) -> Void {
+        defaults.setValue(saved, forKey: Consts.UserDefaultsKeys.TermsSaved)
+    }
 }

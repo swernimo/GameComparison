@@ -33,11 +33,12 @@ class NetworkService {
         makeRequest(urlString, method: "GET", completion: completion)
     }
     
-    func post(_ urlPath: String, completion: @escaping (Result<Data, Error>) -> Void ) {
-        makeRequest(urlPath, method: "POST", completion: completion)
+    func post(_ urlPath: String, body: [String: Any] = [:], completion: @escaping (Result<Data, Error>) -> Void ) {
+        let urlString = Consts.URLs.APIBaseURL + urlPath + "?code=\(Consts.URLs.APIFunctionKey)"
+        makeRequest(urlString, method: "POST", body: body, completion: completion)
     }
     
-    private func makeRequest(_ url: String, method: String, completion: @escaping (Result<Data, Error>) -> Void) {
+    private func makeRequest(_ url: String, method: String, body: [String: Any] = [:], completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = URL(string: url) else { return }
         let session = URLSession.shared
         var request = URLRequest(url: url)
@@ -47,6 +48,12 @@ class NetworkService {
         let base64 = utf8!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
         request.addValue("\(base64)", forHTTPHeaderField: "DeviceInfo")
         
+        do {
+            let json = try JSONSerialization.data(withJSONObject: body, options: .withoutEscapingSlashes)
+            request.httpBody = json
+        } catch {
+            AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error trying to serialize POST body to JSON", error))
+        }
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
             let urlResponse = response as? HTTPURLResponse
             if (urlResponse != nil) {

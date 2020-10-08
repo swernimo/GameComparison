@@ -36,7 +36,6 @@ struct TermsOfUseView: View {
                         }.simultaneousGesture(TapGesture().onEnded {
                             AnalysticsService.shared.logButtonClick("Accept", pageName: "Terms of Use")
                             UserDefaultsService.shared.setTermsAccepted(true)
-                            //check if username is already stored, if so upload terms, username, UUID & timestamp
                         })
                         .navigationBarBackButtonHidden(true)
                         Spacer()

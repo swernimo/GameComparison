@@ -23,9 +23,26 @@ struct Consts {
     public class UserDefaultsKeys {
         public static let TermsAccepted = "TermsAccepted"
         public static let LoadLibrary = "LoadLibrary"
+        public static let TermsSaved = "TermsSaved"
     }
     
     public class AppSettings {
         public static let AppVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] ?? "1.0"
+    }
+    
+    public class TermsOfUse {
+        public static func loadTerms() -> String? {
+            if let filepath = Bundle.main.path(forResource: "TermsOfUse", ofType: "txt") {
+                do {
+                    let terms = try String(contentsOfFile: filepath)
+                    return terms
+                } catch {
+                    AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error parsing terms of use", error))
+                }
+            
+            }
+            AnalysticsService.shared.logMessage("Terms of Use file not found")
+            return nil
+        }
     }
 }

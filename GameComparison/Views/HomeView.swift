@@ -16,6 +16,18 @@ struct HomeView: View {
     @State private var promptLogin = false
     @State private var username = ""
     
+    private func saveAcceptedTerms() {
+        let termsSaved = UserDefaultsService.shared.getTermsSaved()
+        if (!termsSaved) {
+            API.saveTerms(completion: { success in
+                if (success) {
+                    UserDefaultsService.shared.setTermsSaved(true)
+                }
+            })
+        }
+    }
+    
+    
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -32,6 +44,7 @@ struct HomeView: View {
             }
             .onAppear(perform: {
                 AnalysticsService.shared.logPageView("Home")
+                saveAcceptedTerms()
                 let shouldLoad = UserDefaultsService.shared.getShouldLoadGameLibrary()
                 if let username = KeychainWrapper.shared.string(forKey: Consts.KeychainKeys.Username) {
                     if (shouldLoad) {
