@@ -32,7 +32,7 @@ class CoreDataService {
             do {
                 try context.save()
             } catch {
-                AnalysticsService.shared.logException(exception: error, errorMsg: "Error saving context")
+                AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error saving context", error))
             }
         }
     }
@@ -46,7 +46,7 @@ class CoreDataService {
             guard let library = result as? [Game] else { return [] }
             return library
          } catch {
-            AnalysticsService.shared.logException(exception: error, errorMsg: "Fetching data Failed")
+            AnalysticsService.shared.logException(exception: CustomError.runtimeError("Fetching data Failed", error))
          }
         return []
      }
@@ -65,7 +65,7 @@ class CoreDataService {
                 context.delete(objectData)
             }
         } catch let error {
-            AnalysticsService.shared.logException(exception: error, errorMsg: "Error deleting all data")
+            AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error deleting all data", error))
         }
         
     }

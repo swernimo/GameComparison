@@ -18,10 +18,4 @@ open class CDUserData : ObservableObject {
         self.userName = userName
         self.imageUrl = imageUrl
     }
-    
-    #if DEBUG
-    deinit {
-        print("OS reclaiming memory for object CDUserData")
-    }
-    #endif
 }

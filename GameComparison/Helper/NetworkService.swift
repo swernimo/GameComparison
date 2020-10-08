@@ -52,7 +52,7 @@ class NetworkService {
             if (urlResponse != nil) {
                 let statusCode = urlResponse!.statusCode
                 if statusCode != 200 {
-                    completion(.failure(CustomError.runtimeError("URL \(String(describing: urlResponse?.url)) did not return 200")))
+                    completion(.failure(NSError(domain: "Network Service request did not return 200", code: statusCode, userInfo: ["URL": String(describing: "urlResponse?.url")])))
                 } else {
                     if let d = data {
                         completion(.success(d))

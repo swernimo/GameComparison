@@ -50,7 +50,7 @@ class ImageHelper {
         do {
             try data.write(to: url)
         }catch{
-            AnalysticsService.shared.logException(exception: error, errorMsg: "Error trying to save image to disk at location \(url)")
+            AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error trying to save image to disk at location \(url)", error))
         }
     }
     
@@ -65,7 +65,7 @@ class ImageHelper {
                     completion(data)
                     break
                 case .failure(let error):
-                    AnalysticsService.shared.logException(exception: error, errorMsg: "Failed network request when downloading image from \(String(describing: url))")
+                    AnalysticsService.shared.logException(exception: CustomError.runtimeError("Failed network request when downloading image from \(String(describing: url))", error))
                     completion(nil)
                     break
                 }
@@ -78,7 +78,7 @@ class ImageHelper {
             do{
                 try FileManager.default.removeItem(at: filePath)
             }catch{
-                AnalysticsService.shared.logException(exception: error, errorMsg: "Error deleting image from disk")
+                AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error deleting image from disk", error))
             }
         }
     }

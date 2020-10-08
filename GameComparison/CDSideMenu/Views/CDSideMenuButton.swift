@@ -42,7 +42,6 @@ struct CDSideMenuButton: View {
 struct CDSideMenuButton_Previews: PreviewProvider {
     
     static func toggle() {
-        print("Toggle test")
     }
     static var previews: some View {
         CDSideMenuButton(sideMenuOpen: .constant(false), toggleLeftMenu: CDSideMenuButton_Previews.toggle)

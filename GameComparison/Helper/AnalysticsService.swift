@@ -91,9 +91,8 @@ class AnalysticsService {
         Analytics.logEvent("Event", parameters: params)
     }
     
-    public func logException(exception: Error, errorMsg: String) {
+    public func logException(exception: CustomError) {
         Crashlytics.crashlytics().record(error: exception)
-        Crashlytics.crashlytics().log(errorMsg)
     }
     
     public func logMessage(_ msg: String) {

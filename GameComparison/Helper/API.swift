@@ -108,11 +108,11 @@ class API {
                     }
                     completion(remoteLibrary)
                 } catch {
-                    AnalysticsService.shared.logException(exception: error, errorMsg: "Error deserializing game library JSON")
+                    AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error deserializing game library JSON", error))
                 }
                 break
             case .failure (let error):
-                AnalysticsService.shared.logException(exception: error, errorMsg: "Error getting game library")
+                AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error getting game library", error))
                 break
             }
         })
@@ -138,12 +138,12 @@ class API {
                 completion(stats)
                 
             }catch {
-                AnalysticsService.shared.logException(exception: error, errorMsg: "Error unpacking get statistics")
+                AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error unpacking get statistics", error))
                 completion(nil)
             }
             break;
         case .failure(let error):
-            AnalysticsService.shared.logException(exception: error, errorMsg: "Error getting statistics")
+            AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error getting statistics", error))
             completion(nil)
             break;
         }
@@ -159,12 +159,12 @@ class API {
                     let results = try decoder.decode([SearchResult].self, from: data)
                     completion(results)
                 } catch (let error) {
-                    AnalysticsService.shared.logException(exception: error, errorMsg: "Error unpacking search by upc results")
+                    AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error unpacking search by upc results", error))
                     completion(nil)
                 }
                 break;
             case .failure(let error):
-                AnalysticsService.shared.logException(exception: error, errorMsg: "Error searching by UPC")
+                AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error searching by UPC", error))
                 completion(nil)
                 break;
             }
@@ -184,12 +184,12 @@ class API {
                         completion(results)
                     }
                     catch{
-                        AnalysticsService.shared.logException(exception: error, errorMsg: "Error unpacking search by title results")
+                        AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error unpacking search by title results", error))
                         completion(nil)
                     }
                     break;
                 case .failure(let error):
-                    AnalysticsService.shared.logException(exception: error, errorMsg: "Failed searching by title")
+                    AnalysticsService.shared.logException(exception: CustomError.runtimeError("Failed searching by title", error))
                     completion(nil)
                     break;
                 }
@@ -205,11 +205,11 @@ class API {
                     let result = try decoder.decode(GameComparisonObject.self, from: data)
                     completion(result)
                 }catch{
-                    AnalysticsService.shared.logException(exception: error, errorMsg: "Error unpacking get game details")
+                    AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error unpacking get game details", error))
                 }
                 break;
             case .failure(let error):
-                AnalysticsService.shared.logException(exception: error, errorMsg: "Error getting game details")
+                AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error getting game details", error))
                 completion(nil)
                 break;
             }
@@ -224,7 +224,7 @@ class API {
                 completion(true)
                 break;
             case .failure(let error):
-                AnalysticsService.shared.logException(exception: error, errorMsg: "Error updating game with barcode")
+                AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error updating game with barcode", error))
                 completion(false)
                 break;
             }
