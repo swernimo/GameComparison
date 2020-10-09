@@ -9,15 +9,19 @@
 import SwiftUI
 
 struct TermsOfUseView: View {
-    //TODO: Get actual TOS
     @EnvironmentObject var library: Library
     @State private var showAlert = false
+    @State private var terms: String = ""
+    private func loadTermsOfUse() {
+        let savedTerms = Consts.TermsOfUse.loadTerms()
+        self.terms = (savedTerms != nil) ? savedTerms! : "Problem getting terms"
+    }
     var body: some View {
         GeometryReader { geo in
         NavigationView{
             VStack{
                 ScrollView{
-                   Text("This is my Terms of Use Page")
+                   Text(terms)
                 }.frame(width: (geo.size.width * 0.9))
                 HStack{
                         Spacer()
@@ -47,6 +51,7 @@ struct TermsOfUseView: View {
         })
         .onAppear(perform: {
             AnalysticsService.shared.logPageView("Terms of Use")
+            loadTermsOfUse()
         })
     }
 }

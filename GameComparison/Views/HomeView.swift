@@ -100,7 +100,7 @@ struct HomeView: View {
                         Text("Login")
                     }
                     Spacer()
-                    Text("Create Account")
+//                    Text("Create Account")
                     //TODO: add link to BGG to create Account
                 }
                 
