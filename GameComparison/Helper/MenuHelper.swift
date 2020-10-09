@@ -29,7 +29,6 @@ class MenuHelper {
         menuItems.append(CDSideMenuItem(title: "About", sfImage: "", view: AnyView(AboutView())))
         menuItems.append(CDSideMenuItem(title: "Terms of Use", sfImage: "book", view: AnyView(TermsOfUseView())))
 
-//         If planning to use the logout button, register to the following event to be notified when the user clicks the logout button
         NotificationCenter.default.addObserver(forName: Notification.Name(CDSideMenuNotification.logout.rawValue),
                                                object: nil, queue: nil, using: self.didLogout)
         

@@ -16,9 +16,10 @@ struct TermsOfUseView: View {
         let savedTerms = Consts.TermsOfUse.loadTerms()
         self.terms = (savedTerms != nil) ? savedTerms! : "Problem getting terms"
     }
+    
     var body: some View {
         GeometryReader { geo in
-        NavigationView{
+        NavigationView {
             VStack{
                 ScrollView{
                    Text(terms)
@@ -35,7 +36,17 @@ struct TermsOfUseView: View {
                             Text("Decline")
                         }
                         Spacer()
-                        NavigationLink (destination: ContentView()){
+//                        Button(action: {
+//                            AnalysticsService.shared.logButtonClick("Accept", pageName: "Terms of Use")
+//                            UserDefaultsService.shared.setTermsAccepted(true)
+//                        }, label: {
+//                            Text("Accept")
+//                        })
+                        NavigationLink (destination: CDSideMenuMainView()
+                                            .environmentObject(self.library)
+                                                .environmentObject(MenuHelper.shared.createConfiguration())
+                                                .navigationBarHidden(true)
+                                                .navigationBarTitle("")){
                             Text("Accept")
                         }.simultaneousGesture(TapGesture().onEnded {
                             AnalysticsService.shared.logButtonClick("Accept", pageName: "Terms of Use")
@@ -45,7 +56,7 @@ struct TermsOfUseView: View {
                         Spacer()
                     }
                 }
-            }
+        } .navigationBarHidden(true)
         }.alert(isPresented: self.$showAlert, content: {
             Alert(title: Text("Terms of Use"), message: Text("You must accept terms of use to use the app"), dismissButton: .cancel(Text("Okay")))
         })
