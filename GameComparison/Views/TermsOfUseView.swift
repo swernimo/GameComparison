@@ -36,12 +36,6 @@ struct TermsOfUseView: View {
                             Text("Decline")
                         }
                         Spacer()
-//                        Button(action: {
-//                            AnalysticsService.shared.logButtonClick("Accept", pageName: "Terms of Use")
-//                            UserDefaultsService.shared.setTermsAccepted(true)
-//                        }, label: {
-//                            Text("Accept")
-//                        })
                         NavigationLink (destination: CDSideMenuMainView()
                                             .environmentObject(self.library)
                                                 .environmentObject(MenuHelper.shared.createConfiguration())

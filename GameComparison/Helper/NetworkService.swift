@@ -47,12 +47,14 @@ class NetworkService {
         let utf8 = header.data(using: .utf8)
         let base64 = utf8!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
         request.addValue("\(base64)", forHTTPHeaderField: "DeviceInfo")
-        
-        do {
-            let json = try JSONSerialization.data(withJSONObject: body, options: .withoutEscapingSlashes)
-            request.httpBody = json
-        } catch {
-            AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error trying to serialize POST body to JSON", error))
+        if (!body.isEmpty){
+            do {
+                let json = try JSONSerialization.data(withJSONObject: body, options: .withoutEscapingSlashes)
+                request.httpBody = json
+            } catch {
+                AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error trying to serialize POST body to JSON", error))
+            }
+            
         }
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
             let urlResponse = response as? HTTPURLResponse
