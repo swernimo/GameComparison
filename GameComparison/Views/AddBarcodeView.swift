@@ -26,7 +26,7 @@ struct AddBarcodeView: View {
         .alert(isPresented: $showAlert, content: {
             Alert(title: Text("Add Barcode"), message: Text("Is \(self.barcode) for \(self.name)"), primaryButton: .default(Text("Yes"), action: {
                 AnalysticsService.shared.logButtonClick("Confirm", pageName: "Add Barcode")
-                API.addBarcode(gameId: self.gameId, barcode: self.barcode, completion: { _ in
+                API.addBarcode(gameId: self.gameId, barcode: self.barcode, gameName: name, completion: { _ in
                 })
                 self.showAlert = false
                 if let callback = self.completeCallback {

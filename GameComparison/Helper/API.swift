@@ -216,19 +216,20 @@ class API {
         })
     }
     
-    static func addBarcode(gameId: Int32, barcode: String, completion: @escaping (Bool) -> Void) -> Void {
-        let url = "\(Consts.URLs.APIBaseURL)/AddBarcode/\(gameId)/\(barcode)/?code=\(Consts.URLs.APIFunctionKey)"
-        NetworkService.shared.post(url, completion: { result in
-            switch (result) {
-            case .success(_):
-                completion(true)
-                break;
-            case .failure(let error):
-                AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error updating game with barcode", error))
-                completion(false)
-                break;
-            }
-        })
+    static func addBarcode(gameId: Int32, barcode: String, gameName: String, completion: @escaping (Bool) -> Void) -> Void {
+        addBarcodeFromLibrary(gameName, id: gameId, barcode: barcode)
+//        let url = "/AddBarcode/\(gameId)/\(barcode)"
+//        NetworkService.shared.post(url, completion: { result in
+//            switch (result) {
+//            case .success(_):
+//                completion(true)
+//                break;
+//            case .failure(let error):
+//                AnalysticsService.shared.logException(exception: CustomError.runtimeError("Error updating game with barcode", error))
+//                completion(false)
+//                break;
+//            }
+//        })
     }
     
     static func saveTerms(completion: @escaping (Bool) -> Void) -> Void {
@@ -253,5 +254,12 @@ class API {
             completion(false)
         }
         
+    }
+    
+    static func addBarcodeFromLibrary(_ name: String, id: Int32, barcode: String) -> Void {
+        let body = ["title" : name, "barcode" : barcode, "id" : id] as [String : Any]
+        NetworkService.shared.post("/AddBarcodeFromLibrary", body: body, completion: { _ in
+            
+        })
     }
 }
